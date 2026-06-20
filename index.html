@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Stormie Moves</title>
-  <meta name="description" content="Stormie Moves. Hybrid training, movement and coaching in development. Built by Storm Kolmodin, Licensed Personal Trainer and Certified Nutrition & Training Consultant." />
+  <meta name="description" content="Stormie Moves. Storm Kolmodin, Licensed Personal Trainer and Certified Nutrition & Training Consultant." />
   <link rel="canonical" href="https://stormiemoves.com" />
 
   <meta property="og:title" content="Stormie Moves" />
-  <meta property="og:description" content="Hybrid training, movement and coaching in development." />
+  <meta property="og:description" content="Storm Kolmodin. Licensed Personal Trainer and Certified Nutrition & Training Consultant." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://stormiemoves.com" />
 
@@ -98,80 +98,17 @@
       padding: 72px 0 88px;
     }
 
-    .hero-label {
-      display: inline-block;
-      font-size: 10px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 28px;
-    }
-
     .hero-title {
       font-family: var(--serif);
       font-size: clamp(76px, 12vw, 150px);
       font-weight: 300;
       line-height: 0.88;
       letter-spacing: -0.04em;
-      margin-bottom: 32px;
     }
 
     .hero-title .soft {
       color: rgba(236,231,223,0.58);
       font-style: italic;
-    }
-
-    .hero-copy {
-      max-width: 520px;
-      font-size: 15px;
-      line-height: 1.9;
-      color: var(--muted);
-      margin-bottom: 36px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .button {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 20px;
-      text-decoration: none;
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--text);
-      border: 1px solid rgba(201,169,110,0.28);
-      background: rgba(255,255,255,0.015);
-      transition: transform 0.28s ease, border-color 0.28s ease, background 0.28s ease, color 0.28s ease;
-    }
-
-    .button:hover,
-    .button:focus-visible {
-      transform: translateY(-1px);
-      border-color: rgba(201,169,110,0.5);
-      background: rgba(201,169,110,0.08);
-      color: #f4edde;
-      outline: none;
-    }
-
-    .button.secondary {
-      border-color: var(--line);
-      color: var(--muted);
-      background: transparent;
-    }
-
-    .button.secondary:hover,
-    .button.secondary:focus-visible {
-      border-color: rgba(236,231,223,0.18);
-      color: var(--text);
-      background: rgba(255,255,255,0.025);
     }
 
     .hero-card {
@@ -222,40 +159,6 @@
       outline: none;
     }
 
-    .note {
-      font-size: 12px;
-      line-height: 1.7;
-      color: var(--soft);
-      margin-top: 18px;
-    }
-
-    .lower {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      padding: 0 0 72px;
-    }
-
-    .panel {
-      border-top: 1px solid var(--line);
-      padding-top: 18px;
-    }
-
-    .panel-title {
-      font-family: var(--serif);
-      font-size: 28px;
-      font-weight: 300;
-      line-height: 1;
-      margin-bottom: 10px;
-    }
-
-    .panel-copy {
-      font-size: 13px;
-      line-height: 1.8;
-      color: var(--muted);
-      max-width: 300px;
-    }
-
     footer {
       display: flex;
       justify-content: space-between;
@@ -278,12 +181,6 @@
         gap: 40px;
         padding: 56px 0 64px;
       }
-
-      .lower {
-        grid-template-columns: 1fr;
-        gap: 28px;
-        padding-bottom: 56px;
-      }
     }
 
     @media (max-width: 640px) {
@@ -299,19 +196,6 @@
         font-size: clamp(58px, 20vw, 96px);
       }
 
-      .hero-copy {
-        font-size: 14px;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .button {
-        width: 100%;
-      }
-
       footer {
         flex-direction: column;
         align-items: flex-start;
@@ -319,10 +203,6 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      * {
-        scroll-behavior: auto !important;
-      }
-
       .button {
         transition: none;
       }
@@ -333,29 +213,18 @@
   <div class="page">
     <header class="topbar">
       <div class="topbar-item">Stormie Moves</div>
-      <div class="topbar-item">Stockholm · In Development</div>
+      <div class="topbar-item">Stockholm</div>
     </header>
 
     <main class="hero">
       <section>
-        <p class="hero-label">Hybrid Training · Movement · Coaching</p>
-
         <h1 class="hero-title">
           Stormie<br><span class="soft">Moves</span>
         </h1>
-
-        <p class="hero-copy">
-          A hybrid training brand in development. Built with a long-term vision around movement, performance, coaching and training systems.
-        </p>
-
-        <div class="hero-actions">
-          <a class="button" href="https://app.stormiemoves.com">Open App</a>
-          <a class="button secondary" href="https://stormie.app">About Storm</a>
-        </div>
       </section>
 
       <aside class="hero-card">
-        <p class="card-label">Built by Storm Kolmodin</p>
+        <p class="card-label">Storm Kolmodin</p>
 
         <ul class="credential-list">
           <li>Licensed Personal Trainer</li>
@@ -372,35 +241,8 @@
         >
           Verify Certification →
         </a>
-
-        <p class="note">
-          The broader Stormie Moves platform is being shaped carefully. More will follow when the structure, offering and visual direction are fully in place.
-        </p>
       </aside>
     </main>
-
-    <section class="lower">
-      <div class="panel">
-        <h2 class="panel-title">The App</h2>
-        <p class="panel-copy">
-          Stormie Moves already exists as a live app environment, built around hybrid training logic and evolving athlete workflows.
-        </p>
-      </div>
-
-      <div class="panel">
-        <h2 class="panel-title">The Brand</h2>
-        <p class="panel-copy">
-          The wider brand is still being developed with care, including positioning, visual language, formats and future training concepts.
-        </p>
-      </div>
-
-      <div class="panel">
-        <h2 class="panel-title">What Comes Next</h2>
-        <p class="panel-copy">
-          Coaching, movement and performance will take shape here over time, once the foundation is precise enough to represent the brand properly.
-        </p>
-      </div>
-    </section>
 
     <footer>
       <div class="footer-item">Storm Kolmodin</div>
