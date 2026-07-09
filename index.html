@@ -135,6 +135,49 @@
       );
     }
 
+    .hero-overlay-cta {
+      position: absolute;
+      z-index: 2;
+      bottom: 28px;
+      right: 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 13px 20px;
+      background: rgba(9,9,9,0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(201,169,110,0.4);
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.4s forwards;
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .hero-overlay-cta:hover,
+    .hero-overlay-cta:focus-visible {
+      border-color: var(--gold);
+      background: rgba(9,9,9,0.75);
+      color: #f3ead8;
+    }
+
+    .hero-overlay-cta .gold {
+      color: var(--gold);
+    }
+
+    @media (max-width: 640px) {
+      .hero-overlay-cta {
+        right: 20px;
+        bottom: 20px;
+        font-size: 10px;
+        padding: 11px 16px;
+      }
+    }
+
     .hero-img-title {
       position: absolute;
       bottom: 36px;
@@ -736,7 +779,7 @@
         transition: none !important;
       }
       body, .hero-img-title, .hero-tagline, .hero-subhead, .hero-bio, .hero-card,
-      .credential-list li, .reveal {
+      .hero-cta, .hero-overlay-cta, .credential-list li, .reveal {
         opacity: 1 !important;
         transform: none !important;
         filter: none !important;
@@ -765,6 +808,7 @@
         poster="IMG_9226.jpg"
         src="hero-moves.mp4"
       ></video>
+      <a class="hero-overlay-cta" href="#training">Outdoor training with <span class="gold">Storm</span> →</a>
     </div>
 
     <main class="hero">
@@ -794,9 +838,6 @@
           <li>Group fitness instructor since 2017</li>
           <li>Training studies at GIH, Swedish School of Sport and Health Sciences</li>
           <li>Muay Thai practitioner since 2019</li>
-          <li>Animal caretaker</li>
-          <li>Developer · Custom websites for gyms, clubs and coaches</li>
-          <li>Agile Project Management Student · Futuregames</li>
         </ul>
 
         <a
@@ -864,10 +905,10 @@
 
       </div>
 
-      <div class="premium reveal">
+      <div class="premium reveal" id="training">
         <p class="premium-tag">Premium</p>
         <h3 class="premium-title">Outdoor training with Storm</h3>
-        <p class="premium-desc">Always a surprise, never dull, you get stronger. Structured strength and conditioning, outdoors, built and coached by me personally. This is the one thing here that isn't free.</p>
+        <p class="premium-desc">Curated, small group. Always a surprise, never dull, you get stronger. Structured strength and conditioning, outdoors, coached by me personally. The one thing here that isn't free.</p>
         <a class="book-submit" href="#book">Inquire about training</a>
       </div>
     </section>
