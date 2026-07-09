@@ -249,6 +249,97 @@
       outline: none;
     }
 
+    .philosophy {
+      padding: 0 0 64px;
+    }
+
+    .philosophy p {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.6vw, 30px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--text);
+      max-width: 760px;
+    }
+
+    .philosophy .soft {
+      color: rgba(236,231,223,0.55);
+    }
+
+    .offer {
+      padding: 0 0 80px;
+      border-top: 1px solid var(--line);
+      padding-top: 64px;
+    }
+
+    .offer-label {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 32px;
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .offer-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01));
+      padding: 26px 24px;
+      backdrop-filter: blur(4px);
+    }
+
+    .offer-tag {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .offer-title {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .offer-desc {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .offer-list {
+      list-style: none;
+    }
+
+    .offer-list li {
+      font-size: 12px;
+      color: var(--soft);
+      padding: 9px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .offer-list li:first-child {
+      border-top: none;
+    }
+
+    @media (max-width: 720px) {
+      .offer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .book {
       padding: 72px 0 88px;
       border-top: 1px solid var(--line);
@@ -464,9 +555,48 @@
       </aside>
     </main>
 
+    <section class="philosophy">
+      <p>I genuinely like trying new things, <span class="soft">and I think training should feel the same way.</span></p>
+    </section>
+
+    <section class="offer">
+      <p class="offer-label">What I offer</p>
+      <div class="offer-grid">
+
+        <div class="offer-card">
+          <p class="offer-tag">Weekly</p>
+          <h3 class="offer-title">The Rotation</h3>
+          <p class="offer-desc">A small group, one weekly slot, never the same session twice.</p>
+          <ul class="offer-list">
+            <li>Strength & conditioning</li>
+            <li>Fight conditioning</li>
+            <li>Mobility & recovery</li>
+            <li>Handstand & bodyweight skills</li>
+            <li>Dance based movement</li>
+            <li>Trail walks</li>
+            <li>Skating & biking, seasonal</li>
+          </ul>
+        </div>
+
+        <div class="offer-card">
+          <p class="offer-tag">Occasional</p>
+          <h3 class="offer-title">Field Trips</h3>
+          <p class="offer-desc">The things that need a real venue, priced separately, booked when it fits.</p>
+          <ul class="offer-list">
+            <li>Climbing</li>
+            <li>Archery</li>
+            <li>Indoor skydiving</li>
+            <li>Water sports, summer</li>
+            <li>Snowboard, winter</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
     <section class="book" id="book">
       <p class="book-label">Book a session</p>
-      <p class="book-sub">No fixed calendar yet, tell me what you're interested in and roughly when works, and I'll set it up with you directly.</p>
+      <p class="book-sub">Something above sound good? No fixed calendar yet, tell me what you're interested in and roughly when works, and I'll set it up with you directly.</p>
 
       <form class="book-form" action="https://formspree.io/f/mvznvwpk" method="POST">
         <input class="full" type="text" name="name" placeholder="Name" required />
