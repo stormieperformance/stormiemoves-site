@@ -597,6 +597,74 @@
       margin-bottom: 28px;
     }
 
+    .next-up {
+      border-top: 1px solid var(--line);
+      padding: 64px 0;
+    }
+
+    .upcoming-item {
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .upcoming-item:first-of-type {
+      border-top: none;
+      padding-top: 8px;
+    }
+
+    .upcoming-title {
+      font-family: var(--serif);
+      font-size: clamp(24px, 2.8vw, 32px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .upcoming-date {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .upcoming-desc {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 480px;
+    }
+
+    .next-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .whatsapp-cta {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 14px 22px;
+      border: 1px solid rgba(201,169,110,0.32);
+      background: transparent;
+      transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+    }
+
+    .whatsapp-cta:hover,
+    .whatsapp-cta:focus-visible {
+      border-color: var(--gold);
+      background: var(--gold-soft);
+      color: #f3ead8;
+    }
+
     .book {
       padding: 72px 0 88px;
       border-top: 1px solid var(--line);
@@ -866,6 +934,7 @@
     </section>
 
     <section class="offer">
+      <p class="offer-tag reveal">Community</p>
       <p class="offer-label reveal">Things we do together</p>
       <p class="offer-meta reveal">Based in Stockholm, happy to go further across Sweden for the right adventure.</p>
       <ul class="boundaries reveal">
@@ -910,6 +979,41 @@
         <h3 class="premium-title">Outdoor training with Storm</h3>
         <p class="premium-desc">Curated, small group. Always a surprise, never dull, you get stronger. Structured strength and conditioning, outdoors, coached by me personally. The one thing here that isn't free.</p>
         <a class="book-submit" href="#book">Inquire about training</a>
+      </div>
+    </section>
+
+    <section class="next-up reveal">
+      <p class="offer-tag">Upcoming</p>
+      <p class="offer-label">What's actually happening</p>
+
+      <div class="upcoming-item">
+        <h3 class="upcoming-title">Trail walk, Djurgården</h3>
+        <p class="upcoming-date">August, date confirmed in the group</p>
+        <p class="upcoming-desc">Dog friendly, easy pace, good company. Free, no experience needed, just show up.</p>
+      </div>
+
+      <div class="upcoming-item">
+        <h3 class="upcoming-title">Social climb, Gasverket</h3>
+        <p class="upcoming-date">Date confirmed in the group</p>
+        <p class="upcoming-desc">I'm an on-duty belayer there, so it's an easy first climb even if you've never done it before.</p>
+      </div>
+
+      <div class="upcoming-item">
+        <h3 class="upcoming-title">Pad holding, Östermalm</h3>
+        <p class="upcoming-date">Date confirmed in the group</p>
+        <p class="upcoming-desc">Muay Thai pad work in the park. I hold pads, you strike, no experience needed.</p>
+      </div>
+
+      <div class="upcoming-item">
+        <h3 class="upcoming-title">Outdoor gym session, Gärdet</h3>
+        <p class="upcoming-date">Date confirmed in the group</p>
+        <p class="upcoming-desc">Bodyweight strength using the park's own equipment. Beginner friendly.</p>
+      </div>
+
+      <div class="next-actions">
+        <!-- Replace this href with your real WhatsApp group invite link once created, e.g. https://chat.whatsapp.com/xxxxxxxx -->
+        <a class="whatsapp-cta" href="https://chat.whatsapp.com/REPLACE_WITH_YOUR_INVITE_LINK" target="_blank" rel="noopener noreferrer">Join the WhatsApp group</a>
+        <a class="verify-link" href="#book">Or tell me you're coming →</a>
       </div>
     </section>
 
