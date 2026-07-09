@@ -177,6 +177,15 @@
       font-style: italic;
     }
 
+    .hero-tagline {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.4vw, 40px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
     .hero-bio {
       margin-top: 28px;
       font-size: 14px;
@@ -279,6 +288,14 @@
       font-weight: 300;
       font-style: italic;
       color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .offer-meta {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 460px;
       margin-bottom: 32px;
     }
 
@@ -332,6 +349,13 @@
 
     .offer-list li:first-child {
       border-top: none;
+    }
+
+    .offer-note {
+      font-size: 12px;
+      font-style: italic;
+      color: var(--soft);
+      margin-top: 14px;
     }
 
     @media (max-width: 720px) {
@@ -499,15 +523,16 @@
 
     <main class="hero">
       <section>
+        <p class="hero-tagline">I make things happen.</p>
 
         <p class="hero-bio">
-          I'm Storm Kolmodin, a licensed personal trainer, developer, and Agile Project Management student based in Stockholm.
+          I'm Storm, your training and adventure buddy in Stockholm. Licensed personal trainer, genuine Muay Thai practitioner, and someone who's tried more new things than is probably reasonable.
         </p>
         <p class="hero-bio">
-          I've worked in the fitness industry since 2017 across coaching, gym operations, and leadership roles. Today I combine that background with web development to build digital experiences for gyms, coaches, and sports brands.
+          If there's something you've been meaning to try, climbing, archery, a proper sauna and ice plunge, or you just want company on a walk, chances are I've already done it and would love to bring you along.
         </p>
         <p class="hero-bio">
-          Outside of work, you'll usually find me training Muay Thai, climbing, exploring new skills, or working on personal projects.
+          No program, no pressure. Just movement, new places, and good company.
         </p>
       </section>
 
@@ -556,38 +581,38 @@
     </main>
 
     <section class="philosophy">
-      <p>I genuinely like trying new things, <span class="soft">and I think training should feel the same way.</span></p>
+      <p>New sports, new challenges, staying in motion, <span class="soft">that's genuinely how I live, and I bring people along for it.</span></p>
     </section>
 
     <section class="offer">
-      <p class="offer-label">What I offer</p>
+      <p class="offer-label">Things we do together</p>
+      <p class="offer-meta">Based in Stockholm, happy to go further across Sweden for the right adventure. No cost for my time, you just cover whatever the activity itself costs, if anything.</p>
       <div class="offer-grid">
 
         <div class="offer-card">
-          <p class="offer-tag">Weekly</p>
-          <h3 class="offer-title">The Rotation</h3>
-          <p class="offer-desc">A small group, one weekly slot, never the same session twice.</p>
-          <ul class="offer-list">
-            <li>Strength & conditioning</li>
-            <li>Fight conditioning</li>
-            <li>Mobility & recovery</li>
-            <li>Handstand & bodyweight skills</li>
-            <li>Dance based movement</li>
-            <li>Trail walks</li>
-            <li>Skating & biking, seasonal</li>
-          </ul>
-        </div>
-
-        <div class="offer-card">
-          <p class="offer-tag">Occasional</p>
-          <h3 class="offer-title">Field Trips</h3>
-          <p class="offer-desc">The things that need a real venue, priced separately, booked when it fits.</p>
+          <p class="offer-tag">Adventure</p>
+          <h3 class="offer-title">Adventure trips</h3>
+          <p class="offer-desc">The things you've been meaning to try but never had anyone to go with. Certified staff handle the instruction, we do it together.</p>
           <ul class="offer-list">
             <li>Climbing</li>
             <li>Archery</li>
             <li>Indoor skydiving</li>
             <li>Water sports, summer</li>
             <li>Snowboard, winter</li>
+            <li>Riding</li>
+            <li>Goat hangouts at the farm</li>
+          </ul>
+          <p class="offer-note">Something else in mind? Tell me in the form below.</p>
+        </div>
+
+        <div class="offer-card">
+          <p class="offer-tag">Recovery</p>
+          <h3 class="offer-title">Recovery sessions</h3>
+          <p class="offer-desc">Restorative time between the adventures, or on their own. I pick the time and place, you just show up.</p>
+          <ul class="offer-list">
+            <li>Sauna & ice plunge, outdoors</li>
+            <li>Trail walks</li>
+            <li>Mobility & recovery</li>
           </ul>
         </div>
 
@@ -595,21 +620,21 @@
     </section>
 
     <section class="book" id="book">
-      <p class="book-label">Book a session</p>
-      <p class="book-sub">Something above sound good? No fixed calendar yet, tell me what you're interested in and roughly when works, and I'll set it up with you directly.</p>
+      <p class="book-label">Come along</p>
+      <p class="book-sub">Nothing fixed yet, no groups, no calendar. Tell me what sounds fun and I'll loop you in next time we go.</p>
 
       <form class="book-form" action="https://formspree.io/f/mvznvwpk" method="POST">
         <input class="full" type="text" name="name" placeholder="Name" required />
         <input type="email" name="email" placeholder="Email" required />
         <select name="interest" required>
-          <option value="" disabled selected>I'm interested in</option>
-          <option value="The Rotation">The Rotation, weekly group</option>
-          <option value="Field Trip">A Field Trip</option>
-          <option value="Not sure yet">Not sure yet</option>
+          <option value="" disabled selected>What sounds fun</option>
+          <option value="Adventure trip">An adventure trip</option>
+          <option value="Recovery session">A recovery session</option>
+          <option value="Not sure yet">Not sure yet, surprise me</option>
         </select>
-        <textarea class="full" name="availability" placeholder="Roughly when works for you" rows="3"></textarea>
-        <input type="hidden" name="_subject" value="Stormie Moves inquiry" />
-        <button class="book-submit" type="submit">Send inquiry</button>
+        <textarea class="full" name="availability" placeholder="Anything else worth knowing" rows="3"></textarea>
+        <input type="hidden" name="_subject" value="Stormie Moves, come along" />
+        <button class="book-submit" type="submit">Count me in</button>
       </form>
     </section>
 
