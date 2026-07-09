@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -186,6 +187,14 @@
       margin-bottom: 20px;
     }
 
+    .hero-subhead {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 440px;
+      margin-bottom: 24px;
+    }
+
     .hero-bio {
       margin-top: 28px;
       font-size: 14px;
@@ -296,7 +305,38 @@
       line-height: 1.8;
       color: var(--muted);
       max-width: 460px;
-      margin-bottom: 32px;
+      margin-bottom: 16px;
+    }
+
+    .boundaries {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 0;
+      margin-bottom: 40px;
+    }
+
+    .boundaries li {
+      font-size: 11px;
+      letter-spacing: 0.03em;
+      color: var(--soft);
+    }
+
+    .boundaries li:not(:last-child)::after {
+      content: '·';
+      margin: 0 10px;
+      color: var(--line);
+    }
+
+    @media (max-width: 640px) {
+      .boundaries li:not(:last-child)::after {
+        content: '';
+        margin: 0;
+      }
+      .boundaries li {
+        display: block;
+        margin-bottom: 4px;
+      }
     }
 
     .offer-grid {
@@ -524,6 +564,7 @@
     <main class="hero">
       <section>
         <p class="hero-tagline">I make things happen.</p>
+        <p class="hero-subhead">Try new sports and recovery activities in Stockholm, with someone experienced by your side.</p>
 
         <p class="hero-bio">
           I'm Storm, your training and adventure buddy in Stockholm. Licensed personal trainer, genuine Muay Thai practitioner, and someone who's tried more new things than is probably reasonable.
@@ -586,7 +627,14 @@
 
     <section class="offer">
       <p class="offer-label">Things we do together</p>
-      <p class="offer-meta">Based in Stockholm, happy to go further across Sweden for the right adventure. No cost for my time, you just cover whatever the activity itself costs, if anything.</p>
+      <p class="offer-meta">Based in Stockholm, happy to go further across Sweden for the right adventure.</p>
+      <ul class="boundaries">
+        <li>Group based</li>
+        <li>Adults only</li>
+        <li>I'm not the instructor unless stated</li>
+        <li>Certified staff handle paid instruction</li>
+        <li>No cost for my time, you cover your own activity costs</li>
+      </ul>
       <div class="offer-grid">
 
         <div class="offer-card">
