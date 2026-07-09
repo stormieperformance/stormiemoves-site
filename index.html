@@ -15,7 +15,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after {
@@ -149,8 +149,9 @@
     .hero-img .hero-overlay-free {
       position: absolute;
       z-index: 2;
-      bottom: 28px;
-      left: 28px;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
       opacity: 0;
       animation: fadeUp 0.8s ease 1.25s forwards;
     }
@@ -159,53 +160,8 @@
       .hero-img .hero-overlay-free {
         left: 20px;
         right: 20px;
-        bottom: 78px;
-        justify-content: center;
-        text-align: center;
-      }
-    }
-
-    .hero-overlay-cta {
-      position: absolute;
-      z-index: 2;
-      bottom: 28px;
-      right: 28px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      color: var(--text);
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 13px 20px;
-      background: rgba(9,9,9,0.55);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      border: 1px solid rgba(201,169,110,0.4);
-      opacity: 0;
-      animation: fadeUp 0.8s ease 1.4s forwards;
-      transition: border-color 0.3s ease, background 0.3s ease;
-    }
-
-    .hero-overlay-cta:hover,
-    .hero-overlay-cta:focus-visible {
-      border-color: var(--gold);
-      background: rgba(9,9,9,0.75);
-      color: #f3ead8;
-    }
-
-    .hero-overlay-cta .gold {
-      color: var(--gold);
-    }
-
-    @media (max-width: 640px) {
-      .hero-overlay-cta {
-        left: 20px;
-        right: 20px;
-        bottom: 20px;
-        font-size: 10px;
-        padding: 11px 16px;
+        transform: none;
+        bottom: 24px;
         justify-content: center;
         text-align: center;
       }
@@ -305,24 +261,33 @@
       width: 100vw;
       margin-left: calc(-50vw + 50%);
       overflow: hidden;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 16px 0;
+      background: var(--bg);
+      border-top: 1px solid rgba(201,169,110,0.4);
+      border-bottom: 1px solid rgba(201,169,110,0.4);
+      padding: 22px 0;
     }
 
     .marquee-track {
       display: flex;
       width: max-content;
-      gap: 24px;
-      animation: marqueeScroll 32s linear infinite;
+      gap: 20px;
+      align-items: center;
+      animation: marqueeScroll 26s linear infinite;
     }
 
     .marquee-track span {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 15px;
-      color: var(--soft);
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: clamp(20px, 3.4vw, 34px);
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--text);
       white-space: nowrap;
+    }
+
+    .marquee-track span.dot {
+      color: var(--gold);
+      font-weight: 400;
     }
 
     @keyframes marqueeScroll {
@@ -362,19 +327,34 @@
       padding: 0 32px;
     }
 
-    .philosophy-text {
+    .quote {
+      margin: 0 0 64px;
+      padding-left: 24px;
+      border-left: 2px solid rgba(201,169,110,0.4);
+    }
+
+    .quote-text {
       font-family: var(--serif);
-      font-size: clamp(22px, 2.6vw, 30px);
+      font-size: clamp(24px, 3vw, 34px);
       font-weight: 300;
       font-style: italic;
       line-height: 1.5;
       color: var(--text);
-      max-width: 760px;
-      margin-bottom: 56px;
+      max-width: 720px;
+      margin: 0 0 18px;
     }
 
-    .philosophy-text .soft {
+    .quote-text .soft {
       color: rgba(236,231,223,0.55);
+    }
+
+    .quote-author {
+      display: block;
+      font-style: normal;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
     }
 
     .about-content .hero-card {
@@ -1041,7 +1021,7 @@
         transition: none !important;
       }
       body, .hero-img-title, .hero-tagline, .hero-subhead, .hero-bio, .hero-card,
-      .hero-cta, .hero-overlay-cta, .hero-overlay-free, .hero-toggle, .credential-list li, .reveal {
+      .hero-cta, .hero-overlay-free, .hero-toggle, .credential-list li, .reveal {
         opacity: 1 !important;
         transform: none !important;
         filter: none !important;
@@ -1075,14 +1055,6 @@
         <p class="hero-subhead">Try new sports and recovery activities in Stockholm, with someone experienced by your side.</p>
       </div>
       <a class="book-submit hero-overlay-free" href="#upcoming">Join a free activity</a>
-      <a class="hero-overlay-cta" href="#training">Outdoor training with <span class="gold">Storm</span> →</a>
-    </div>
-
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Up for an adventure</span><span>·</span><span>Try something new</span><span>·</span><span>Stormie Moves</span><span>·</span><span>Stockholm</span><span>·</span>
-        <span>Up for an adventure</span><span>·</span><span>Try something new</span><span>·</span><span>Stormie Moves</span><span>·</span><span>Stockholm</span><span>·</span>
-      </div>
     </div>
 
     <section class="about-section">
@@ -1091,7 +1063,10 @@
       <div class="about-overlay"></div>
 
       <div class="about-content">
-        <p class="philosophy-text reveal">New sports, new challenges, staying in motion, <span class="soft">that's genuinely how I live, and I bring people along for it.</span></p>
+        <blockquote class="quote reveal">
+          <p class="quote-text">New sports, new challenges, staying in motion, <span class="soft">that's genuinely how I live, and I bring people along for it.</span></p>
+          <cite class="quote-author">— Storm Kolmodin</cite>
+        </blockquote>
 
         <aside class="hero-card">
           <p class="card-label">Storm Kolmodin</p>
@@ -1131,6 +1106,13 @@
         </aside>
       </div>
     </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Up for an adventure</span><span class="dot">·</span><span>Try something new</span><span class="dot">·</span><span>Stormie Moves</span><span class="dot">·</span><span>Stockholm</span><span class="dot">·</span>
+        <span>Up for an adventure</span><span class="dot">·</span><span>Try something new</span><span class="dot">·</span><span>Stormie Moves</span><span class="dot">·</span><span>Stockholm</span><span class="dot">·</span>
+      </div>
+    </div>
 
     <section class="offer">
       <p class="offer-tag reveal">Community</p>
