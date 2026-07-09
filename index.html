@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -99,6 +98,8 @@
       white-space: nowrap;
       text-align: center;
       pointer-events: none;
+      opacity: 0;
+      animation: titleReveal 1s ease 0.15s forwards;
     }
 
     .hero-img-title .soft {
@@ -139,6 +140,21 @@
       padding: 0 32px;
       display: flex;
       flex-direction: column;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes titleReveal {
+      from { opacity: 0; transform: translateY(10px) scale(1.01); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    body {
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
     }
 
     .topbar {
@@ -185,6 +201,8 @@
       font-style: italic;
       color: var(--text);
       margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.5s forwards;
     }
 
     .hero-subhead {
@@ -193,6 +211,8 @@
       color: var(--muted);
       max-width: 440px;
       margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.65s forwards;
     }
 
     .hero-bio {
@@ -201,10 +221,17 @@
       line-height: 1.9;
       color: var(--muted);
       max-width: 480px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.8s forwards;
     }
 
     .hero-bio + .hero-bio {
       margin-top: 14px;
+      animation-delay: 0.92s;
+    }
+
+    .hero-bio + .hero-bio + .hero-bio {
+      animation-delay: 1.04s;
     }
 
     .hero-card {
@@ -212,6 +239,13 @@
       background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01));
       padding: 28px 26px;
       backdrop-filter: blur(4px);
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.7s forwards;
+      transition: border-color 0.4s ease;
+    }
+
+    .hero-card:hover {
+      border-color: rgba(201,169,110,0.28);
     }
 
     @keyframes goldBreath {
@@ -265,6 +299,19 @@
     .verify-link:focus-visible {
       color: #e3c48f;
       outline: none;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      filter: blur(6px);
+      transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
     }
 
     .philosophy {
@@ -329,13 +376,13 @@
     }
 
     @media (max-width: 640px) {
+      .boundaries {
+        flex-direction: column;
+        gap: 6px;
+      }
       .boundaries li:not(:last-child)::after {
         content: '';
         margin: 0;
-      }
-      .boundaries li {
-        display: block;
-        margin-bottom: 4px;
       }
     }
 
@@ -350,6 +397,13 @@
       background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01));
       padding: 26px 24px;
       backdrop-filter: blur(4px);
+      transition: border-color 0.4s ease, transform 0.4s ease, background 0.4s ease;
+    }
+
+    .offer-card:hover {
+      border-color: rgba(201,169,110,0.3);
+      transform: translateY(-4px);
+      background: linear-gradient(180deg, rgba(201,169,110,0.04), rgba(255,255,255,0.01));
     }
 
     .offer-tag {
@@ -465,9 +519,20 @@
       background: var(--gold-soft);
     }
 
+    @keyframes premiumEdgeDrift {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 260% 50%; }
+    }
+
+    @keyframes premiumEdgeBreath {
+      0%, 100% { opacity: 0.6; }
+      50%      { opacity: 0.9; }
+    }
+
     .book-submit {
       grid-column: 1 / -1;
       justify-self: start;
+      position: relative;
       display: inline-flex;
       align-items: center;
       text-decoration: none;
@@ -479,8 +544,31 @@
       border: 1px solid rgba(201,169,110,0.32);
       background: transparent;
       cursor: pointer;
-      transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+      overflow: hidden;
+      isolation: isolate;
+      transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease, transform 0.25s ease;
       margin-top: 4px;
+    }
+
+    .book-submit::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      background: linear-gradient(90deg, rgba(201,169,110,0.3) 0%, rgba(201,169,110,0.85) 15%, rgba(201,169,110,0.3) 30%, rgba(201,169,110,0.9) 55%, rgba(201,169,110,0.3) 75%, rgba(201,169,110,0.85) 90%, rgba(201,169,110,0.3) 100%);
+      background-size: 260% 100%;
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: premiumEdgeDrift 16s linear infinite, premiumEdgeBreath 7s ease-in-out infinite;
+      opacity: 0.75;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .book-submit span,
+    .book-submit {
+      z-index: 1;
     }
 
     .book-submit:hover,
@@ -488,6 +576,7 @@
       border-color: var(--gold);
       background: var(--gold-soft);
       color: #f3ead8;
+      transform: translateY(-1px);
     }
 
     @media (max-width: 640px) {
@@ -540,8 +629,15 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .button {
-        transition: none;
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      body, .hero-img-title, .hero-tagline, .hero-subhead, .hero-bio, .hero-card,
+      .credential-list li, .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
       }
     }
   </style>
@@ -563,7 +659,7 @@
 
     <main class="hero">
       <section>
-        <p class="hero-tagline">I make things happen.</p>
+        <p class="hero-tagline">Up for an adventure?</p>
         <p class="hero-subhead">Try new sports and recovery activities in Stockholm, with someone experienced by your side.</p>
 
         <p class="hero-bio">
@@ -621,23 +717,22 @@
       </aside>
     </main>
 
-    <section class="philosophy">
+    <section class="philosophy reveal">
       <p>New sports, new challenges, staying in motion, <span class="soft">that's genuinely how I live, and I bring people along for it.</span></p>
     </section>
 
     <section class="offer">
-      <p class="offer-label">Things we do together</p>
-      <p class="offer-meta">Based in Stockholm, happy to go further across Sweden for the right adventure.</p>
-      <ul class="boundaries">
+      <p class="offer-label reveal">Things we do together</p>
+      <p class="offer-meta reveal">Based in Stockholm, happy to go further across Sweden for the right adventure.</p>
+      <ul class="boundaries reveal">
         <li>Group based</li>
         <li>Adults only</li>
         <li>I'm not the instructor unless stated</li>
         <li>Certified staff handle paid instruction</li>
-        <li>No cost for my time, you cover your own activity costs</li>
       </ul>
       <div class="offer-grid">
 
-        <div class="offer-card">
+        <div class="offer-card reveal">
           <p class="offer-tag">Adventure</p>
           <h3 class="offer-title">Adventure trips</h3>
           <p class="offer-desc">The things you've been meaning to try but never had anyone to go with. Certified staff handle the instruction, we do it together.</p>
@@ -653,7 +748,7 @@
           <p class="offer-note">Something else in mind? Tell me in the form below.</p>
         </div>
 
-        <div class="offer-card">
+        <div class="offer-card reveal">
           <p class="offer-tag">Recovery</p>
           <h3 class="offer-title">Recovery sessions</h3>
           <p class="offer-desc">Restorative time between the adventures, or on their own. I pick the time and place, you just show up.</p>
@@ -667,7 +762,7 @@
       </div>
     </section>
 
-    <section class="book" id="book">
+    <section class="book reveal" id="book">
       <p class="book-label">Come along</p>
       <p class="book-sub">Nothing fixed yet, no groups, no calendar. Tell me what sounds fun and I'll loop you in next time we go.</p>
 
@@ -691,5 +786,28 @@
       <div class="footer-item">stormiemoves.com</div>
     </footer>
   </div>
+  <script>
+    document.querySelectorAll('.credential-list li').forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.animation = `fadeUp 0.6s ease ${1.15 + i * 0.06}s forwards`;
+    });
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealEls = document.querySelectorAll('.reveal');
+
+    if (reducedMotion) {
+      revealEls.forEach(el => el.classList.add('in-view'));
+    } else {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+      revealEls.forEach(el => observer.observe(el));
+    }
+  </script>
 </body>
 </html>
