@@ -135,7 +135,7 @@
       );
     }
 
-    .hero-overlay-free {
+    .hero-img .hero-overlay-free {
       position: absolute;
       z-index: 2;
       bottom: 28px;
@@ -145,7 +145,7 @@
     }
 
     @media (max-width: 640px) {
-      .hero-overlay-free {
+      .hero-img .hero-overlay-free {
         left: 20px;
         bottom: 20px;
       }
@@ -327,23 +327,64 @@
       animation: fadeUp 0.8s ease 0.65s forwards;
     }
 
-    .hero-bio {
-      margin-top: 28px;
-      font-size: 14px;
-      line-height: 1.9;
-      color: var(--muted);
-      max-width: 480px;
+    .accordion-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 0;
+      margin: 4px 0 4px;
+      transition: color 0.25s ease;
+    }
+
+    .accordion-toggle:hover,
+    .accordion-toggle:focus-visible {
+      color: #e3c48f;
+    }
+
+    .accordion-toggle .chevron {
+      display: inline-block;
+      font-size: 10px;
+      transition: transform 0.35s ease;
+    }
+
+    .accordion-toggle.open .chevron {
+      transform: rotate(180deg);
+    }
+
+    .accordion-panel {
+      max-height: 0;
+      overflow: hidden;
+      padding-top: 14px;
+      transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .accordion-panel.open {
+      max-height: 2000px;
+    }
+
+    .hero-toggle {
       opacity: 0;
       animation: fadeUp 0.8s ease 0.8s forwards;
     }
 
-    .hero-bio + .hero-bio {
-      margin-top: 14px;
-      animation-delay: 0.92s;
+    .hero-bio {
+      margin-top: 0;
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--muted);
+      max-width: 480px;
     }
 
-    .hero-bio + .hero-bio + .hero-bio {
-      animation-delay: 1.04s;
+    .hero-bio + .hero-bio {
+      margin-top: 14px;
     }
 
     .hero-card {
@@ -868,7 +909,7 @@
         transition: none !important;
       }
       body, .hero-img-title, .hero-tagline, .hero-subhead, .hero-bio, .hero-card,
-      .hero-cta, .hero-overlay-cta, .hero-overlay-free, .credential-list li, .reveal {
+      .hero-cta, .hero-overlay-cta, .hero-overlay-free, .hero-toggle, .credential-list li, .reveal {
         opacity: 1 !important;
         transform: none !important;
         filter: none !important;
@@ -906,15 +947,18 @@
         <p class="hero-tagline">Up for an adventure?</p>
         <p class="hero-subhead">Try new sports and recovery activities in Stockholm, with someone experienced by your side.</p>
 
-        <p class="hero-bio">
-          I'm Storm, your training and adventure buddy in Stockholm. Licensed personal trainer, genuine Muay Thai practitioner, and someone who's tried more new things than is probably reasonable.
-        </p>
-        <p class="hero-bio">
-          If there's something you've been meaning to try, climbing, archery, a proper sauna and ice plunge, or you just want company on a walk, chances are I've already done it and would love to bring you along.
-        </p>
-        <p class="hero-bio">
-          No program, no pressure. Just movement, new places, and good company.
-        </p>
+        <button class="accordion-toggle hero-toggle" type="button" data-target="about-panel" aria-expanded="false" aria-controls="about-panel">About me <span class="chevron">⌄</span></button>
+        <div class="accordion-panel" id="about-panel">
+          <p class="hero-bio">
+            I'm Storm, your training and adventure buddy in Stockholm. Licensed personal trainer, genuine Muay Thai practitioner, and someone who's tried more new things than is probably reasonable.
+          </p>
+          <p class="hero-bio">
+            If there's something you've been meaning to try, climbing, archery, a proper sauna and ice plunge, or you just want company on a walk, chances are I've already done it and would love to bring you along.
+          </p>
+          <p class="hero-bio">
+            No program, no pressure. Just movement, new places, and good company.
+          </p>
+        </div>
 
         <a class="book-submit hero-cta" href="#book">Come along</a>
       </section>
@@ -922,22 +966,25 @@
       <aside class="hero-card">
         <p class="card-label">Storm Kolmodin</p>
 
-        <ul class="credential-list">
-          <li>Licensed Personal Trainer · The Academy, 2018</li>
-          <li>Certified Nutrition &amp; Training Consultant</li>
-          <li>Group fitness instructor since 2017</li>
-          <li>Training studies at GIH, Swedish School of Sport and Health Sciences</li>
-          <li>Muay Thai practitioner since 2019</li>
-        </ul>
+        <button class="accordion-toggle hero-toggle" type="button" data-target="credentials-panel" aria-expanded="false" aria-controls="credentials-panel">Credentials <span class="chevron">⌄</span></button>
+        <div class="accordion-panel" id="credentials-panel">
+          <ul class="credential-list">
+            <li>Licensed Personal Trainer · The Academy, 2018</li>
+            <li>Certified Nutrition &amp; Training Consultant</li>
+            <li>Group fitness instructor since 2017</li>
+            <li>Training studies at GIH, Swedish School of Sport and Health Sciences</li>
+            <li>Muay Thai practitioner since 2019</li>
+          </ul>
 
-        <a
-          class="verify-link"
-          href="https://ptlicens.trueoriginal.com/en/licensierad-personlig-tranare-denise-kolmodin-138305lEsdYeph88/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Verify PT License →
-        </a>
+          <a
+            class="verify-link"
+            href="https://ptlicens.trueoriginal.com/en/licensierad-personlig-tranare-denise-kolmodin-138305lEsdYeph88/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Verify PT License →
+          </a>
+        </div>
 
         <a
           class="verify-link"
@@ -963,37 +1010,42 @@
         <li>Group based</li>
         <li>Adults only</li>
       </ul>
-      <div class="offer-grid">
 
-        <div class="offer-card reveal">
-          <p class="offer-tag">Together</p>
-          <h3 class="offer-title">Activities</h3>
-          <p class="offer-desc">The things you've been meaning to try but never had anyone to go with. Certified staff handle the instruction, we do it together.</p>
-          <ul class="offer-list">
-            <li>Climbing</li>
-            <li>Archery</li>
-            <li>Indoor skydiving</li>
-            <li>Water sports, summer</li>
-            <li>Skiing & snowboard, winter</li>
-            <li>Riding</li>
-            <li>Social bike rides</li>
-            <li>Ice skating & inlining, seasonal</li>
-          </ul>
-          <p class="offer-note">Something else in mind? Tell me in the form below.</p>
+      <button class="accordion-toggle reveal" type="button" data-target="activities-panel" aria-expanded="false" aria-controls="activities-panel">See activities list <span class="chevron">⌄</span></button>
+
+      <div class="accordion-panel" id="activities-panel">
+        <div class="offer-grid">
+
+          <div class="offer-card">
+            <p class="offer-tag">Together</p>
+            <h3 class="offer-title">Activities</h3>
+            <p class="offer-desc">The things you've been meaning to try but never had anyone to go with. Certified staff handle the instruction, we do it together.</p>
+            <ul class="offer-list">
+              <li>Climbing</li>
+              <li>Archery</li>
+              <li>Indoor skydiving</li>
+              <li>Water sports, summer</li>
+              <li>Skiing & snowboard, winter</li>
+              <li>Riding</li>
+              <li>Social bike rides</li>
+              <li>Ice skating & inlining, seasonal</li>
+            </ul>
+            <p class="offer-note">Something else in mind? Tell me in the form below.</p>
+          </div>
+
+          <div class="offer-card">
+            <p class="offer-tag">Recovery</p>
+            <h3 class="offer-title">Recovery sessions</h3>
+            <p class="offer-desc">Restorative time between the adventures, or on their own. I pick the time and place, you just show up.</p>
+            <ul class="offer-list">
+              <li>Sauna & ice plunge, outdoors</li>
+              <li>Trail walks</li>
+              <li>Mobility & recovery</li>
+              <li>Farm animal visits</li>
+            </ul>
+          </div>
+
         </div>
-
-        <div class="offer-card reveal">
-          <p class="offer-tag">Recovery</p>
-          <h3 class="offer-title">Recovery sessions</h3>
-          <p class="offer-desc">Restorative time between the adventures, or on their own. I pick the time and place, you just show up.</p>
-          <ul class="offer-list">
-            <li>Sauna & ice plunge, outdoors</li>
-            <li>Trail walks</li>
-            <li>Mobility & recovery</li>
-            <li>Farm animal visits</li>
-          </ul>
-        </div>
-
       </div>
 
       <div class="premium reveal" id="training">
@@ -1097,9 +1149,15 @@
       }
     }
 
-    document.querySelectorAll('.credential-list li').forEach((el, i) => {
-      el.style.opacity = '0';
-      el.style.animation = `fadeUp 0.6s ease ${1.15 + i * 0.06}s forwards`;
+    document.querySelectorAll('.accordion-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const panel = document.getElementById(btn.dataset.target);
+        if (!panel) return;
+        const willOpen = !panel.classList.contains('open');
+        panel.classList.toggle('open', willOpen);
+        btn.classList.toggle('open', willOpen);
+        btn.setAttribute('aria-expanded', String(willOpen));
+      });
     });
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
