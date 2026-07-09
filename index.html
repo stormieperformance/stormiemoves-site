@@ -135,6 +135,22 @@
       );
     }
 
+    .hero-overlay-free {
+      position: absolute;
+      z-index: 2;
+      bottom: 28px;
+      left: 28px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.25s forwards;
+    }
+
+    @media (max-width: 640px) {
+      .hero-overlay-free {
+        left: 20px;
+        bottom: 20px;
+      }
+    }
+
     .hero-overlay-cta {
       position: absolute;
       z-index: 2;
@@ -636,6 +652,11 @@
       max-width: 480px;
     }
 
+    .upcoming-item .verify-link {
+      display: inline-block;
+      margin-top: 10px;
+    }
+
     .next-actions {
       display: flex;
       align-items: center;
@@ -847,7 +868,7 @@
         transition: none !important;
       }
       body, .hero-img-title, .hero-tagline, .hero-subhead, .hero-bio, .hero-card,
-      .hero-cta, .hero-overlay-cta, .credential-list li, .reveal {
+      .hero-cta, .hero-overlay-cta, .hero-overlay-free, .credential-list li, .reveal {
         opacity: 1 !important;
         transform: none !important;
         filter: none !important;
@@ -876,6 +897,7 @@
         poster="IMG_9226.jpg"
         src="hero-moves.mp4"
       ></video>
+      <a class="book-submit hero-overlay-free" href="#upcoming">Join a free activity</a>
       <a class="hero-overlay-cta" href="#training">Outdoor training with <span class="gold">Storm</span> →</a>
     </div>
 
@@ -982,7 +1004,7 @@
       </div>
     </section>
 
-    <section class="next-up reveal">
+    <section class="next-up reveal" id="upcoming">
       <p class="offer-tag">Upcoming</p>
       <p class="offer-label">What's actually happening</p>
 
@@ -990,24 +1012,28 @@
         <h3 class="upcoming-title">Trail walk, Djurgården</h3>
         <p class="upcoming-date">August, date confirmed in the group</p>
         <p class="upcoming-desc">Dog friendly, easy pace, good company. Free, no experience needed, just show up.</p>
+        <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Trail walk, Djurgården'">I'm in →</a>
       </div>
 
       <div class="upcoming-item">
         <h3 class="upcoming-title">Social climb, Gasverket</h3>
         <p class="upcoming-date">Date confirmed in the group</p>
         <p class="upcoming-desc">I'm an on-duty belayer there, so it's an easy first climb even if you've never done it before.</p>
+        <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Social climb, Gasverket'">I'm in →</a>
       </div>
 
       <div class="upcoming-item">
         <h3 class="upcoming-title">Pad holding, Östermalm</h3>
         <p class="upcoming-date">Date confirmed in the group</p>
         <p class="upcoming-desc">Muay Thai pad work in the park. I hold pads, you strike, no experience needed.</p>
+        <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Muay Thai pad work, Östermalm'">I'm in →</a>
       </div>
 
       <div class="upcoming-item">
         <h3 class="upcoming-title">Outdoor gym session, Gärdet</h3>
         <p class="upcoming-date">Date confirmed in the group</p>
         <p class="upcoming-desc">Bodyweight strength using the park's own equipment. Beginner friendly.</p>
+        <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Outdoor gym, Gärdet'">I'm in →</a>
       </div>
 
       <div class="next-actions">
@@ -1024,11 +1050,13 @@
       <form class="book-form" action="https://formspree.io/f/mvznvwpk" method="POST">
         <input class="full" type="text" name="name" placeholder="Name" required />
         <input type="email" name="email" placeholder="Email" required />
-        <select name="interest" required>
+        <select name="interest" id="interest-select" required>
           <option value="" disabled selected>What sounds fun</option>
-          <option value="Adventure trip">An activity</option>
-          <option value="Recovery session">A recovery session</option>
-          <option value="Outdoor training">Outdoor training with Storm, paid</option>
+          <option value="Trail walk, Djurgården">Trail walk, Djurgården</option>
+          <option value="Social climb, Gasverket">Social climb, Gasverket</option>
+          <option value="Muay Thai pad work, Östermalm">Muay Thai pad work, Östermalm</option>
+          <option value="Outdoor gym, Gärdet">Outdoor gym, Gärdet</option>
+          <option value="Outdoor training with Storm">Outdoor training with Storm, paid</option>
           <option value="Not sure yet">Not sure yet, surprise me</option>
         </select>
         <textarea class="full" name="availability" placeholder="Anything else worth knowing" rows="3"></textarea>
