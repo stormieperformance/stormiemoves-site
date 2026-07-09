@@ -150,8 +150,10 @@
       position: absolute;
       z-index: 2;
       bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 0;
+      right: 0;
+      width: fit-content;
+      margin: 0 auto;
       opacity: 0;
       animation: fadeUp 0.8s ease 1.25s forwards;
     }
@@ -160,7 +162,7 @@
       .hero-img .hero-overlay-free {
         left: 20px;
         right: 20px;
-        transform: none;
+        width: auto;
         bottom: 24px;
         justify-content: center;
         text-align: center;
