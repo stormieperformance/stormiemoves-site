@@ -466,17 +466,8 @@
     }
 
     .hero-card {
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01));
-      padding: 28px 26px;
-      backdrop-filter: blur(4px);
       opacity: 0;
       animation: fadeUp 0.9s ease 0.7s forwards;
-      transition: border-color 0.4s ease;
-    }
-
-    .hero-card:hover {
-      border-color: rgba(201,169,110,0.28);
     }
 
     @keyframes goldBreath {
@@ -1069,8 +1060,6 @@
         </blockquote>
 
         <aside class="hero-card">
-          <p class="card-label">Storm Kolmodin</p>
-
           <button class="accordion-toggle hero-toggle" type="button" data-target="about-panel" aria-expanded="false" aria-controls="about-panel">About me <span class="chevron">⌄</span></button>
           <div class="accordion-panel" id="about-panel">
             <p class="hero-bio">
