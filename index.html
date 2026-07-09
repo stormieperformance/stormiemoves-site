@@ -249,6 +249,98 @@
       outline: none;
     }
 
+    .book {
+      padding: 72px 0 88px;
+      border-top: 1px solid var(--line);
+    }
+
+    .book-label {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .book-sub {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 460px;
+      margin-bottom: 32px;
+    }
+
+    .book-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      max-width: 640px;
+    }
+
+    .book-form .full {
+      grid-column: 1 / -1;
+    }
+
+    .book-form input,
+    .book-form select,
+    .book-form textarea {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 300;
+      padding: 13px 14px;
+      resize: none;
+      width: 100%;
+      transition: border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .book-form input::placeholder,
+    .book-form textarea::placeholder {
+      color: var(--soft);
+    }
+
+    .book-form input:focus,
+    .book-form select:focus,
+    .book-form textarea:focus {
+      outline: none;
+      border-color: rgba(201,169,110,0.4);
+      background: var(--gold-soft);
+    }
+
+    .book-submit {
+      grid-column: 1 / -1;
+      justify-self: start;
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 14px 22px;
+      border: 1px solid rgba(201,169,110,0.32);
+      background: transparent;
+      cursor: pointer;
+      transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+      margin-top: 4px;
+    }
+
+    .book-submit:hover,
+    .book-submit:focus-visible {
+      border-color: var(--gold);
+      background: var(--gold-soft);
+      color: #f3ead8;
+    }
+
+    @media (max-width: 640px) {
+      .book-form {
+        grid-template-columns: 1fr;
+      }
+    }
+
     footer {
       display: flex;
       justify-content: space-between;
@@ -332,10 +424,11 @@
         <p class="card-label">Storm Kolmodin</p>
 
         <ul class="credential-list">
-          <li>Licensed Personal Trainer</li>
+          <li>Licensed Personal Trainer · The Academy, 2018</li>
           <li>Certified Nutrition &amp; Training Consultant</li>
-          <li>PT license verified in Active Sweden's national registry</li>
-          <li>Educated in training since 2017</li>
+          <li>Group fitness instructor since 2017</li>
+          <li>Training studies at GIH, Swedish School of Sport and Health Sciences</li>
+          <li>Muay Thai practitioner since 2019</li>
           <li>Developer · Custom websites for gyms, clubs and coaches</li>
           <li>Agile Project Management Student · Futuregames</li>
         </ul>
@@ -370,6 +463,25 @@
         </a>
       </aside>
     </main>
+
+    <section class="book" id="book">
+      <p class="book-label">Book a session</p>
+      <p class="book-sub">No fixed calendar yet, tell me what you're interested in and roughly when works, and I'll set it up with you directly.</p>
+
+      <form class="book-form" action="https://formspree.io/f/mvznvwpk" method="POST">
+        <input class="full" type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <select name="interest" required>
+          <option value="" disabled selected>I'm interested in</option>
+          <option value="The Rotation">The Rotation, weekly group</option>
+          <option value="Field Trip">A Field Trip</option>
+          <option value="Not sure yet">Not sure yet</option>
+        </select>
+        <textarea class="full" name="availability" placeholder="Roughly when works for you" rows="3"></textarea>
+        <input type="hidden" name="_subject" value="Stormie Moves inquiry" />
+        <button class="book-submit" type="submit">Send inquiry</button>
+      </form>
+    </section>
 
     <footer>
       <div class="footer-item">Storm Kolmodin</div>
