@@ -301,13 +301,94 @@
       color: var(--soft);
     }
 
-    .hero {
-      flex: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 420px);
-      gap: 72px;
-      align-items: center;
-      padding: 72px 0 88px;
+    .marquee {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      overflow: hidden;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 16px 0;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      gap: 24px;
+      animation: marqueeScroll 32s linear infinite;
+    }
+
+    .marquee-track span {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--soft);
+      white-space: nowrap;
+    }
+
+    @keyframes marqueeScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .about-section {
+      position: relative;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      overflow: hidden;
+      padding: 88px 0;
+    }
+
+    .about-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      filter: grayscale(35%) brightness(0.32);
+    }
+
+    .about-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(9,9,9,0.75) 0%, rgba(9,9,9,0.55) 40%, rgba(9,9,9,0.85) 100%);
+    }
+
+    .about-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .philosophy-text {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.6vw, 30px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--text);
+      max-width: 760px;
+      margin-bottom: 56px;
+    }
+
+    .philosophy-text .soft {
+      color: rgba(236,231,223,0.55);
+    }
+
+    .about-content .hero-card {
+      max-width: 420px;
+    }
+
+    .hero-card .accordion-toggle + .accordion-panel + .accordion-toggle {
+      margin-top: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .about-content {
+        padding: 0 22px;
+      }
     }
 
     .hero-title {
@@ -484,24 +565,6 @@
       filter: blur(0);
     }
 
-    .philosophy {
-      padding: 0 0 64px;
-    }
-
-    .philosophy p {
-      font-family: var(--serif);
-      font-size: clamp(22px, 2.6vw, 30px);
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.5;
-      color: var(--text);
-      max-width: 760px;
-    }
-
-    .philosophy .soft {
-      color: rgba(236,231,223,0.55);
-    }
-
     .offer {
       padding: 0 0 80px;
       border-top: 1px solid var(--line);
@@ -676,19 +739,47 @@
       padding: 64px 0;
     }
 
-    .upcoming-item {
-      padding: 24px 0;
-      border-top: 1px solid var(--line);
+    .carousel-wrap {
+      position: relative;
+      margin: 32px 0 0;
     }
 
-    .upcoming-item:first-of-type {
-      border-top: none;
-      padding-top: 8px;
+    .carousel-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 12px 4px 20px;
+      perspective: 1000px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .upcoming-item {
+      flex: 0 0 auto;
+      width: 280px;
+      scroll-snap-align: start;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      padding: 26px 24px;
+      transform-style: preserve-3d;
+      will-change: transform;
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+      transition: border-color 0.4s ease, transform 0.15s ease-out, box-shadow 0.3s ease;
+    }
+
+    .upcoming-item:hover {
+      border-color: rgba(201,169,110,0.35);
+      box-shadow: 0 22px 40px rgba(0,0,0,0.35);
     }
 
     .upcoming-title {
       font-family: var(--serif);
-      font-size: clamp(24px, 2.8vw, 32px);
+      font-size: clamp(22px, 2.4vw, 26px);
       font-weight: 300;
       font-style: italic;
       color: var(--text);
@@ -707,12 +798,44 @@
       font-size: 13px;
       line-height: 1.75;
       color: var(--muted);
-      max-width: 480px;
     }
 
     .upcoming-item .verify-link {
       display: inline-block;
       margin-top: 10px;
+    }
+
+    .carousel-nav {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .carousel-arrow {
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 1px solid rgba(201,169,110,0.32);
+      color: var(--text);
+      font-size: 14px;
+      cursor: pointer;
+      transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+    }
+
+    .carousel-arrow:hover,
+    .carousel-arrow:focus-visible {
+      border-color: var(--gold);
+      background: var(--gold-soft);
+      color: #f3ead8;
+    }
+
+    @media (max-width: 640px) {
+      .upcoming-item {
+        width: 240px;
+      }
     }
 
     .next-actions {
@@ -893,14 +1016,6 @@
       color: var(--soft);
     }
 
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        padding: 56px 0 64px;
-      }
-    }
-
     @media (max-width: 640px) {
       .page {
         padding: 0 22px;
@@ -963,59 +1078,58 @@
       <a class="hero-overlay-cta" href="#training">Outdoor training with <span class="gold">Storm</span> →</a>
     </div>
 
-    <main class="hero">
-      <section>
-        <button class="accordion-toggle hero-toggle" type="button" data-target="about-panel" aria-expanded="false" aria-controls="about-panel">About me <span class="chevron">⌄</span></button>
-        <div class="accordion-panel" id="about-panel">
-          <p class="hero-bio">
-            I'm Storm, your training and adventure buddy in Stockholm. Licensed personal trainer, genuine Muay Thai practitioner, and someone who's tried more new things than is probably reasonable.
-          </p>
-          <p class="hero-bio">
-            If there's something you've been meaning to try, climbing, archery, a proper sauna and ice plunge, or you just want company on a walk, chances are I've already done it and would love to bring you along.
-          </p>
-          <p class="hero-bio">
-            No program, no pressure. Just movement, new places, and good company.
-          </p>
-        </div>
-      </section>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Up for an adventure</span><span>·</span><span>Try something new</span><span>·</span><span>Stormie Moves</span><span>·</span><span>Stockholm</span><span>·</span>
+        <span>Up for an adventure</span><span>·</span><span>Try something new</span><span>·</span><span>Stormie Moves</span><span>·</span><span>Stockholm</span><span>·</span>
+      </div>
+    </div>
 
-      <aside class="hero-card">
-        <p class="card-label">Storm Kolmodin</p>
+    <section class="about-section">
+      <!-- Swap this image for a real photo of Storm once ready -->
+      <img class="about-bg" src="IMG_9226.jpg" alt="">
+      <div class="about-overlay"></div>
 
-        <button class="accordion-toggle hero-toggle" type="button" data-target="credentials-panel" aria-expanded="false" aria-controls="credentials-panel">Credentials <span class="chevron">⌄</span></button>
-        <div class="accordion-panel" id="credentials-panel">
-          <ul class="credential-list">
-            <li>Licensed Personal Trainer · The Academy, 2018</li>
-            <li>Certified Nutrition &amp; Training Consultant</li>
-            <li>Group fitness instructor since 2017</li>
-            <li>Training studies at GIH, Swedish School of Sport and Health Sciences</li>
-            <li>Muay Thai practitioner since 2019</li>
-          </ul>
+      <div class="about-content">
+        <p class="philosophy-text reveal">New sports, new challenges, staying in motion, <span class="soft">that's genuinely how I live, and I bring people along for it.</span></p>
 
-          <a
-            class="verify-link"
-            href="https://ptlicens.trueoriginal.com/en/licensierad-personlig-tranare-denise-kolmodin-138305lEsdYeph88/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Verify PT License →
-          </a>
-        </div>
+        <aside class="hero-card">
+          <p class="card-label">Storm Kolmodin</p>
 
-        <a
-          class="verify-link"
-          href="https://stormieperformance.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="display: block; margin-top: 12px;"
-        >
-          Custom Websites · Stormie Performance →
-        </a>
-      </aside>
-    </main>
+          <button class="accordion-toggle hero-toggle" type="button" data-target="about-panel" aria-expanded="false" aria-controls="about-panel">About me <span class="chevron">⌄</span></button>
+          <div class="accordion-panel" id="about-panel">
+            <p class="hero-bio">
+              I'm Storm, your training and adventure buddy in Stockholm. Licensed personal trainer, genuine Muay Thai practitioner, and someone who's tried more new things than is probably reasonable.
+            </p>
+            <p class="hero-bio">
+              If there's something you've been meaning to try, climbing, archery, a proper sauna and ice plunge, or you just want company on a walk, chances are I've already done it and would love to bring you along.
+            </p>
+            <p class="hero-bio">
+              No program, no pressure. Just movement, new places, and good company.
+            </p>
+          </div>
 
-    <section class="philosophy reveal">
-      <p>New sports, new challenges, staying in motion, <span class="soft">that's genuinely how I live, and I bring people along for it.</span></p>
+          <button class="accordion-toggle hero-toggle" type="button" data-target="credentials-panel" aria-expanded="false" aria-controls="credentials-panel">Credentials <span class="chevron">⌄</span></button>
+          <div class="accordion-panel" id="credentials-panel">
+            <ul class="credential-list">
+              <li>Licensed Personal Trainer · The Academy, 2018</li>
+              <li>Certified Nutrition &amp; Training Consultant</li>
+              <li>Group fitness instructor since 2017</li>
+              <li>Training studies at GIH, Swedish School of Sport and Health Sciences</li>
+              <li>Muay Thai practitioner since 2019</li>
+            </ul>
+
+            <a
+              class="verify-link"
+              href="https://ptlicens.trueoriginal.com/en/licensierad-personlig-tranare-denise-kolmodin-138305lEsdYeph88/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Verify PT License →
+            </a>
+          </div>
+        </aside>
+      </div>
     </section>
 
     <section class="offer">
@@ -1076,32 +1190,43 @@
       <p class="offer-tag">Upcoming</p>
       <p class="offer-label">What's actually happening</p>
 
-      <div class="upcoming-item">
-        <h3 class="upcoming-title">Trail walk, Djurgården</h3>
-        <p class="upcoming-date">August, date confirmed in the group</p>
-        <p class="upcoming-desc">Dog friendly, easy pace, good company. Free, no experience needed, just show up.</p>
-        <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Trail walk, Djurgården'">I'm in →</a>
-      </div>
+      <div class="carousel-wrap">
+        <div class="carousel-track" id="upcoming-track">
 
-      <div class="upcoming-item">
-        <h3 class="upcoming-title">Social climb, Gasverket</h3>
-        <p class="upcoming-date">Date confirmed in the group</p>
-        <p class="upcoming-desc">I'm an on-duty belayer there, so it's an easy first climb even if you've never done it before.</p>
-        <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Social climb, Gasverket'">I'm in →</a>
-      </div>
+          <div class="upcoming-item">
+            <h3 class="upcoming-title">Trail walk, Djurgården</h3>
+            <p class="upcoming-date">August, date confirmed in the group</p>
+            <p class="upcoming-desc">Dog friendly, easy pace, good company. Free, no experience needed, just show up.</p>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Trail walk, Djurgården'">I'm in →</a>
+          </div>
 
-      <div class="upcoming-item">
-        <h3 class="upcoming-title">Pad holding, Östermalm</h3>
-        <p class="upcoming-date">Date confirmed in the group</p>
-        <p class="upcoming-desc">Muay Thai pad work in the park. I hold pads, you strike, no experience needed.</p>
-        <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Muay Thai pad work, Östermalm'">I'm in →</a>
-      </div>
+          <div class="upcoming-item">
+            <h3 class="upcoming-title">Social climb, Gasverket</h3>
+            <p class="upcoming-date">Date confirmed in the group</p>
+            <p class="upcoming-desc">I'm an on-duty belayer there, so it's an easy first climb even if you've never done it before.</p>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Social climb, Gasverket'">I'm in →</a>
+          </div>
 
-      <div class="upcoming-item">
-        <h3 class="upcoming-title">Outdoor gym session, Gärdet</h3>
-        <p class="upcoming-date">Date confirmed in the group</p>
-        <p class="upcoming-desc">Bodyweight strength using the park's own equipment. Beginner friendly.</p>
-        <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Outdoor gym, Gärdet'">I'm in →</a>
+          <div class="upcoming-item">
+            <h3 class="upcoming-title">Pad holding, Östermalm</h3>
+            <p class="upcoming-date">Date confirmed in the group</p>
+            <p class="upcoming-desc">Muay Thai pad work in the park. I hold pads, you strike, no experience needed.</p>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Muay Thai pad work, Östermalm'">I'm in →</a>
+          </div>
+
+          <div class="upcoming-item">
+            <h3 class="upcoming-title">Outdoor gym session, Gärdet</h3>
+            <p class="upcoming-date">Date confirmed in the group</p>
+            <p class="upcoming-desc">Bodyweight strength using the park's own equipment. Beginner friendly.</p>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Outdoor gym, Gärdet'">I'm in →</a>
+          </div>
+
+        </div>
+
+        <div class="carousel-nav">
+          <button class="carousel-arrow" type="button" id="carousel-prev" aria-label="Previous event">←</button>
+          <button class="carousel-arrow" type="button" id="carousel-next" aria-label="Next event">→</button>
+        </div>
       </div>
 
       <div class="next-actions">
@@ -1163,6 +1288,37 @@
       } else {
         heroVideo.addEventListener('canplaythrough', markLoaded, { once: true });
       }
+    }
+
+    const tiltReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!tiltReduced) {
+      document.querySelectorAll('.upcoming-item').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -7;
+          const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 7;
+          card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+        });
+      });
+    }
+
+    const carouselTrack = document.getElementById('upcoming-track');
+    const carouselPrev = document.getElementById('carousel-prev');
+    const carouselNext = document.getElementById('carousel-next');
+    if (carouselTrack && carouselPrev && carouselNext) {
+      const scrollAmount = () => carouselTrack.querySelector('.upcoming-item').offsetWidth + 20;
+      const scrollBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+      carouselPrev.addEventListener('click', () => {
+        carouselTrack.scrollBy({ left: -scrollAmount(), behavior: scrollBehavior });
+      });
+      carouselNext.addEventListener('click', () => {
+        carouselTrack.scrollBy({ left: scrollAmount(), behavior: scrollBehavior });
+      });
     }
 
     document.querySelectorAll('.accordion-toggle').forEach(btn => {
