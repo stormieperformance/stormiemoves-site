@@ -471,6 +471,48 @@
       }
     }
 
+    .premium {
+      border: 1px solid rgba(201,169,110,0.35);
+      background: linear-gradient(180deg, rgba(201,169,110,0.06), rgba(255,255,255,0.01));
+      padding: 44px 40px;
+      margin-top: 40px;
+      transition: border-color 0.4s ease;
+    }
+
+    .premium:hover {
+      border-color: rgba(201,169,110,0.55);
+    }
+
+    .premium-tag {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .premium-title {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.6vw, 40px);
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: 0.01em;
+      background: linear-gradient(90deg, #a07840, #f0d98a, #c9a96e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: goldBreath 6s ease-in-out infinite;
+      margin-bottom: 16px;
+    }
+
+    .premium-desc {
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 28px;
+    }
+
     .book {
       padding: 72px 0 88px;
       border-top: 1px solid var(--line);
@@ -711,7 +753,7 @@
           <li>Group fitness instructor since 2017</li>
           <li>Training studies at GIH, Swedish School of Sport and Health Sciences</li>
           <li>Muay Thai practitioner since 2019</li>
-          <li>Weekend caretaker, Stora Skuggans 4H-gård</li>
+          <li>Animal caretaker</li>
           <li>Developer · Custom websites for gyms, clubs and coaches</li>
           <li>Agile Project Management Student · Futuregames</li>
         </ul>
@@ -733,16 +775,6 @@
           style="display: block; margin-top: 12px;"
         >
           Custom Websites · Stormie Performance →
-        </a>
-
-        <a
-          class="verify-link"
-          href="https://stormie.app"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="display: block; margin-top: 12px;"
-        >
-          Game Portfolio · Stormie Games →
         </a>
       </aside>
     </main>
@@ -771,6 +803,7 @@
             <li>Water sports, summer</li>
             <li>Skiing & snowboard, winter</li>
             <li>Riding</li>
+            <li>Social bike rides</li>
             <li>Ice skating & inlining, seasonal</li>
           </ul>
           <p class="offer-note">Something else in mind? Tell me in the form below.</p>
@@ -789,6 +822,13 @@
         </div>
 
       </div>
+
+      <div class="premium reveal">
+        <p class="premium-tag">Premium</p>
+        <h3 class="premium-title">Outdoor training with Storm</h3>
+        <p class="premium-desc">Always a surprise, never dull, you get stronger. Structured strength and conditioning, outdoors, built and coached by me personally. This is the one thing here that isn't free.</p>
+        <a class="book-submit" href="#book">Inquire about training</a>
+      </div>
     </section>
 
     <section class="book reveal" id="book">
@@ -800,8 +840,9 @@
         <input type="email" name="email" placeholder="Email" required />
         <select name="interest" required>
           <option value="" disabled selected>What sounds fun</option>
-          <option value="Adventure trip">An adventure trip</option>
+          <option value="Adventure trip">An activity</option>
           <option value="Recovery session">A recovery session</option>
+          <option value="Outdoor training">Outdoor training with Storm, paid</option>
           <option value="Not sure yet">Not sure yet, surprise me</option>
         </select>
         <textarea class="full" name="availability" placeholder="Anything else worth knowing" rows="3"></textarea>
