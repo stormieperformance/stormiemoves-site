@@ -865,6 +865,36 @@
       max-width: 640px;
     }
 
+    .book-form.hidden {
+      display: none;
+    }
+
+    .book-success {
+      display: none;
+      max-width: 480px;
+      border-left: 2px solid rgba(201,169,110,0.4);
+      padding-left: 24px;
+    }
+
+    .book-success.visible {
+      display: block;
+    }
+
+    .book-success-title {
+      font-family: var(--serif);
+      font-size: clamp(24px, 2.8vw, 30px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .book-success-text {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
     .book-form .full {
       grid-column: 1 / -1;
     }
@@ -1204,7 +1234,7 @@
       <p class="book-label">Come along</p>
       <p class="book-sub">This is a community just getting started, and you'd be one of the first people in it. No groups yet, no calendar. Tell me what sounds fun and I'll loop you in next time we go.</p>
 
-      <form class="book-form" action="https://formspree.io/f/mvznvwpk" method="POST">
+      <form class="book-form" id="book-form" action="https://formspree.io/f/mvznvwpk" method="POST">
         <input class="full" type="text" name="name" placeholder="Name" required />
         <input type="email" name="email" placeholder="Email" required />
         <select name="interest" id="interest-select" required>
@@ -1220,6 +1250,11 @@
         <input type="hidden" name="_subject" value="Stormie Moves, come along" />
         <button class="book-submit" type="submit">Count me in</button>
       </form>
+
+      <div class="book-success" id="book-success">
+        <p class="book-success-title">You're in.</p>
+        <p class="book-success-text">Got it, thanks for reaching out. I'll get back to you directly to sort out the details.</p>
+      </div>
     </section>
 
     <footer>
@@ -1268,6 +1303,37 @@
         card.addEventListener('mouseleave', () => {
           card.style.transform = '';
         });
+      });
+    }
+
+    const bookForm = document.getElementById('book-form');
+    const bookSuccess = document.getElementById('book-success');
+    if (bookForm && bookSuccess) {
+      bookForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitBtn = bookForm.querySelector('.book-submit');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        try {
+          const response = await fetch(bookForm.action, {
+            method: 'POST',
+            body: new FormData(bookForm),
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            bookForm.classList.add('hidden');
+            bookSuccess.classList.add('visible');
+          } else {
+            throw new Error('Submission failed');
+          }
+        } catch (err) {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+          alert('Something went wrong sending that. Mind trying again, or reaching out directly?');
+        }
       });
     }
 
