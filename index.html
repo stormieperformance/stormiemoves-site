@@ -84,6 +84,7 @@
       width: 100vw;
       margin-left: calc(-50vw + 50%);
       height: 78vh;
+      max-height: 820px;
       overflow: hidden;
     }
 
@@ -139,26 +140,12 @@
     }
 
     .hero-img .hero-overlay-free {
-      position: absolute;
+      position: relative;
       z-index: 2;
-      bottom: 32px;
-      left: 0;
-      right: 0;
-      width: fit-content;
-      margin: 0 auto;
+      display: inline-flex;
+      margin-top: 28px;
       opacity: 0;
       animation: fadeUp 0.8s ease 1.25s forwards;
-    }
-
-    @media (max-width: 640px) {
-      .hero-img .hero-overlay-free {
-        left: 20px;
-        right: 20px;
-        width: auto;
-        bottom: 24px;
-        justify-content: center;
-        text-align: center;
-      }
     }
 
     .hero-img-title {
@@ -383,6 +370,7 @@
       font-weight: 300;
       font-style: italic;
       color: var(--text);
+      text-shadow: 0 0 24px rgba(201,169,110,0.35), 0 2px 12px rgba(0,0,0,0.5);
       margin-bottom: 16px;
       opacity: 0;
       animation: fadeUp 0.8s ease 0.5s forwards;
@@ -392,6 +380,7 @@
       font-size: 15px;
       line-height: 1.7;
       color: var(--muted);
+      text-shadow: 0 1px 8px rgba(0,0,0,0.6);
       max-width: 440px;
       margin: 0 auto;
       opacity: 0;
@@ -1055,8 +1044,8 @@
       <div class="hero-img-text">
         <p class="hero-tagline">Up for an adventure?</p>
         <p class="hero-subhead">Try new sports and recovery activities in Stockholm, with someone experienced by your side.</p>
+        <a class="book-submit hero-overlay-free" href="#upcoming">Join a free activity</a>
       </div>
-      <a class="book-submit hero-overlay-free" href="#upcoming">Join a free activity</a>
     </div>
 
     <section class="about-section">
