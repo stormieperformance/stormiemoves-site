@@ -801,17 +801,34 @@
     .book-success {
       display: none;
       max-width: 480px;
-      border-left: 2px solid rgba(201,169,110,0.4);
-      padding-left: 24px;
+      border: 1px solid rgba(201,169,110,0.4);
+      background: linear-gradient(180deg, rgba(201,169,110,0.08), rgba(255,255,255,0.015));
+      padding: 30px 28px;
+      box-shadow: 0 0 40px rgba(201,169,110,0.05);
     }
 
     .book-success.visible {
       display: block;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    .book-success-check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 14px;
+      margin-bottom: 14px;
     }
 
     .book-success-title {
       font-family: var(--serif);
-      font-size: clamp(24px, 2.8vw, 30px);
+      font-size: clamp(26px, 3vw, 32px);
       font-weight: 300;
       font-style: italic;
       color: var(--text);
@@ -1085,8 +1102,8 @@
 
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
-        <span>Up for an adventure</span><span class="dot">·</span><span>Try something new</span><span class="dot">·</span><span>Stormie Moves</span><span class="dot">·</span><span>Stockholm</span><span class="dot">·</span>
-        <span>Up for an adventure</span><span class="dot">·</span><span>Try something new</span><span class="dot">·</span><span>Stormie Moves</span><span class="dot">·</span><span>Stockholm</span><span class="dot">·</span>
+        <span>Your next side quest starts here</span><span class="dot">·</span><span>Stormie Moves</span><span class="dot">·</span><span>Stockholm</span><span class="dot">·</span>
+        <span>Your next side quest starts here</span><span class="dot">·</span><span>Stormie Moves</span><span class="dot">·</span><span>Stockholm</span><span class="dot">·</span>
       </div>
     </div>
 
@@ -1185,6 +1202,7 @@
       </form>
 
       <div class="book-success" id="book-success">
+        <span class="book-success-check">✓</span>
         <p class="book-success-title">You're in.</p>
         <p class="book-success-text">Got it, thanks for reaching out. I'll get back to you directly to sort out the details.</p>
       </div>
@@ -1196,8 +1214,6 @@
         <div class="footer-item soft-item">Built in Stockholm</div>
       </div>
       <div class="footer-links">
-        <!-- Add your real Instagram URL here once confirmed -->
-        <a class="footer-link" href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a class="footer-link" href="#upcoming">Community Calendar</a>
         <div class="footer-item">stormiemoves.com</div>
       </div>
@@ -1268,6 +1284,7 @@
           if (response.ok) {
             bookForm.classList.add('hidden');
             bookSuccess.classList.add('visible');
+            bookSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
           } else {
             throw new Error('Submission failed');
           }
