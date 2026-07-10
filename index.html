@@ -575,112 +575,12 @@
       }
     }
 
-    .offer-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .offer-card {
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01));
-      padding: 0 0 26px;
-      overflow: hidden;
-      transition: border-color 0.4s ease, transform 0.4s ease, background 0.4s ease;
-    }
-
-    .offer-card:hover {
-      border-color: rgba(201,169,110,0.3);
-      transform: translateY(-4px);
-      background: linear-gradient(180deg, rgba(201,169,110,0.04), rgba(255,255,255,0.01));
-    }
-
-    .offer-card-media {
-      height: 220px;
-      overflow: hidden;
-      position: relative;
-      border-bottom: 1px solid var(--line);
-      background: linear-gradient(135deg, rgba(255,255,255,0.035), rgba(255,255,255,0.008));
-    }
-
-    .offer-card-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(30%) brightness(0.62);
-      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .offer-card:hover .offer-card-media img {
-      transform: scale(1.08);
-    }
-
-    .offer-card-media-placeholder {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--soft);
-    }
-
-    .offer-card-body {
-      padding: 26px 24px 0;
-    }
-
     .offer-tag {
       font-size: 10px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 14px;
-    }
-
-    .offer-title {
-      font-family: var(--serif);
-      font-size: 24px;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--text);
-      margin-bottom: 10px;
-    }
-
-    .offer-desc {
-      font-size: 13px;
-      line-height: 1.85;
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .offer-list {
-      list-style: none;
-    }
-
-    .offer-list li {
-      font-size: 12px;
-      color: var(--soft);
-      padding: 9px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .offer-list li:first-child {
-      border-top: none;
-    }
-
-    .offer-note {
-      font-size: 12px;
-      font-style: italic;
-      color: var(--soft);
-      margin-top: 14px;
-    }
-
-    @media (max-width: 720px) {
-      .offer-grid {
-        grid-template-columns: 1fr;
-      }
     }
 
     .premium {
@@ -1185,61 +1085,6 @@
     </div>
 
     <section class="offer">
-      <p class="offer-tag reveal">Community</p>
-      <p class="offer-label reveal">Things we do together</p>
-      <p class="offer-meta reveal">Based in Stockholm, happy to go further across Sweden for the right adventure.</p>
-      <ul class="boundaries reveal">
-        <li>Group based</li>
-        <li>Adults only</li>
-      </ul>
-
-      <button class="accordion-toggle reveal" type="button" data-target="activities-panel" aria-expanded="false" aria-controls="activities-panel">See activities list <span class="chevron">⌄</span></button>
-
-      <div class="accordion-panel" id="activities-panel">
-        <div class="offer-grid">
-
-          <div class="offer-card">
-            <div class="offer-card-media">
-              <!-- Swap this for a real photo once ready, e.g. <img src="activities.jpg" alt=""> -->
-            </div>
-            <div class="offer-card-body">
-              <p class="offer-tag">Together</p>
-              <h3 class="offer-title">Activities</h3>
-              <p class="offer-desc">The things you've been meaning to try but never had anyone to go with. Certified staff handle the instruction, we do it together.</p>
-              <ul class="offer-list">
-                <li>Climbing</li>
-                <li>Archery</li>
-                <li>Indoor skydiving</li>
-                <li>Water sports, summer</li>
-                <li>Skiing & snowboard, winter</li>
-                <li>Riding</li>
-                <li>Social bike rides</li>
-                <li>Ice skating & inlining, seasonal</li>
-              </ul>
-              <p class="offer-note">Something else in mind? Tell me in the form below.</p>
-            </div>
-          </div>
-
-          <div class="offer-card">
-            <div class="offer-card-media">
-              <!-- Swap this for a real photo once ready, e.g. <img src="recovery.jpg" alt=""> -->
-            </div>
-            <div class="offer-card-body">
-              <p class="offer-tag">Recovery</p>
-              <h3 class="offer-title">Recovery sessions</h3>
-              <p class="offer-desc">Restorative time between the adventures, or on their own. I pick the time and place, you just show up.</p>
-              <ul class="offer-list">
-                <li>Sauna & ice plunge, outdoors</li>
-                <li>Trail walks</li>
-                <li>Mobility & recovery</li>
-                <li>Farm animal visits</li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
       <div class="premium reveal" id="training">
         <p class="premium-tag">Premium</p>
         <h3 class="premium-title">Outdoor training with Storm</h3>
@@ -1306,10 +1151,21 @@
         <input type="email" name="email" placeholder="Email" required />
         <select name="interest" id="interest-select" required>
           <option value="" disabled selected>Which adventure would you like to join?</option>
-          <option value="Social trail walk, Djurgården">Social trail walk, Djurgården</option>
-          <option value="Social climb, Gasverket">Social climb, Gasverket</option>
-          <option value="Muay Thai pad work, Östermalm">Muay Thai pad work, Östermalm</option>
-          <option value="Outdoor gym, Gärdet">Outdoor gym, Gärdet</option>
+          <optgroup label="On demand">
+            <option value="Social trail walk, Djurgården">Social trail walk, Djurgården</option>
+            <option value="Social climb, Gasverket">Social climb, Gasverket</option>
+            <option value="Muay Thai pad work, Östermalm">Muay Thai pad work, Östermalm</option>
+            <option value="Outdoor gym, Gärdet">Outdoor gym, Gärdet</option>
+          </optgroup>
+          <optgroup label="Activities">
+            <option value="Social bike rides">Social bike rides</option>
+            <option value="Ice skating & inlining, seasonal">Ice skating & inlining, seasonal</option>
+          </optgroup>
+          <optgroup label="Recovery">
+            <option value="Sauna & ice plunge, outdoors">Sauna & ice plunge, outdoors</option>
+            <option value="Trail walks">Trail walks</option>
+            <option value="Farm animal visits">Farm animal visits</option>
+          </optgroup>
           <option value="Outdoor training with Storm">Outdoor training with Storm, paid</option>
           <option value="Not sure yet">Not sure yet, surprise me</option>
         </select>
