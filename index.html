@@ -1293,7 +1293,7 @@
     </div>
 
     <section class="offer">
-      <p class="offer-tag reveal">Community</p>
+      <p class="offer-tag reveal">Free</p>
       <p class="offer-label reveal">Things we do together</p>
       <p class="offer-meta reveal">Based in Stockholm, happy to go further across Sweden for the right adventure.</p>
       <ul class="boundaries reveal">
@@ -1309,7 +1309,6 @@
           <div class="offer-card">
             <div class="offer-card-media">
               <!-- Swap this for a real photo once ready, e.g. <img src="activities.jpg" alt=""> -->
-              <p class="offer-card-media-placeholder">Photo coming soon</p>
             </div>
             <div class="offer-card-body">
               <p class="offer-tag">Together</p>
@@ -1332,7 +1331,6 @@
           <div class="offer-card">
             <div class="offer-card-media">
               <!-- Swap this for a real photo once ready, e.g. <img src="recovery.jpg" alt=""> -->
-              <p class="offer-card-media-placeholder">Photo coming soon</p>
             </div>
             <div class="offer-card-body">
               <p class="offer-tag">Recovery</p>
@@ -1369,28 +1367,28 @@
             <h3 class="upcoming-title">Trail walk, Djurgården</h3>
             <p class="upcoming-date">August, date confirmed in the group</p>
             <p class="upcoming-desc">Dog friendly, easy pace, good company. Free, no experience needed, just show up.</p>
-            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Trail walk, Djurgården'">I'm in →</a>
+            <a class="verify-link" href="#community">Join the community for this →</a>
           </div>
 
           <div class="upcoming-item">
             <h3 class="upcoming-title">Social climb, Gasverket</h3>
             <p class="upcoming-date">Date confirmed in the group</p>
             <p class="upcoming-desc">I'm an on-duty belayer there, so it's an easy first climb even if you've never done it before.</p>
-            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Social climb, Gasverket'">I'm in →</a>
+            <a class="verify-link" href="#community">Join the community for this →</a>
           </div>
 
           <div class="upcoming-item">
             <h3 class="upcoming-title">Pad holding, Östermalm</h3>
             <p class="upcoming-date">Date confirmed in the group</p>
             <p class="upcoming-desc">Muay Thai pad work in the park. I hold pads, you strike, no experience needed.</p>
-            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Muay Thai pad work, Östermalm'">I'm in →</a>
+            <a class="verify-link" href="#community">Join the community for this →</a>
           </div>
 
           <div class="upcoming-item">
             <h3 class="upcoming-title">Outdoor gym session, Gärdet</h3>
             <p class="upcoming-date">Date confirmed in the group</p>
             <p class="upcoming-desc">Bodyweight strength using the park's own equipment. Beginner friendly.</p>
-            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Outdoor gym, Gärdet'">I'm in →</a>
+            <a class="verify-link" href="#community">Join the community for this →</a>
           </div>
 
         </div>
@@ -1403,7 +1401,7 @@
 
       <div class="next-actions">
         <a class="whatsapp-cta" href="#community">Join the Community →</a>
-        <a class="verify-link" href="#book">Or tell me you're coming →</a>
+        <a class="verify-link" href="#book">Or prefer one-on-one? →</a>
       </div>
     </section>
 
@@ -1446,24 +1444,16 @@
     </section>
 
     <section class="book reveal" id="book">
-      <p class="book-label">Come along</p>
-      <p class="book-sub">This is a community just getting started, and you'd be one of the first people in it. No groups yet, no calendar. Tell me what sounds fun and I'll loop you in next time we go.</p>
+      <p class="book-label">Prefer one-on-one?</p>
+      <p class="book-sub">Some people would rather start with just the two of us instead of a group. Tell me a bit about you, and we'll figure out what that looks like, trying something once, or ongoing coaching.</p>
 
       <form class="book-form" id="book-form" action="https://formspree.io/f/mvznvwpk" method="POST">
         <input class="full" type="text" name="name" placeholder="Name" required />
         <input type="email" name="email" placeholder="Email" required />
-        <select name="interest" id="interest-select" required>
-          <option value="" disabled selected>Which adventure would you like to join?</option>
-          <option value="Trail walk, Djurgården">Trail walk, Djurgården</option>
-          <option value="Social climb, Gasverket">Social climb, Gasverket</option>
-          <option value="Muay Thai pad work, Östermalm">Muay Thai pad work, Östermalm</option>
-          <option value="Outdoor gym, Gärdet">Outdoor gym, Gärdet</option>
-          <option value="Outdoor training with Storm">Outdoor training with Storm, paid</option>
-          <option value="Not sure yet">Not sure yet, surprise me</option>
-        </select>
-        <textarea class="full" name="availability" placeholder="Anything else worth knowing" rows="3"></textarea>
-        <input type="hidden" name="_subject" value="Stormie Moves, come along" />
-        <button class="book-submit" type="submit">Count me in</button>
+        <input type="hidden" name="interest" value="One-on-one inquiry" />
+        <textarea class="full" name="availability" placeholder="A bit about you, and what you're hoping to try or work on" rows="3"></textarea>
+        <input type="hidden" name="_subject" value="Stormie Moves, one-on-one inquiry" />
+        <button class="book-submit" type="submit">Send inquiry</button>
       </form>
 
       <div class="book-success" id="book-success">
