@@ -683,7 +683,13 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 10px;
+      margin-bottom: 6px;
+    }
+
+    .upcoming-capacity {
+      font-size: 12px;
+      color: var(--soft);
+      margin-bottom: 12px;
     }
 
     .upcoming-desc {
@@ -1023,8 +1029,8 @@
     <div class="hero-img">
       <img class="hero-photo" src="hero-climb.jpg" alt="Storm climbing at Gasverket">
       <div class="hero-img-text">
-        <p class="hero-tagline">Up for an adventure?</p>
-        <p class="hero-subhead">Try new sports and recovery activities in Stockholm, with someone experienced by your side.</p>
+        <p class="hero-tagline">Your next side quest starts here.</p>
+        <p class="hero-subhead">Sports, adventures, and recovery sessions around Stockholm, with someone who's always up for something new.</p>
         <a class="book-submit hero-overlay-free" href="#upcoming">Join a free activity</a>
       </div>
     </div>
@@ -1096,7 +1102,7 @@
     <section class="next-up reveal" id="upcoming">
       <p class="offer-tag">Upcoming</p>
       <p class="offer-label">Join a free activity</p>
-      <p class="offer-meta">Nothing here runs on a fixed schedule, everything happens on demand once a few people are interested. Tell me you're in and I'll organize it.</p>
+      <p class="offer-meta">Everything starts with interest. Join an activity, and when enough people have signed up, I'll arrange a date that works for the group.</p>
 
       <div class="carousel-wrap">
         <div class="carousel-track" id="upcoming-track">
@@ -1104,28 +1110,32 @@
           <div class="upcoming-item">
             <h3 class="upcoming-title">Social trail walk, Djurgården</h3>
             <p class="upcoming-date">On demand</p>
-            <p class="upcoming-desc">Dog friendly, easy pace, with a fika stop somewhere along the way. Bring a dog if you've got one, instant icebreaker. Free, no experience needed, open to however many want to come.</p>
+            <p class="upcoming-capacity">Group size: Open</p>
+            <p class="upcoming-desc">Dog friendly, easy pace, with a fika stop somewhere along the way. Bring a dog if you've got one, instant icebreaker. Free, no experience needed.</p>
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Social trail walk, Djurgården'">I'm in →</a>
           </div>
 
           <div class="upcoming-item">
             <h3 class="upcoming-title">Social climb, Gasverket</h3>
             <p class="upcoming-date">On demand</p>
-            <p class="upcoming-desc">I will be your on-duty belayer, so it's an easy first climb even if you've never done it before. I can only belay one or two people per visit, so it stays small.</p>
+            <p class="upcoming-capacity">Group size: 1–2 people</p>
+            <p class="upcoming-desc">I will be your on-duty belayer, so it's an easy first climb even if you've never done it before.</p>
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Social climb, Gasverket'">I'm in →</a>
           </div>
 
           <div class="upcoming-item">
             <h3 class="upcoming-title">Pad holding, Östermalm</h3>
             <p class="upcoming-date">On demand</p>
-            <p class="upcoming-desc">Muay Thai pad work in the park. I hold pads, you strike, no experience needed. Kept small for proper technique and attention.</p>
+            <p class="upcoming-capacity">Group size: 1–2 people</p>
+            <p class="upcoming-desc">Muay Thai pad work in the park. I hold pads, you strike, no experience needed.</p>
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Muay Thai pad work, Östermalm'">I'm in →</a>
           </div>
 
           <div class="upcoming-item">
             <h3 class="upcoming-title">Outdoor gym session, Gärdet</h3>
             <p class="upcoming-date">On demand</p>
-            <p class="upcoming-desc">Bodyweight strength using the park's own equipment. Beginner friendly. Small group, up to about five.</p>
+            <p class="upcoming-capacity">Group size: Up to 5 people</p>
+            <p class="upcoming-desc">Bodyweight strength using the park's own equipment. Beginner friendly.</p>
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Outdoor gym, Gärdet'">I'm in →</a>
           </div>
 
@@ -1138,13 +1148,13 @@
       </div>
 
       <div class="next-actions">
-        <a class="verify-link" href="#book">Tell me you're coming →</a>
+        <a class="verify-link" href="#book">Get invited →</a>
       </div>
     </section>
 
     <section class="book reveal" id="book">
-      <p class="book-label">Come along</p>
-      <p class="book-sub">This is a community just getting started, and you'd be one of the first people in it. No groups yet, no calendar. Tell me what sounds fun and I'll loop you in next time we go.</p>
+      <p class="book-label">Be one of the first</p>
+      <p class="book-sub">Tell me what you'd like to join and I'll invite you when the next session is happening.</p>
 
       <form class="book-form" id="book-form" action="https://formspree.io/f/mvznvwpk" method="POST">
         <input class="full" type="text" name="name" placeholder="Name" required />
