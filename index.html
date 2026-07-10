@@ -390,6 +390,16 @@
       animation: fadeUp 0.8s ease 0.65s forwards;
     }
 
+    .hero-trust {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+      margin-top: 14px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.78s forwards;
+    }
+
     .accordion-toggle {
       display: inline-flex;
       align-items: center;
@@ -1027,7 +1037,7 @@
         animation: none !important;
         transition: none !important;
       }
-      body, .hero-img-title, .hero-photo, .hero-tagline, .hero-subhead, .hero-bio, .hero-card,
+      body, .hero-img-title, .hero-photo, .hero-tagline, .hero-subhead, .hero-trust, .hero-bio, .hero-card,
       .hero-cta, .hero-overlay-free, .hero-toggle, .credential-list li, .reveal {
         opacity: 1 !important;
         transform: none !important;
@@ -1047,7 +1057,8 @@
       <img class="hero-photo" src="hero-climb.jpg" alt="Storm climbing at Gasverket">
       <div class="hero-img-text">
         <p class="hero-tagline">Your next side quest starts here.</p>
-        <p class="hero-subhead">Sports, hangouts, and recovery sessions around Stockholm, with someone who's always up for something new.</p>
+        <p class="hero-subhead">Sports, outdoor experiences, and recovery sessions around Stockholm, with someone who's always up for something new.</p>
+        <p class="hero-trust">Licensed Personal Trainer · Group Fitness Instructor since 2017</p>
         <a class="book-submit hero-overlay-free" href="#upcoming">Join a free activity</a>
       </div>
     </div>
@@ -1107,15 +1118,6 @@
       </div>
     </div>
 
-    <section class="offer">
-      <div class="premium reveal" id="training">
-        <p class="premium-tag">Premium</p>
-        <h3 class="premium-title">Outdoor suffering with Storm</h3>
-        <p class="premium-desc">Curated, small group. Always a surprise, never dull, you get stronger. Structured strength and conditioning, outdoors, coached by me personally. Military trained during a pandemic, so yes, I know a thing or two about discomfort. The one thing here that isn't free.</p>
-        <a class="book-submit" href="#book">Inquire about training</a>
-      </div>
-    </section>
-
     <section class="next-up reveal" id="upcoming">
       <p class="offer-tag">Upcoming</p>
       <p class="offer-label">Join a free activity</p>
@@ -1128,7 +1130,7 @@
             <h3 class="upcoming-title">Social trail walk, Djurgården</h3>
             <p class="upcoming-date">On demand</p>
             <p class="upcoming-capacity">Group size: Open</p>
-            <p class="upcoming-desc">Dog friendly, easy pace, with a fika stop somewhere along the way. Bring a dog if you've got one, instant icebreaker. Free, no experience needed.</p>
+            <p class="upcoming-desc">Dog friendly, easy pace, fika stop along the way. No experience needed.</p>
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Social trail walk, Djurgården'">I'm in →</a>
           </div>
 
@@ -1136,7 +1138,7 @@
             <h3 class="upcoming-title">Social climb, Gasverket</h3>
             <p class="upcoming-date">On demand</p>
             <p class="upcoming-capacity">Group size: 1–2 people</p>
-            <p class="upcoming-desc">I will be your on-duty belayer, so it's an easy first climb even if you've never done it before. Entrance fee paid at the gym, shoes and harness can be rented there too.</p>
+            <p class="upcoming-desc">I'm your on-duty belayer, easy first climb even if you're new. Entrance fee paid at the gym, gear rentable there.</p>
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Social climb, Gasverket'">I'm in →</a>
           </div>
 
@@ -1169,6 +1171,15 @@
       </div>
     </section>
 
+    <section class="offer">
+      <div class="premium reveal" id="training">
+        <p class="premium-tag">Premium</p>
+        <h3 class="premium-title">Outdoor suffering with Storm</h3>
+        <p class="premium-desc">Real strength and conditioning, outdoors, coached by me personally in a small group. Every session has a warm-up, a strength block, and a hard finisher, rotating each week so it's never the same twice. Military trained during a pandemic, so I know a thing or two about pushing through discomfort. The one thing here worth paying for.</p>
+        <a class="book-submit" href="#book">Inquire about training</a>
+      </div>
+    </section>
+
     <section class="book reveal" id="book">
       <p class="book-label">Be one of the first</p>
       <p class="book-sub">Tell me what you'd like to join and I'll invite you when the next session is happening.</p>
@@ -1194,7 +1205,7 @@
         </select>
         <textarea class="full" name="availability" placeholder="Anything else worth knowing" rows="3"></textarea>
         <input type="hidden" name="_subject" value="Stormie Moves, come along" />
-        <button class="book-submit" type="submit">Count me in</button>
+        <button class="book-submit" type="submit">Get Invited</button>
       </form>
 
       <div class="book-success" id="book-success">
