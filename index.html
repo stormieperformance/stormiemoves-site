@@ -98,24 +98,20 @@
       padding: 0 32px;
     }
 
-    .hero-img img,
-    .hero-img video {
+    .hero-photo {
       position: absolute;
       top: -10%;
       left: 0;
       width: 100%;
       height: 120%;
       object-fit: cover;
-      object-position: center 18%;
-      filter: grayscale(20%) brightness(0.75);
-    }
-
-    .hero-img video {
+      object-position: center 15%;
+      filter: grayscale(55%) brightness(0.5) contrast(1.05);
       opacity: 0;
-      transition: opacity 1.6s ease 0.2s;
+      transition: opacity 1.4s ease 0.1s, transform 0.15s ease-out;
     }
 
-    .hero-img video.loaded {
+    .hero-photo.loaded {
       opacity: 1;
     }
 
@@ -194,9 +190,8 @@
         height: 92vh;
         max-height: 720px;
       }
-      .hero-img img,
-      .hero-img video {
-        object-position: center 10%;
+      .hero-photo {
+        object-position: center 8%;
       }
       .hero-img-title {
         font-size: clamp(42px, 12vw, 80px);
@@ -1039,7 +1034,7 @@
         animation: none !important;
         transition: none !important;
       }
-      body, .hero-img-title, .hero-tagline, .hero-subhead, .hero-bio, .hero-card,
+      body, .hero-img-title, .hero-photo, .hero-tagline, .hero-subhead, .hero-bio, .hero-card,
       .hero-cta, .hero-overlay-free, .hero-toggle, .credential-list li, .reveal {
         opacity: 1 !important;
         transform: none !important;
@@ -1056,14 +1051,7 @@
     </header>
 
     <div class="hero-img">
-      <video
-        id="hero-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        src="hero-moves.mp4"
-      ></video>
+      <img class="hero-photo" src="hero-climb.jpg" alt="Storm climbing at Gasverket">
       <div class="hero-img-text">
         <p class="hero-tagline">Up for an adventure?</p>
         <p class="hero-subhead">Try new sports and recovery activities in Stockholm, with someone experienced by your side.</p>
@@ -1263,7 +1251,7 @@
     </footer>
   </div>
   <script>
-    const heroMedia = document.querySelectorAll('.hero-img img, .hero-img video');
+    const heroMedia = document.querySelectorAll('.hero-photo');
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (heroMedia.length && !prefersReduced) {
       let ticking = false;
@@ -1279,13 +1267,13 @@
       }, { passive: true });
     }
 
-    const heroVideo = document.getElementById('hero-video');
-    if (heroVideo) {
-      const markLoaded = () => heroVideo.classList.add('loaded');
-      if (heroVideo.readyState >= 3) {
+    const heroPhoto = document.querySelector('.hero-photo');
+    if (heroPhoto) {
+      const markLoaded = () => heroPhoto.classList.add('loaded');
+      if (heroPhoto.complete) {
         markLoaded();
       } else {
-        heroVideo.addEventListener('canplaythrough', markLoaded, { once: true });
+        heroPhoto.addEventListener('load', markLoaded, { once: true });
       }
     }
 
