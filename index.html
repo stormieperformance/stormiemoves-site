@@ -1156,6 +1156,22 @@
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Outdoor gym, Gärdet'">I'm in →</a>
           </div>
 
+          <div class="upcoming-item">
+            <h3 class="upcoming-title">Hill sprints, Fiskartorpet</h3>
+            <p class="upcoming-date">On demand</p>
+            <p class="upcoming-capacity">Group size: Open</p>
+            <p class="upcoming-desc">Short, hard efforts up Hoppbacken, the old ski jump hill. Rest at the bottom, go again. Go at your own pace.</p>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Hill sprints, Fiskartorpet'">I'm in →</a>
+          </div>
+
+          <div class="upcoming-item">
+            <h3 class="upcoming-title">Social run, Lill-Jansskogen</h3>
+            <p class="upcoming-date">On demand</p>
+            <p class="upcoming-capacity">Group size: Open</p>
+            <p class="upcoming-desc">Easy pace through the forest, built for conversation, not a PR. Free, no experience needed.</p>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Social run, Lill-Jansskogen'">I'm in →</a>
+          </div>
+
         </div>
 
         <div class="carousel-nav">
@@ -1177,12 +1193,14 @@
         <input class="full" type="text" name="name" placeholder="Name" required />
         <input type="email" name="email" placeholder="Email" required />
         <select name="interest" id="interest-select" required>
-          <option value="" disabled selected>Which activity would you like to join?</option>
+          <option value="" disabled selected>Which adventure would you like to join?</option>
           <optgroup label="On demand">
             <option value="Social trail walk, Djurgården">Social trail walk, Djurgården</option>
             <option value="Social climb, Gasverket">Social climb, Gasverket</option>
             <option value="Muay Thai pad work, Östermalm">Muay Thai pad work, Östermalm</option>
             <option value="Outdoor gym, Gärdet">Outdoor gym, Gärdet</option>
+            <option value="Hill sprints, Fiskartorpet">Hill sprints, Fiskartorpet</option>
+            <option value="Social run, Lill-Jansskogen">Social run, Lill-Jansskogen</option>
           </optgroup>
           <optgroup label="Activities">
             <option value="Social bike rides">Social bike rides</option>
@@ -1237,13 +1255,22 @@
       }, { passive: true });
     }
 
+    const aboutBg = document.querySelector('.about-bg');
+    if (aboutBg) {
+      aboutBg.addEventListener('error', () => { aboutBg.style.display = 'none'; }, { once: true });
+    }
+
     const heroPhoto = document.querySelector('.hero-photo');
     if (heroPhoto) {
       const markLoaded = () => heroPhoto.classList.add('loaded');
-      if (heroPhoto.complete) {
+      const hideOnError = () => { heroPhoto.style.display = 'none'; };
+      if (heroPhoto.complete && heroPhoto.naturalWidth > 0) {
         markLoaded();
+      } else if (heroPhoto.complete) {
+        hideOnError();
       } else {
         heroPhoto.addEventListener('load', markLoaded, { once: true });
+        heroPhoto.addEventListener('error', hideOnError, { once: true });
       }
     }
 
