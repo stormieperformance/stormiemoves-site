@@ -178,7 +178,9 @@
         max-height: 720px;
       }
       .hero-photo {
-        object-position: center 8%;
+        top: 0;
+        height: 100%;
+        object-position: center 22%;
       }
       .hero-img-title {
         font-size: clamp(42px, 12vw, 80px);
@@ -280,8 +282,7 @@
       width: 100vw;
       margin-left: calc(-50vw + 50%);
       overflow: hidden;
-      margin-top: 56px;
-      border-top: 1px solid var(--line);
+      border-top: 1px solid rgba(201,169,110,0.25);
       padding: 88px 0;
     }
 
@@ -1244,7 +1245,8 @@
   <script>
     const heroMedia = document.querySelectorAll('.hero-photo');
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (heroMedia.length && !prefersReduced) {
+    const isMobileWidth = window.matchMedia('(max-width: 900px)').matches;
+    if (heroMedia.length && !prefersReduced && !isMobileWidth) {
       let ticking = false;
       window.addEventListener('scroll', () => {
         if (!ticking) {
