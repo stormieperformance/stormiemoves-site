@@ -964,12 +964,32 @@
 
     footer {
       display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 24px 0 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-row {
+      display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
-      padding: 24px 0 28px;
-      border-top: 1px solid var(--line);
+    }
+
+    .footer-network {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .footer-network .dot {
+      color: var(--soft);
     }
 
     .footer-left {
@@ -1003,7 +1023,7 @@
     }
 
     @media (max-width: 640px) {
-      footer {
+      .footer-row {
         flex-direction: column;
         align-items: flex-start;
       }
@@ -1036,6 +1056,9 @@
       footer {
         flex-direction: column;
         align-items: flex-start;
+      }
+      .footer-network {
+        justify-content: flex-start;
       }
     }
 
@@ -1224,13 +1247,22 @@
     </section>
 
     <footer>
-      <div class="footer-left">
-        <div class="footer-item">Storm Kolmodin</div>
-        <div class="footer-item soft-item">Built in Stockholm</div>
+      <div class="footer-network">
+        <a class="footer-link" href="https://stormieperformance.com">Stormie Performance</a>
+        <span class="dot">·</span>
+        <a class="footer-link" href="https://stormie.app">Stormie Studios</a>
+        <span class="dot">·</span>
+        <a class="footer-link" href="https://stormiemoves.com">Stormie Moves</a>
       </div>
-      <div class="footer-links">
-        <a class="footer-link" href="#upcoming">Community Calendar</a>
-        <div class="footer-item">stormiemoves.com</div>
+      <div class="footer-row">
+        <div class="footer-left">
+          <div class="footer-item">Storm Kolmodin</div>
+          <div class="footer-item soft-item">Built in Stockholm</div>
+        </div>
+        <div class="footer-links">
+          <a class="footer-link" href="#upcoming">Community Calendar</a>
+          <div class="footer-item">stormiemoves.com</div>
+        </div>
       </div>
     </footer>
   </div>
