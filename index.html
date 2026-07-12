@@ -33,6 +33,12 @@
       --line: rgba(236,231,223,0.08);
       --gold: #c9a96e;
       --gold-soft: rgba(201,169,110,0.16);
+      --gold-deep: #8a6a35;
+      --cream: #f4efe6;
+      --cream-line: rgba(28,24,16,0.12);
+      --ink: #1c1810;
+      --ink-muted: rgba(28,24,16,0.72);
+      --ink-soft: rgba(28,24,16,0.5);
       --sans: 'Inter', sans-serif;
       --serif: 'Cormorant Garamond', serif;
     }
@@ -243,10 +249,8 @@
       width: 100vw;
       margin-left: calc(-50vw + 50%);
       overflow: hidden;
-      background: var(--bg);
-      border-top: 1px solid rgba(201,169,110,0.4);
-      border-bottom: 1px solid rgba(201,169,110,0.4);
-      padding: 22px 0;
+      background: var(--gold);
+      padding: 32px 0;
     }
 
     .marquee-track {
@@ -263,12 +267,12 @@
       font-style: italic;
       font-size: clamp(20px, 2.8vw, 30px);
       letter-spacing: 0.01em;
-      color: var(--text);
+      color: var(--bg);
       white-space: nowrap;
     }
 
     .marquee-track span.dot {
-      color: var(--gold);
+      color: rgba(9,9,9,0.4);
       font-style: normal;
     }
 
@@ -643,9 +647,82 @@
       margin-bottom: 28px;
     }
 
-    .next-up {
-      border-top: 1px solid var(--line);
-      padding: 64px 0;
+    .next-up-wrap {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      background: var(--cream);
+    }
+
+    .next-up-wrap .next-up {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 96px 32px;
+      border-top: none;
+    }
+
+    .next-up-wrap .offer-tag {
+      color: var(--gold-deep);
+    }
+
+    .next-up-wrap .offer-label {
+      color: var(--ink);
+    }
+
+    .next-up-wrap .offer-meta {
+      color: var(--ink-muted);
+    }
+
+    .next-up-wrap .upcoming-item {
+      border-color: var(--cream-line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.18));
+    }
+
+    .next-up-wrap .upcoming-item:hover {
+      border-color: var(--gold-deep);
+      box-shadow: 0 22px 40px rgba(28,24,16,0.12);
+    }
+
+    .next-up-wrap .upcoming-title {
+      color: var(--ink);
+    }
+
+    .next-up-wrap .upcoming-date {
+      color: var(--gold-deep);
+    }
+
+    .next-up-wrap .upcoming-capacity {
+      color: var(--ink-soft);
+    }
+
+    .next-up-wrap .upcoming-desc {
+      color: var(--ink-muted);
+    }
+
+    .next-up-wrap .verify-link {
+      color: var(--gold-deep);
+    }
+
+    .next-up-wrap .verify-link:hover,
+    .next-up-wrap .verify-link:focus-visible {
+      color: #6b5024;
+    }
+
+    .next-up-wrap .carousel-arrow {
+      border-color: rgba(138,106,53,0.4);
+      color: var(--ink);
+    }
+
+    .next-up-wrap .carousel-arrow:hover,
+    .next-up-wrap .carousel-arrow:focus-visible {
+      border-color: var(--gold-deep);
+      background: rgba(138,106,53,0.12);
+      color: var(--ink);
+    }
+
+    @media (max-width: 640px) {
+      .next-up-wrap .next-up {
+        padding: 64px 22px;
+      }
     }
 
     .carousel-wrap {
@@ -962,12 +1039,44 @@
       }
     }
 
+    .footer-wrap {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      background: var(--gold);
+      margin-top: 40px;
+    }
+
     footer {
       display: flex;
       flex-direction: column;
       gap: 16px;
-      padding: 24px 0 28px;
-      border-top: 1px solid var(--line);
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 40px 32px 44px;
+    }
+
+    .footer-wrap .footer-link,
+    .footer-wrap .footer-item {
+      color: rgba(9,9,9,0.75);
+    }
+
+    .footer-wrap .footer-link:hover,
+    .footer-wrap .footer-link:focus-visible {
+      color: var(--bg);
+    }
+
+    .footer-wrap .soft-item {
+      color: rgba(9,9,9,0.55) !important;
+    }
+
+    .footer-wrap .footer-network .dot {
+      color: rgba(9,9,9,0.4);
+    }
+
+    @media (max-width: 640px) {
+      footer {
+        padding: 32px 22px 36px;
+      }
     }
 
     .footer-row {
@@ -1148,6 +1257,7 @@
       </div>
     </div>
 
+    <div class="next-up-wrap">
     <section class="next-up reveal" id="upcoming">
       <p class="offer-tag">Upcoming</p>
       <p class="offer-label">Join a free activity</p>
@@ -1200,6 +1310,7 @@
         <a class="verify-link" href="#book">Get invited →</a>
       </div>
     </section>
+    </div>
 
     <section class="offer">
       <div class="premium reveal" id="training">
@@ -1246,6 +1357,7 @@
       </div>
     </section>
 
+    <div class="footer-wrap">
     <footer>
       <div class="footer-network">
         <a class="footer-link" href="https://stormieperformance.com">Stormie Performance</a>
@@ -1262,6 +1374,7 @@
         <div class="footer-item">stormiemoves.com</div>
       </div>
     </footer>
+    </div>
   </div>
   <script>
     const heroMedia = document.querySelectorAll('.hero-photo');
