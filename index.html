@@ -126,7 +126,7 @@
       position: absolute;
       left: 0;
       width: 100%;
-      filter: grayscale(20%) brightness(0.62) contrast(1.08) saturate(1.15) sepia(10%);
+      filter: grayscale(55%) brightness(0.5) contrast(1.05);
       opacity: 0;
       transition: opacity 1.4s ease 0.1s, transform 0.15s ease-out;
     }
@@ -178,15 +178,6 @@
         rgba(9,9,9,0.5) 75%,
         rgba(9,9,9,1) 100%
       );
-    }
-
-    .hero-img-warmth {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-      background: linear-gradient(160deg, rgba(201,169,110,0.22) 0%, rgba(201,169,110,0.06) 35%, rgba(9,9,9,0) 55%);
-      mix-blend-mode: soft-light;
     }
 
     .hero-img .hero-overlay-free {
@@ -316,7 +307,62 @@
       font-size: 9px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(232,228,220,0.34);
+      color: rgba(201,169,110,0.75);
+    }
+
+    .perks {
+      padding: 64px 0 68px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .perks-label {
+      font-family: var(--serif);
+      font-size: clamp(26px, 3.2vw, 34px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .perks-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 32px;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      padding: 0;
+    }
+
+    .perks-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .perks-check {
+      color: var(--gold);
+      font-size: 13px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .perks-cta {
+      display: flex;
+      justify-content: center;
+    }
+
+    @media (max-width: 640px) {
+      .perks-list {
+        grid-template-columns: 1fr;
+      }
+      .perks {
+        padding: 48px 0 52px;
+      }
     }
 
     .why {
@@ -1081,8 +1127,37 @@
       font-size: 13px;
       line-height: 1.8;
       color: var(--muted);
-      max-width: 460px;
+      max-width: 540px;
       margin-bottom: 32px;
+    }
+
+    .book-sub + .book-perks {
+      margin-top: -20px;
+    }
+
+    .book-perks {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+      max-width: 460px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .book-perks li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .book-sub-note {
+      font-size: 12px;
+      color: var(--soft);
+      margin-bottom: 28px;
     }
 
     .book-form {
@@ -1169,6 +1244,51 @@
       outline: none;
       border-color: rgba(201,169,110,0.4);
       background: var(--gold-soft);
+    }
+
+    .book-fieldset {
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .book-legend {
+      padding: 0 0 10px;
+      font-size: 12px;
+      color: var(--soft);
+    }
+
+    .book-checklist {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .book-check {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--muted);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 9px 13px;
+      cursor: pointer;
+      transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+    }
+
+    .book-check input {
+      width: 13px;
+      height: 13px;
+      margin: 0;
+      accent-color: var(--gold);
+    }
+
+    .book-check:has(input:checked) {
+      border-color: rgba(201,169,110,0.45);
+      background: var(--gold-soft);
+      color: var(--text);
     }
 
     @keyframes premiumEdgeDrift {
@@ -1392,12 +1512,11 @@
     <div class="hero-img">
       <video class="hero-photo hero-video-mobile" src="hero-video.mp4" poster="hero-video-poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
       <img class="hero-photo hero-photo-static" src="hero-video-poster.jpg" alt="">
-      <div class="hero-img-warmth"></div>
       <div class="hero-img-text">
         <p class="hero-tagline">Your next side quest starts here.</p>
-        <p class="hero-subhead">Stormie Moves is a community where people discover sports, outdoor adventures, and recovery experiences together around Stockholm.</p>
+        <p class="hero-subhead">Stormie Moves is a private community where members discover new sports, outdoor adventures and recovery experiences together around Stockholm. Membership is free.</p>
         
-        <a class="book-submit hero-overlay-free" href="#upcoming">Join the Community</a>
+        <a class="book-submit hero-overlay-free" href="#book">Apply to Join</a>
       </div>
     </div>
 
@@ -1465,11 +1584,25 @@
       </div>
     </section>
 
+    <section class="perks reveal">
+      <p class="perks-label">Membership includes</p>
+      <ul class="perks-list">
+        <li><span class="perks-check">✓</span> Access to free community activities</li>
+        <li><span class="perks-check">✓</span> Beginner-friendly introductions to new sports</li>
+        <li><span class="perks-check">✓</span> Meet active people around Stockholm</li>
+        <li><span class="perks-check">✓</span> Priority access to limited-capacity events</li>
+        <li><span class="perks-check">✓</span> Optional premium outdoor Sessions</li>
+      </ul>
+      <div class="perks-cta">
+        <a class="book-submit" href="#book">Apply to become a member</a>
+      </div>
+    </section>
+
     <div class="next-up-wrap">
     <section class="next-up reveal" id="upcoming">
       <p class="offer-tag">Upcoming</p>
-      <p class="offer-label">Join a free activity</p>
-      <p class="offer-meta">Everything starts with interest. Join an activity, and when enough people have signed up, I'll arrange a date that works for the group.</p>
+      <p class="offer-label">What you could join</p>
+      <p class="offer-meta">Everything starts with interest. Apply to join the community, and once you're in, I'll arrange a date that works for the group. Most activities are free, a few bigger ones have their own cost that you cover yourself, but we always go as a group.</p>
 
       <div class="carousel-wrap">
         <div class="carousel-track" id="upcoming-track">
@@ -1478,8 +1611,8 @@
             <h3 class="upcoming-title">Social trail walk, Djurgården</h3>
             <p class="upcoming-date">On demand</p>
             <p class="upcoming-capacity">Group size: Open <span class="difficulty-tag">Beginner friendly</span></p>
-            <p class="upcoming-desc">Dog friendly, easy pace, fika stop along the way. No experience needed.</p>
-            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Social trail walk, Djurgården'">I'm in →</a>
+            <p class="upcoming-desc">Dog friendly, stroller friendly, easy pace, fika stop along the way. No experience needed.</p>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-trail').checked = true;">Apply for this →</a>
           </div>
 
           <div class="upcoming-item">
@@ -1490,7 +1623,7 @@
             <p class="upcoming-date">On demand</p>
             <p class="upcoming-capacity">Group size: 1–2 people <span class="difficulty-tag">Moderate</span></p>
             <p class="upcoming-desc">I'm your on-duty belayer, easy first climb even if you're new. Entrance fee paid at the gym, gear rentable there.</p>
-            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Social climb, Gasverket'">I'm in →</a>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-climb').checked = true;">Apply for this →</a>
           </div>
 
           <div class="upcoming-item">
@@ -1498,7 +1631,7 @@
             <p class="upcoming-date">On demand</p>
             <p class="upcoming-capacity">Group size: 1–2 people <span class="difficulty-tag">Beginner friendly</span></p>
             <p class="upcoming-desc">Muay Thai pad work in the park. I hold pads, you strike, no experience needed.</p>
-            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Muay Thai pad work, Östermalm'">I'm in →</a>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-muaythai').checked = true;">Apply for this →</a>
           </div>
 
           <div class="upcoming-item">
@@ -1506,7 +1639,23 @@
             <p class="upcoming-date">On demand</p>
             <p class="upcoming-capacity">Group size: Up to 5 people <span class="difficulty-tag">Active</span></p>
             <p class="upcoming-desc">Bodyweight strength using the park's own equipment. Beginner friendly.</p>
-            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Outdoor gym, Gärdet'">I'm in →</a>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-outdoorgym').checked = true;">Apply for this →</a>
+          </div>
+
+          <div class="upcoming-item">
+            <h3 class="upcoming-title">Hill sprints, Norra Djurgården</h3>
+            <p class="upcoming-date">On demand</p>
+            <p class="upcoming-capacity">Group size: Up to 5 people <span class="difficulty-tag">Active</span></p>
+            <p class="upcoming-desc">Sprint repeats up the old Fiskartorpet ski jump hill, jog the recovery back down. Short, brutal, great views.</p>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-hillsprints').checked = true;">Apply for this →</a>
+          </div>
+
+          <div class="upcoming-item">
+            <h3 class="upcoming-title">Farm visit, Stora Skuggan</h3>
+            <p class="upcoming-date">On demand</p>
+            <p class="upcoming-capacity">Group size: 1 person at a time <span class="difficulty-tag">Low-key</span></p>
+            <p class="upcoming-desc">I spend my weekends here as a caretaker, and I'd love to show you around. Meet the animals close up, calm and unhurried.</p>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-farm').checked = true;">Apply for this →</a>
           </div>
 
         </div>
@@ -1518,7 +1667,7 @@
       </div>
 
       <div class="next-actions">
-        <a class="verify-link" href="#book">Get invited →</a>
+        <a class="verify-link" href="#book">Apply to join →</a>
       </div>
     </section>
     </div>
@@ -1528,44 +1677,52 @@
         <p class="premium-tag">Premium</p>
         <h3 class="premium-title">Outdoor Sessions With Storm</h3>
         <p class="premium-subtitle">Outdoor suffering included.</p>
-        <p class="premium-desc">Real strength and conditioning, outdoors, coached personally in a small group. Warm-up, strength work, and a challenging finisher, every time, inspired by military-style training, Muay Thai, and years of coaching. The only experience with a price tag, everything else is free because I choose to give it away, not because it's worth less.</p>
+        <p class="premium-desc">Real strength and conditioning, outdoors, coached personally in a small group. Warm-up, strength work, and a challenging finisher, every time, inspired by military-style training, Muay Thai, and years of coaching.</p>
         <a class="book-submit" href="#book">Inquire about training</a>
       </div>
     </section>
 
     <section class="book reveal" id="book">
-      <p class="book-label">Be one of the first</p>
-      <p class="book-sub">Tell me what you'd like to join and I'll invite you when the next session is happening.</p>
+      <p class="book-label">Become a member</p>
+      <p class="book-sub">Membership is free and gives you access to the private Stormie Moves community. As a member you'll get:</p>
+      <ul class="book-perks">
+        <li><span class="perks-check">✓</span> Free community activities</li>
+        <li><span class="perks-check">✓</span> Invitations to new adventures</li>
+        <li><span class="perks-check">✓</span> Priority access to limited-capacity sessions</li>
+        <li><span class="perks-check">✓</span> A welcoming community of people who enjoy staying active together</li>
+      </ul>
+      <p class="book-sub book-sub-note">Some premium coaching sessions are also available separately.</p>
 
       <form class="book-form" id="book-form" action="https://formspree.io/f/mvznvwpk" method="POST">
-        <input class="full" type="text" name="name" placeholder="Name" required />
+        <input type="text" name="name" placeholder="Name" required />
         <input type="email" name="email" placeholder="Email" required />
-        <select name="interest" id="interest-select" required>
-          <option value="" disabled selected>Which activity would you like to join?</option>
-          <optgroup label="On demand">
-            <option value="Social trail walk, Djurgården">Social trail walk, Djurgården</option>
-            <option value="Social climb, Gasverket">Social climb, Gasverket</option>
-            <option value="Muay Thai pad work, Östermalm">Muay Thai pad work, Östermalm</option>
-            <option value="Outdoor gym, Gärdet">Outdoor gym, Gärdet</option>
-          </optgroup>
-          <optgroup label="Recovery">
-            <option value="Sauna & ice plunge, outdoors">Sauna & ice plunge, outdoors</option>
-            <option value="Trail walks">Trail walks</option>
-            <option value="Farm animal visits">Farm animal visits</option>
-          </optgroup>
-          <option value="Storm Sessions">Storm Sessions, paid</option>
-          <option value="Not sure yet">Not sure yet, surprise me</option>
-        </select>
-        <textarea class="full" name="availability" placeholder="Anything else worth knowing" rows="3"></textarea>
-        <input type="hidden" name="_subject" value="Stormie Moves, come along" />
-        <button class="book-submit" type="submit">Get Invited</button>
-        <p class="book-reassurance">No spam, ever. I'll only reach out when an activity you're interested in is actually happening. <a href="/privacy.html">Privacy policy</a></p>
+
+        <fieldset class="full book-fieldset">
+          <legend class="book-legend">What are you interested in?</legend>
+          <div class="book-checklist">
+            <label class="book-check"><input type="checkbox" name="interests" id="interest-trail" value="Social trail walk, Djurgården" /> Trail walks</label>
+            <label class="book-check"><input type="checkbox" name="interests" id="interest-climb" value="Social climb, Gasverket" /> Climbing</label>
+            <label class="book-check"><input type="checkbox" name="interests" id="interest-muaythai" value="Muay Thai pad work, Östermalm" /> Muay Thai pad work</label>
+            <label class="book-check"><input type="checkbox" name="interests" id="interest-outdoorgym" value="Outdoor gym, Gärdet" /> Outdoor gym</label>
+            <label class="book-check"><input type="checkbox" name="interests" id="interest-hillsprints" value="Hill sprints, Norra Djurgården" /> Hill sprints</label>
+            <label class="book-check"><input type="checkbox" name="interests" id="interest-sauna" value="Sauna & ice plunge, outdoors" /> Sauna & ice plunge</label>
+            <label class="book-check"><input type="checkbox" name="interests" id="interest-farm" value="Farm visit, Stora Skuggan" /> Farm visit</label>
+            <label class="book-check"><input type="checkbox" name="interests" id="interest-storm" value="Premium Outdoor Sessions with Storm, paid" /> Premium Outdoor Sessions with Storm</label>
+            <label class="book-check"><input type="checkbox" name="interests" id="interest-notsure" value="Not sure yet" /> Not sure yet</label>
+          </div>
+        </fieldset>
+
+        <textarea class="full" name="about" placeholder="A little about yourself (optional)" rows="2"></textarea>
+
+        <input type="hidden" name="_subject" value="Stormie Moves, new member" />
+        <button class="book-submit" type="submit">Apply to Join</button>
+        <p class="book-reassurance">No spam, ever. I read these personally and I'll only reach out once there's an activity that's a good fit. <a href="/privacy.html">Privacy policy</a></p>
       </form>
 
       <div class="book-success" id="book-success">
         <span class="book-success-check">✓</span>
-        <p class="book-success-title">You're in.</p>
-        <p class="book-success-text">Got it, thanks for reaching out. I'll get back to you directly to sort out the details.</p>
+        <p class="book-success-title">You're in the loop.</p>
+        <p class="book-success-text">Thanks for reaching out. I read these personally, and I'll invite you in once there's an activity that's a good fit.</p>
       </div>
     </section>
 
