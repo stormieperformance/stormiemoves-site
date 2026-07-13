@@ -275,42 +275,6 @@
       color: rgba(232,228,220,0.34);
     }
 
-    .marquee {
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
-      overflow: hidden;
-      background: var(--gold);
-      padding: 16px 0;
-    }
-
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      gap: 20px;
-      align-items: center;
-      animation: marqueeScroll 26s linear infinite;
-    }
-
-    .marquee-track span {
-      font-family: var(--serif);
-      font-weight: 300;
-      font-style: italic;
-      font-size: clamp(20px, 2.8vw, 30px);
-      letter-spacing: 0.01em;
-      color: var(--bg);
-      white-space: nowrap;
-    }
-
-    .marquee-track span.dot {
-      color: rgba(9,9,9,0.4);
-      font-style: normal;
-    }
-
-    @keyframes marqueeScroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
     .about-section {
       position: relative;
       width: 100vw;
@@ -1254,13 +1218,6 @@
         </aside>
       </div>
     </section>
-
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Your next side quest starts here</span><span class="dot">·</span><span>Stormie Moves</span><span class="dot">·</span><span>Stockholm</span><span class="dot">·</span>
-        <span>Your next side quest starts here</span><span class="dot">·</span><span>Stormie Moves</span><span class="dot">·</span><span>Stockholm</span><span class="dot">·</span>
-      </div>
-    </div>
 
     <div class="next-up-wrap">
     <section class="next-up reveal" id="upcoming">
