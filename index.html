@@ -324,6 +324,13 @@
       border-bottom: 1px solid var(--line);
     }
 
+    .perks.reveal {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+    }
+
     .perks-label {
       font-family: var(--serif);
       font-size: clamp(26px, 3.2vw, 34px);
@@ -332,6 +339,16 @@
       color: var(--text);
       text-align: center;
       margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(4px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .perks.in-view .perks-label {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
     }
 
     .perks-list {
@@ -351,6 +368,30 @@
       font-size: 14px;
       line-height: 1.6;
       color: var(--muted);
+      opacity: 0;
+      transform: translateY(18px);
+      filter: blur(3px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .perks.in-view .perks-list li:nth-child(1),
+    .perks.in-view .perks-list li:nth-child(2) {
+      transition-delay: 0.35s;
+    }
+
+    .perks.in-view .perks-list li:nth-child(3),
+    .perks.in-view .perks-list li:nth-child(4) {
+      transition-delay: 0.55s;
+    }
+
+    .perks.in-view .perks-list li:nth-child(5) {
+      transition-delay: 0.75s;
+    }
+
+    .perks.in-view .perks-list li {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
     }
 
     .perks-check {
@@ -363,6 +404,14 @@
     .perks-cta {
       display: flex;
       justify-content: center;
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.95s, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.95s;
+    }
+
+    .perks.in-view .perks-cta {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     @media (max-width: 640px) {
@@ -1190,6 +1239,15 @@
       color: var(--muted);
     }
 
+    .book-perks .perks-check {
+      animation: whyGoldPulse 4.5s ease-in-out infinite;
+    }
+
+    .book-perks li:nth-child(1) .perks-check { animation-delay: 0s; }
+    .book-perks li:nth-child(2) .perks-check { animation-delay: 1s; }
+    .book-perks li:nth-child(3) .perks-check { animation-delay: 2s; }
+    .book-perks li:nth-child(4) .perks-check { animation-delay: 3s; }
+
     .book-sub-note {
       font-size: 12px;
       color: var(--soft);
@@ -1481,7 +1539,8 @@
         transition: none !important;
       }
       body, .hero-img-title, .hero-photo, .hero-tagline, .hero-subhead, .hero-trust, .hero-bio, .hero-card,
-      .hero-cta, .hero-overlay-free, .hero-toggle, .credential-list li, .reveal, .why-label, .why-card {
+      .hero-cta, .hero-overlay-free, .hero-toggle, .credential-list li, .reveal, .why-label, .why-card,
+      .perks-label, .perks-list li, .perks-cta {
         opacity: 1 !important;
         transform: none !important;
         filter: none !important;
