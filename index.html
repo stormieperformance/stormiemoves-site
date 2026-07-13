@@ -107,15 +107,26 @@
 
     .hero-photo {
       position: absolute;
-      top: -10%;
       left: 0;
       width: 100%;
-      height: 120%;
-      object-fit: cover;
-      object-position: center 15%;
       filter: grayscale(55%) brightness(0.5) contrast(1.05);
       opacity: 0;
       transition: opacity 1.4s ease 0.1s, transform 0.15s ease-out;
+    }
+
+    .hero-photo-bg {
+      top: -14%;
+      height: 128%;
+      object-fit: cover;
+      object-position: center 15%;
+      filter: grayscale(55%) brightness(0.32) contrast(1.05) blur(34px);
+      transform: scale(1.15);
+    }
+
+    .hero-photo-fg {
+      top: 0;
+      height: 100%;
+      object-fit: contain;
     }
 
     .hero-photo.loaded {
@@ -183,10 +194,14 @@
         height: 92vh;
         max-height: 720px;
       }
-      .hero-photo {
+      .hero-photo-bg {
+        top: -4%;
+        height: 108%;
+        object-position: center 22%;
+      }
+      .hero-photo-fg {
         top: 0;
         height: 100%;
-        object-position: center 22%;
       }
       .hero-img-title {
         font-size: clamp(42px, 12vw, 80px);
@@ -1182,7 +1197,8 @@
     </div>
 
     <div class="hero-img">
-      <video class="hero-photo" src="hero-video.mp4" poster="hero-video-poster.jpg" autoplay muted loop playsinline></video>
+      <video class="hero-photo hero-photo-bg" src="hero-video.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+      <video class="hero-photo hero-photo-fg" src="hero-video.mp4" poster="hero-video-poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
       <div class="hero-img-text">
         <p class="hero-tagline">Your next side quest starts here.</p>
         <p class="hero-subhead">Sports, outdoor experiences, and recovery sessions around Stockholm, with someone who's always up for something new.</p>
@@ -1395,11 +1411,14 @@
       aboutBg.addEventListener('error', () => { aboutBg.style.display = 'none'; }, { once: true });
     }
 
-    const heroPhoto = document.querySelector('.hero-photo');
-    if (heroPhoto) {
+    document.querySelectorAll('.hero-photo').forEach(heroPhoto => {
       const markLoaded = () => heroPhoto.classList.add('loaded');
       const hideOnError = () => { heroPhoto.style.display = 'none'; };
       if (heroPhoto.tagName === 'VIDEO') {
+        if (prefersReduced) {
+          heroPhoto.pause();
+          heroPhoto.removeAttribute('autoplay');
+        }
         if (heroPhoto.readyState >= 2) {
           markLoaded();
         } else {
@@ -1414,7 +1433,7 @@
         heroPhoto.addEventListener('load', markLoaded, { once: true });
         heroPhoto.addEventListener('error', hideOnError, { once: true });
       }
-    }
+    });
 
     const tiltReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!tiltReduced) {
