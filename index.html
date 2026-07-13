@@ -129,6 +129,21 @@
       object-fit: contain;
     }
 
+    .hero-photo-static {
+      top: -10%;
+      height: 120%;
+      object-fit: cover;
+      object-position: center 15%;
+    }
+
+    @media (min-width: 901px) {
+      .hero-video-mobile { display: none; }
+    }
+
+    @media (max-width: 900px) {
+      .hero-photo-static { display: none; }
+    }
+
     .hero-photo.loaded {
       opacity: 1;
     }
@@ -1197,8 +1212,9 @@
     </div>
 
     <div class="hero-img">
-      <video class="hero-photo hero-photo-bg" src="hero-video.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
-      <video class="hero-photo hero-photo-fg" src="hero-video.mp4" poster="hero-video-poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+      <video class="hero-photo hero-photo-bg hero-video-mobile" src="hero-video.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+      <video class="hero-photo hero-photo-fg hero-video-mobile" src="hero-video.mp4" poster="hero-video-poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+      <img class="hero-photo hero-photo-static" src="hero-video-poster.jpg" alt="">
       <div class="hero-img-text">
         <p class="hero-tagline">Your next side quest starts here.</p>
         <p class="hero-subhead">Sports, outdoor experiences, and recovery sessions around Stockholm, with someone who's always up for something new.</p>
@@ -1392,6 +1408,10 @@
     const heroMedia = document.querySelectorAll('.hero-photo');
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isMobileWidth = window.matchMedia('(max-width: 900px)').matches;
+
+    if (!isMobileWidth) {
+      document.querySelectorAll('.hero-video-mobile').forEach(v => v.remove());
+    }
     if (heroMedia.length && !prefersReduced && !isMobileWidth) {
       let ticking = false;
       window.addEventListener('scroll', () => {
