@@ -114,19 +114,11 @@
       transition: opacity 1.4s ease 0.1s, transform 0.15s ease-out;
     }
 
-    .hero-photo-bg {
-      top: -14%;
-      height: 128%;
+    .hero-video-mobile {
+      top: -10%;
+      height: 120%;
       object-fit: cover;
       object-position: center 15%;
-      filter: grayscale(55%) brightness(0.32) contrast(1.05) blur(34px);
-      transform: scale(1.15);
-    }
-
-    .hero-photo-fg {
-      top: 0;
-      height: 100%;
-      object-fit: contain;
     }
 
     .hero-photo-static {
@@ -209,14 +201,10 @@
         height: 92vh;
         max-height: 720px;
       }
-      .hero-photo-bg {
-        top: -4%;
-        height: 108%;
-        object-position: center 22%;
-      }
-      .hero-photo-fg {
+      .hero-video-mobile {
         top: 0;
         height: 100%;
+        object-position: center 22%;
       }
       .hero-img-title {
         font-size: clamp(42px, 12vw, 80px);
@@ -1212,8 +1200,7 @@
     </div>
 
     <div class="hero-img">
-      <video class="hero-photo hero-photo-bg hero-video-mobile" src="hero-video.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
-      <video class="hero-photo hero-photo-fg hero-video-mobile" src="hero-video.mp4" poster="hero-video-poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+      <video class="hero-photo hero-video-mobile" src="hero-video.mp4" poster="hero-video-poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
       <img class="hero-photo hero-photo-static" src="hero-video-poster.jpg" alt="">
       <div class="hero-img-text">
         <p class="hero-tagline">Your next side quest starts here.</p>
