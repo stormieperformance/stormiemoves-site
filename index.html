@@ -126,7 +126,7 @@
       position: absolute;
       left: 0;
       width: 100%;
-      filter: grayscale(55%) brightness(0.5) contrast(1.05);
+      filter: grayscale(30%) brightness(0.58) contrast(1.07) saturate(1.1) sepia(7%);
       opacity: 0;
       transition: opacity 1.4s ease 0.1s, transform 0.15s ease-out;
     }
@@ -178,6 +178,15 @@
         rgba(9,9,9,0.5) 75%,
         rgba(9,9,9,1) 100%
       );
+    }
+
+    .hero-img-warmth {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(160deg, rgba(201,169,110,0.16) 0%, rgba(201,169,110,0.05) 35%, rgba(9,9,9,0) 55%);
+      mix-blend-mode: soft-light;
     }
 
     .hero-img .hero-overlay-free {
@@ -1246,51 +1255,6 @@
       background: var(--gold-soft);
     }
 
-    .book-fieldset {
-      border: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .book-legend {
-      padding: 0 0 10px;
-      font-size: 12px;
-      color: var(--soft);
-    }
-
-    .book-checklist {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .book-check {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 12px;
-      font-weight: 300;
-      color: var(--muted);
-      background: var(--panel);
-      border: 1px solid var(--line);
-      padding: 9px 13px;
-      cursor: pointer;
-      transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
-    }
-
-    .book-check input {
-      width: 13px;
-      height: 13px;
-      margin: 0;
-      accent-color: var(--gold);
-    }
-
-    .book-check:has(input:checked) {
-      border-color: rgba(201,169,110,0.45);
-      background: var(--gold-soft);
-      color: var(--text);
-    }
-
     @keyframes premiumEdgeDrift {
       0%   { background-position: 0% 50%; }
       100% { background-position: 260% 50%; }
@@ -1512,6 +1476,7 @@
     <div class="hero-img">
       <video class="hero-photo hero-video-mobile" src="hero-video.mp4" poster="hero-video-poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
       <img class="hero-photo hero-photo-static" src="hero-video-poster.jpg" alt="">
+      <div class="hero-img-warmth"></div>
       <div class="hero-img-text">
         <p class="hero-tagline">Your next side quest starts here.</p>
         <p class="hero-subhead">Stormie Moves is a private community where members discover new sports, outdoor adventures and recovery experiences together around Stockholm. Membership is free.</p>
@@ -1549,7 +1514,7 @@
           <cite class="quote-author">— Storm Kolmodin, Founder of Stormie Moves</cite>
         </blockquote>
 
-        <aside class="hero-card">
+        <aside class="hero-card reveal">
           <button class="accordion-toggle hero-toggle" type="button" data-target="about-panel" aria-expanded="false" aria-controls="about-panel">About me <span class="chevron">⌄</span></button>
           <div class="accordion-panel" id="about-panel">
             <p class="hero-bio">
@@ -1612,7 +1577,7 @@
             <p class="upcoming-date">On demand</p>
             <p class="upcoming-capacity">Group size: Open <span class="difficulty-tag">Beginner friendly</span></p>
             <p class="upcoming-desc">Dog friendly, stroller friendly, easy pace, fika stop along the way. No experience needed.</p>
-            <a class="verify-link" href="#book" onclick="document.getElementById('interest-trail').checked = true;">Apply for this →</a>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Social trail walk, Djurgården'">Apply for this →</a>
           </div>
 
           <div class="upcoming-item">
@@ -1623,7 +1588,7 @@
             <p class="upcoming-date">On demand</p>
             <p class="upcoming-capacity">Group size: 1–2 people <span class="difficulty-tag">Moderate</span></p>
             <p class="upcoming-desc">I'm your on-duty belayer, easy first climb even if you're new. Entrance fee paid at the gym, gear rentable there.</p>
-            <a class="verify-link" href="#book" onclick="document.getElementById('interest-climb').checked = true;">Apply for this →</a>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Social climb, Gasverket'">Apply for this →</a>
           </div>
 
           <div class="upcoming-item">
@@ -1631,7 +1596,7 @@
             <p class="upcoming-date">On demand</p>
             <p class="upcoming-capacity">Group size: 1–2 people <span class="difficulty-tag">Beginner friendly</span></p>
             <p class="upcoming-desc">Muay Thai pad work in the park. I hold pads, you strike, no experience needed.</p>
-            <a class="verify-link" href="#book" onclick="document.getElementById('interest-muaythai').checked = true;">Apply for this →</a>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Muay Thai pad work, Östermalm'">Apply for this →</a>
           </div>
 
           <div class="upcoming-item">
@@ -1639,7 +1604,7 @@
             <p class="upcoming-date">On demand</p>
             <p class="upcoming-capacity">Group size: Up to 5 people <span class="difficulty-tag">Active</span></p>
             <p class="upcoming-desc">Bodyweight strength using the park's own equipment. Beginner friendly.</p>
-            <a class="verify-link" href="#book" onclick="document.getElementById('interest-outdoorgym').checked = true;">Apply for this →</a>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Outdoor gym, Gärdet'">Apply for this →</a>
           </div>
 
           <div class="upcoming-item">
@@ -1647,7 +1612,7 @@
             <p class="upcoming-date">On demand</p>
             <p class="upcoming-capacity">Group size: Up to 5 people <span class="difficulty-tag">Active</span></p>
             <p class="upcoming-desc">Sprint repeats up the old Fiskartorpet ski jump hill, jog the recovery back down. Short, brutal, great views.</p>
-            <a class="verify-link" href="#book" onclick="document.getElementById('interest-hillsprints').checked = true;">Apply for this →</a>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Hill sprints, Norra Djurgården'">Apply for this →</a>
           </div>
 
           <div class="upcoming-item">
@@ -1655,7 +1620,7 @@
             <p class="upcoming-date">On demand</p>
             <p class="upcoming-capacity">Group size: 1 person at a time <span class="difficulty-tag">Low-key</span></p>
             <p class="upcoming-desc">I spend my weekends here as a caretaker, and I'd love to show you around. Meet the animals close up, calm and unhurried.</p>
-            <a class="verify-link" href="#book" onclick="document.getElementById('interest-farm').checked = true;">Apply for this →</a>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Farm visit, Stora Skuggan'">Apply for this →</a>
           </div>
 
         </div>
@@ -1697,20 +1662,18 @@
         <input type="text" name="name" placeholder="Name" required />
         <input type="email" name="email" placeholder="Email" required />
 
-        <fieldset class="full book-fieldset">
-          <legend class="book-legend">What are you interested in?</legend>
-          <div class="book-checklist">
-            <label class="book-check"><input type="checkbox" name="interests" id="interest-trail" value="Social trail walk, Djurgården" /> Trail walks</label>
-            <label class="book-check"><input type="checkbox" name="interests" id="interest-climb" value="Social climb, Gasverket" /> Climbing</label>
-            <label class="book-check"><input type="checkbox" name="interests" id="interest-muaythai" value="Muay Thai pad work, Östermalm" /> Muay Thai pad work</label>
-            <label class="book-check"><input type="checkbox" name="interests" id="interest-outdoorgym" value="Outdoor gym, Gärdet" /> Outdoor gym</label>
-            <label class="book-check"><input type="checkbox" name="interests" id="interest-hillsprints" value="Hill sprints, Norra Djurgården" /> Hill sprints</label>
-            <label class="book-check"><input type="checkbox" name="interests" id="interest-sauna" value="Sauna & ice plunge, outdoors" /> Sauna & ice plunge</label>
-            <label class="book-check"><input type="checkbox" name="interests" id="interest-farm" value="Farm visit, Stora Skuggan" /> Farm visit</label>
-            <label class="book-check"><input type="checkbox" name="interests" id="interest-storm" value="Premium Outdoor Sessions with Storm, paid" /> Premium Outdoor Sessions with Storm</label>
-            <label class="book-check"><input type="checkbox" name="interests" id="interest-notsure" value="Not sure yet" /> Not sure yet</label>
-          </div>
-        </fieldset>
+        <select class="full" name="interest" id="interest-select" required>
+          <option value="" disabled selected>Which activity would you like to join?</option>
+          <option value="Social trail walk, Djurgården">Trail walks, Djurgården</option>
+          <option value="Social climb, Gasverket">Climbing, Gasverket</option>
+          <option value="Muay Thai pad work, Östermalm">Muay Thai pad work, Östermalm</option>
+          <option value="Outdoor gym, Gärdet">Outdoor gym, Gärdet</option>
+          <option value="Hill sprints, Norra Djurgården">Hill sprints, Norra Djurgården</option>
+          <option value="Sauna & ice plunge, outdoors">Sauna &amp; ice plunge, outdoors</option>
+          <option value="Farm visit, Stora Skuggan">Farm visit, Stora Skuggan</option>
+          <option value="Premium Outdoor Sessions with Storm, paid">Premium Outdoor Sessions with Storm</option>
+          <option value="Not sure yet">Not sure yet, surprise me</option>
+        </select>
 
         <textarea class="full" name="about" placeholder="A little about yourself (optional)" rows="2"></textarea>
 
