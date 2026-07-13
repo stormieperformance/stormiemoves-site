@@ -779,6 +779,14 @@
       margin-bottom: 16px;
     }
 
+    .offer-highlight {
+      color: var(--gold);
+    }
+
+    .next-up-wrap .offer-highlight {
+      color: var(--gold-deep);
+    }
+
     .boundaries {
       list-style: none;
       display: flex;
@@ -967,6 +975,7 @@
     }
 
     .upcoming-item {
+      position: relative;
       flex: 0 0 auto;
       width: 280px;
       scroll-snap-align: start;
@@ -977,6 +986,24 @@
       will-change: transform;
       box-shadow: 0 0 0 rgba(0,0,0,0);
       transition: border-color 0.4s ease, transform 0.15s ease-out, box-shadow 0.3s ease;
+    }
+
+    .category-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 2;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #090909;
+      background: var(--gold);
+      padding: 4px 9px;
+    }
+
+    .next-up-wrap .category-badge {
+      background: var(--gold-deep);
+      color: var(--cream);
     }
 
     .upcoming-item:hover {
@@ -1567,12 +1594,13 @@
     <section class="next-up reveal" id="upcoming">
       <p class="offer-tag">Upcoming</p>
       <p class="offer-label">What you could join</p>
-      <p class="offer-meta">Everything starts with interest. Apply to join the community, and once you're in, I'll arrange a date that works for the group. Most activities are free, a few bigger ones have their own cost that you cover yourself, but we always go as a group.</p>
+      <p class="offer-meta">Everything starts with interest. Apply to join the community, and once you're in, I'll arrange a date that works for the group. <span class="offer-highlight">Most activities are free,</span> a few bigger ones have their own cost that you cover yourself, but we always go as a group.</p>
 
       <div class="carousel-wrap">
         <div class="carousel-track" id="upcoming-track">
 
           <div class="upcoming-item">
+            <span class="category-badge">Recovery</span>
             <h3 class="upcoming-title">Social trail walk, Djurgården</h3>
             <p class="upcoming-date">On demand</p>
             <p class="upcoming-capacity">Group size: Open <span class="difficulty-tag">Beginner friendly</span></p>
@@ -1616,6 +1644,7 @@
           </div>
 
           <div class="upcoming-item">
+            <span class="category-badge">Recovery</span>
             <h3 class="upcoming-title">Farm visit, Stora Skuggan</h3>
             <p class="upcoming-date">On demand</p>
             <p class="upcoming-capacity">Group size: 1 person at a time <span class="difficulty-tag">Low-key</span></p>
@@ -1664,14 +1693,18 @@
 
         <select class="full" name="interest" id="interest-select" required>
           <option value="" disabled selected>Which activity would you like to join?</option>
-          <option value="Social trail walk, Djurgården">Trail walks, Djurgården</option>
-          <option value="Social climb, Gasverket">Climbing, Gasverket</option>
-          <option value="Muay Thai pad work, Östermalm">Muay Thai pad work, Östermalm</option>
-          <option value="Outdoor gym, Gärdet">Outdoor gym, Gärdet</option>
-          <option value="Hill sprints, Norra Djurgården">Hill sprints, Norra Djurgården</option>
-          <option value="Sauna & ice plunge, outdoors">Sauna &amp; ice plunge, outdoors</option>
-          <option value="Farm visit, Stora Skuggan">Farm visit, Stora Skuggan</option>
-          <option value="Premium Outdoor Sessions with Storm, paid">Premium Outdoor Sessions with Storm</option>
+          <optgroup label="Activities">
+            <option value="Social climb, Gasverket">Climbing, Gasverket</option>
+            <option value="Muay Thai pad work, Östermalm">Muay Thai pad work, Östermalm</option>
+            <option value="Outdoor gym, Gärdet">Outdoor gym, Gärdet</option>
+            <option value="Hill sprints, Norra Djurgården">Hill sprints, Norra Djurgården</option>
+            <option value="Sauna & ice plunge, outdoors">Sauna &amp; ice plunge, outdoors</option>
+            <option value="Premium Outdoor Sessions with Storm, paid">Premium Outdoor Sessions with Storm</option>
+          </optgroup>
+          <optgroup label="Recovery">
+            <option value="Social trail walk, Djurgården">Trail walks, Djurgården</option>
+            <option value="Farm visit, Stora Skuggan">Farm visit, Stora Skuggan</option>
+          </optgroup>
           <option value="Not sure yet">Not sure yet, surprise me</option>
         </select>
 
