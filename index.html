@@ -1162,7 +1162,7 @@
     </div>
 
     <div class="hero-img">
-      <img class="hero-photo" src="hero-climb.jpg" alt="Storm climbing at Gasverket">
+      <video class="hero-photo" src="hero-video.mp4" poster="hero-video-poster.jpg" autoplay muted loop playsinline></video>
       <div class="hero-img-text">
         <p class="hero-tagline">Your next side quest starts here.</p>
         <p class="hero-subhead">Sports, outdoor experiences, and recovery sessions around Stockholm, with someone who's always up for something new.</p>
@@ -1376,7 +1376,14 @@
     if (heroPhoto) {
       const markLoaded = () => heroPhoto.classList.add('loaded');
       const hideOnError = () => { heroPhoto.style.display = 'none'; };
-      if (heroPhoto.complete && heroPhoto.naturalWidth > 0) {
+      if (heroPhoto.tagName === 'VIDEO') {
+        if (heroPhoto.readyState >= 2) {
+          markLoaded();
+        } else {
+          heroPhoto.addEventListener('loadeddata', markLoaded, { once: true });
+          heroPhoto.addEventListener('error', hideOnError, { once: true });
+        }
+      } else if (heroPhoto.complete && heroPhoto.naturalWidth > 0) {
         markLoaded();
       } else if (heroPhoto.complete) {
         hideOnError();
