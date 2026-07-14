@@ -676,7 +676,7 @@
       height: 100%;
       object-fit: cover;
       object-position: center 25%;
-      filter: grayscale(45%) brightness(0.26) blur(1.5px);
+      filter: grayscale(45%) brightness(0.22) blur(1.5px);
     }
 
     .about-overlay {
@@ -694,20 +694,20 @@
     }
 
     .quote {
-      margin: 0 0 64px;
+      margin: 0 0 96px;
       padding-left: 24px;
       border-left: 2px solid rgba(201,169,110,0.4);
     }
 
     .quote-text {
       font-family: var(--serif);
-      font-size: clamp(24px, 3vw, 34px);
+      font-size: clamp(26px, 3.3vw, 37px);
       font-weight: 300;
       font-style: italic;
-      line-height: 1.5;
+      line-height: 1.55;
       color: var(--text);
       max-width: 720px;
-      margin: 0 0 18px;
+      margin: 0 0 22px;
     }
 
     .quote-text .soft {
@@ -840,11 +840,11 @@
       font-size: 14px;
       line-height: 1.9;
       color: var(--muted);
-      max-width: 480px;
+      max-width: 440px;
     }
 
     .hero-bio + .hero-bio {
-      margin-top: 14px;
+      margin-top: 22px;
     }
 
     .hero-card {
@@ -872,34 +872,35 @@
       margin-bottom: 18px;
     }
 
-    .credentials-intro {
-      margin-bottom: 16px;
-    }
-
     .credential-list {
       list-style: none;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .credential-list li {
-      font-size: 13px;
-      line-height: 1.85;
-      color: var(--muted);
-      padding: 12px 0;
-      border-top: 1px solid var(--line);
       display: flex;
-      align-items: baseline;
-      gap: 10px;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 0;
     }
 
     .credential-list .check {
       color: var(--gold);
-      font-size: 12px;
+      font-size: 13px;
       flex-shrink: 0;
+      margin-top: 3px;
     }
 
-    .credential-list li:last-child {
-      border-bottom: 1px solid var(--line);
+    .credential-title {
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .credential-sub {
+      font-size: 12px;
+      color: var(--soft);
+      letter-spacing: 0.03em;
     }
 
     .verify-link {
@@ -916,6 +917,23 @@
     .verify-link:focus-visible {
       color: #e3c48f;
       outline: none;
+    }
+
+    .hero-card .verify-link {
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      color: var(--soft);
+      text-decoration: underline;
+      text-decoration-color: rgba(236,231,223,0.25);
+      text-underline-offset: 3px;
+      margin-top: 6px;
+    }
+
+    .hero-card .verify-link:hover,
+    .hero-card .verify-link:focus-visible {
+      color: var(--muted);
+      text-decoration-color: rgba(236,231,223,0.5);
     }
 
     .reveal {
@@ -1838,13 +1856,41 @@
 
           <button class="accordion-toggle hero-toggle" type="button" data-target="credentials-panel" aria-expanded="false" aria-controls="credentials-panel">Credentials <span class="chevron">⌄</span></button>
           <div class="accordion-panel" id="credentials-panel">
-            <p class="hero-bio credentials-intro">I'm Storm, founder and host of Stormie Moves.</p>
             <ul class="credential-list">
-              <li><span class="check">✓</span> Licensed Personal Trainer · The Academy, 2018</li>
-              <li><span class="check">✓</span> Certified Nutrition &amp; Training Consultant</li>
-              <li><span class="check">✓</span> Group fitness instructor since 2017</li>
-              <li><span class="check">✓</span> Training studies at GIH, Swedish School of Sport and Health Sciences</li>
-              <li><span class="check">✓</span> Muay Thai practitioner since 2019</li>
+              <li>
+                <span class="check">✓</span>
+                <div>
+                  <p class="credential-title">Licensed Personal Trainer</p>
+                  <p class="credential-sub">The Academy • 2018</p>
+                </div>
+              </li>
+              <li>
+                <span class="check">✓</span>
+                <div>
+                  <p class="credential-title">Certified Nutrition &amp; Training Consultant</p>
+                </div>
+              </li>
+              <li>
+                <span class="check">✓</span>
+                <div>
+                  <p class="credential-title">Group Fitness Instructor</p>
+                  <p class="credential-sub">Since 2017</p>
+                </div>
+              </li>
+              <li>
+                <span class="check">✓</span>
+                <div>
+                  <p class="credential-title">Training Studies</p>
+                  <p class="credential-sub">GIH, Swedish School of Sport and Health Sciences</p>
+                </div>
+              </li>
+              <li>
+                <span class="check">✓</span>
+                <div>
+                  <p class="credential-title">Muay Thai Practitioner</p>
+                  <p class="credential-sub">Since 2019</p>
+                </div>
+              </li>
             </ul>
 
             <a
@@ -1853,24 +1899,10 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              Verify PT License →
+              Verify PT License
             </a>
           </div>
         </aside>
-      </div>
-    </section>
-
-    <section class="perks reveal">
-      <p class="perks-label">Member Benefits</p>
-      <ul class="perks-list">
-        <li><span class="perks-check">✓</span> Access to free community activities</li>
-        <li><span class="perks-check">✓</span> Beginner-friendly introductions to new sports</li>
-        <li><span class="perks-check">✓</span> Meet active people around Stockholm</li>
-        <li><span class="perks-check">✓</span> First invitations to limited-capacity activities</li>
-        <li><span class="perks-check">✓</span> Optional coached outdoor sessions</li>
-      </ul>
-      <div class="perks-cta">
-        <a class="book-submit" href="#book">Apply to become a member</a>
       </div>
     </section>
 
