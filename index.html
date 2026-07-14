@@ -1093,10 +1093,6 @@
       color: var(--ink);
     }
 
-    .next-up-wrap .upcoming-date {
-      color: var(--gold-deep);
-    }
-
     .next-up-wrap .upcoming-capacity {
       color: var(--ink-soft);
     }
@@ -1218,12 +1214,69 @@
       margin-bottom: 6px;
     }
 
-    .upcoming-date {
-      font-size: 11px;
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .status-badge {
+      font-size: 10px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 6px;
+      border: 1px solid rgba(201,169,110,0.35);
+      padding: 4px 9px;
+    }
+
+    .next-up-wrap .status-badge {
+      color: var(--gold-deep);
+      border-color: rgba(138,106,53,0.4);
+    }
+
+    .pricing-badge {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 9px;
+      border: 1px solid transparent;
+    }
+
+    .pricing-badge.pricing-included {
+      color: #090909;
+      background: var(--gold);
+    }
+
+    .next-up-wrap .pricing-badge.pricing-included {
+      background: var(--gold-deep);
+      color: var(--cream);
+    }
+
+    .pricing-badge.pricing-venue,
+    .pricing-badge.pricing-shared {
+      color: var(--gold);
+      border-color: rgba(201,169,110,0.35);
+      background: transparent;
+    }
+
+    .next-up-wrap .pricing-badge.pricing-venue,
+    .next-up-wrap .pricing-badge.pricing-shared {
+      color: var(--gold-deep);
+      border-color: rgba(138,106,53,0.4);
+    }
+
+    .pricing-badge.pricing-paid {
+      color: var(--gold);
+      border-color: var(--gold-deep);
+      background: var(--gold-soft);
+    }
+
+    .next-up-wrap .pricing-badge.pricing-paid {
+      color: var(--gold-deep);
+      border-color: var(--gold-deep);
+      background: rgba(138,106,53,0.14);
     }
 
     .upcoming-capacity {
@@ -1794,7 +1847,7 @@
         <p class="offer-label">What you could join</p>
         <span class="season-badge">Summer / Fall Edition</span>
       </div>
-      <p class="offer-meta">Everything starts with interest. Apply to join the community, and once you're in, I'll arrange a date that works for the group. <span class="offer-highlight">Most activities are free,</span> a few bigger ones have their own cost that you cover yourself, but we always go as a group.</p>
+      <p class="offer-meta">Everything starts with interest. Apply to join the community, and once you're in, I'll arrange a date that works for the group. <span class="offer-highlight">Membership is always free.</span> Most community activities are included with your membership. Some activities require an entrance fee paid directly to the venue, and coached Outdoor Sessions are available separately as a paid service.</p>
 
       <div class="carousel-wrap">
         <div class="carousel-track" id="upcoming-track">
@@ -1802,7 +1855,10 @@
           <div class="upcoming-item">
             <span class="category-badge">Recovery</span>
             <h3 class="upcoming-title">Social trail walk, Djurgården</h3>
-            <p class="upcoming-date">On demand</p>
+            <div class="badge-row">
+              <span class="status-badge">On demand</span>
+              <span class="pricing-badge pricing-included">Included</span>
+            </div>
             <p class="upcoming-capacity">Group size: Open <span class="difficulty-tag">Beginner friendly</span></p>
             <p class="upcoming-desc">Dog friendly, stroller friendly, easy pace, fika stop along the way. No experience needed.</p>
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Social trail walk, Djurgården'">Register interest →</a>
@@ -1813,23 +1869,32 @@
               <img src="climb-gasverket.jpg" alt="Social climb at Gasverket" loading="lazy">
             </div>
             <h3 class="upcoming-title">Social climb, Gasverket</h3>
-            <p class="upcoming-date">On demand</p>
+            <div class="badge-row">
+              <span class="status-badge">On demand</span>
+              <span class="pricing-badge pricing-venue">Venue fee</span>
+            </div>
             <p class="upcoming-capacity">Group size: 1–2 people <span class="difficulty-tag">Moderate</span></p>
-            <p class="upcoming-desc"> Join me for a social climbing session at Klätterverket Gasverket. Perfect if you’ve always wanted to try climbing or are looking for someone to climb with. Entrance fee paid at the gym, gear rentable there.</p>
+            <p class="upcoming-desc"> Join me for a social climbing session at Klätterverket Gasverket. Perfect if you’ve always wanted to try climbing or are looking for someone to climb with. Entrance fee and rental equipment are paid directly to the climbing gym.</p>
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Social climb, Gasverket'">Register interest →</a>
           </div>
 
           <div class="upcoming-item">
             <h3 class="upcoming-title">Pad holding, Östermalm</h3>
-            <p class="upcoming-date">On demand</p>
+            <div class="badge-row">
+              <span class="status-badge">On demand</span>
+              <span class="pricing-badge pricing-included">Included</span>
+            </div>
             <p class="upcoming-capacity">Group size: 1–2 people <span class="difficulty-tag">Beginner friendly</span></p>
-            <p class="upcoming-desc">Muay Thai pad work in the park. I hold pads, you strike, no experience needed.</p>
+            <p class="upcoming-desc">Muay Thai pad work in the park. I hold pads, you strike, completely included for members, no experience needed.</p>
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Muay Thai pad work, Östermalm'">Register interest →</a>
           </div>
 
           <div class="upcoming-item">
             <h3 class="upcoming-title">Outdoor gym session, Gärdet</h3>
-            <p class="upcoming-date">On demand</p>
+            <div class="badge-row">
+              <span class="status-badge">On demand</span>
+              <span class="pricing-badge pricing-included">Included</span>
+            </div>
             <p class="upcoming-capacity">Group size: Up to 5 people <span class="difficulty-tag">Active</span></p>
             <p class="upcoming-desc">Bodyweight strength using the park's own equipment. Beginner friendly.</p>
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Outdoor gym, Gärdet'">Register interest →</a>
@@ -1837,7 +1902,10 @@
 
           <div class="upcoming-item">
             <h3 class="upcoming-title">Hill sprints, Norra Djurgården</h3>
-            <p class="upcoming-date">On demand</p>
+            <div class="badge-row">
+              <span class="status-badge">On demand</span>
+              <span class="pricing-badge pricing-included">Included</span>
+            </div>
             <p class="upcoming-capacity">Group size: Up to 5 people <span class="difficulty-tag">Active</span></p>
             <p class="upcoming-desc">Sprint repeats up the old Fiskartorpet ski jump hill, jog the recovery back down. Short, brutal, great views.</p>
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Hill sprints, Norra Djurgården'">Register interest →</a>
@@ -1846,7 +1914,10 @@
           <div class="upcoming-item">
             <span class="category-badge">Recovery</span>
             <h3 class="upcoming-title">Farm visit, Stora Skuggan</h3>
-            <p class="upcoming-date">On demand</p>
+            <div class="badge-row">
+              <span class="status-badge">On demand</span>
+              <span class="pricing-badge pricing-included">Included</span>
+            </div>
             <p class="upcoming-capacity">Group size: 1 person at a time <span class="difficulty-tag">Low-key</span></p>
             <p class="upcoming-desc">I spend my weekends here as a caretaker, and I'd love to show you around. Meet the animals close up, calm and unhurried.</p>
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Farm visit, Stora Skuggan'">Register interest →</a>
@@ -1870,6 +1941,10 @@
       <div class="premium reveal" id="training">
         <p class="premium-tag">Premium</p>
         <h3 class="premium-title">Outdoor Sessions With Storm</h3>
+        <div class="badge-row">
+          <span class="status-badge">Bookable</span>
+          <span class="pricing-badge pricing-paid">Paid Session</span>
+        </div>
         <p class="premium-subtitle">Outdoor suffering included.</p>
         <p class="premium-desc">Real strength and conditioning, outdoors, coached personally in a small group. Warm-up, strength work, and a challenging finisher, every time, inspired by military-style training, Muay Thai, and years of coaching.</p>
         <a class="book-submit" href="#book">Inquire about training</a>
@@ -1887,17 +1962,19 @@
 
         <select class="full" name="interest" id="interest-select" required>
           <option value="" disabled selected>What are you most interested in?</option>
-          <optgroup label="Activities">
-            <option value="Social climb, Gasverket">Climbing, Gasverket</option>
-            <option value="Muay Thai pad work, Östermalm">Muay Thai pad work, Östermalm</option>
+          <optgroup label="Included with membership">
+            <option value="Muay Thai pad work, Östermalm">Pad holding, Östermalm</option>
             <option value="Outdoor gym, Gärdet">Outdoor gym, Gärdet</option>
             <option value="Hill sprints, Norra Djurgården">Hill sprints, Norra Djurgården</option>
-            <option value="Sauna & ice plunge, outdoors">Sauna &amp; ice plunge, outdoors</option>
-            <option value="Premium Outdoor Sessions with Storm, paid">Premium Outdoor Sessions with Storm</option>
-          </optgroup>
-          <optgroup label="Recovery">
-            <option value="Social trail walk, Djurgården">Trail walks, Djurgården</option>
+            <option value="Social trail walk, Djurgården">Trail walk, Djurgården</option>
             <option value="Farm visit, Stora Skuggan">Farm visit, Stora Skuggan</option>
+          </optgroup>
+          <optgroup label="Venue fee">
+            <option value="Social climb, Gasverket">Climbing, Gasverket (gym entrance required)</option>
+            <option value="Sauna & ice plunge, outdoors">Sauna &amp; Ice Plunge</option>
+          </optgroup>
+          <optgroup label="Paid coaching">
+            <option value="Premium Outdoor Sessions with Storm, paid">Outdoor Sessions with Storm</option>
           </optgroup>
           <option value="Not sure yet">Not sure yet, surprise me</option>
         </select>
