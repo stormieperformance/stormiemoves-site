@@ -353,10 +353,11 @@
 
     .perks-list {
       list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px 32px;
-      max-width: 700px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px 40px;
+      max-width: 720px;
       margin: 0 auto 40px;
       padding: 0;
     }
@@ -368,6 +369,8 @@
       font-size: 14px;
       line-height: 1.6;
       color: var(--muted);
+      flex: 0 1 280px;
+      text-align: left;
       opacity: 0;
       transform: translateY(18px);
       filter: blur(3px);
@@ -408,7 +411,8 @@
 
     @media (max-width: 640px) {
       .perks-list {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: center;
       }
       .perks {
         padding: 48px 0 52px;
@@ -526,6 +530,98 @@
       }
       .why {
         padding: 56px 0 48px;
+      }
+    }
+
+    .philosophy {
+      padding: 80px 0 84px;
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .philosophy.reveal {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+    }
+
+    .philosophy-label {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.4vw, 38px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 48px;
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(4px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .philosophy-label::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      margin: 18px auto 0;
+      transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.45s;
+    }
+
+    .philosophy.in-view .philosophy-label {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    .philosophy.in-view .philosophy-label::after {
+      width: 64px;
+    }
+
+    .philosophy-lines {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .philosophy-line {
+      font-family: var(--serif);
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--muted);
+      opacity: 0;
+      transform: translateY(18px);
+      filter: blur(3px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .philosophy.in-view .philosophy-line {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    .philosophy.in-view .philosophy-line:nth-child(1) { transition-delay: 0.5s; }
+    .philosophy.in-view .philosophy-line:nth-child(2) { transition-delay: 0.7s; }
+    .philosophy.in-view .philosophy-line:nth-child(3) { transition-delay: 0.9s; }
+
+    .philosophy-line.payoff {
+      color: var(--gold);
+    }
+
+    @media (max-width: 640px) {
+      .philosophy {
+        padding: 56px 0 60px;
+      }
+      .philosophy-lines {
+        gap: 14px;
       }
     }
 
@@ -1607,6 +1703,15 @@
       </div>
     </section>
 
+    <section class="philosophy reveal">
+      <p class="philosophy-label">The Stormie Moves Philosophy</p>
+      <div class="philosophy-lines">
+        <p class="philosophy-line">Move together.</p>
+        <p class="philosophy-line">Explore often.</p>
+        <p class="philosophy-line payoff">Leave with a story worth telling.</p>
+      </div>
+    </section>
+
     <section class="about-section">
       <!-- Swap this image for a real photo of Storm once ready -->
       <img class="about-bg" src="IMG_9226-cropped.jpg" alt="">
@@ -1654,7 +1759,7 @@
     </section>
 
     <section class="perks reveal">
-      <p class="perks-label">Membership includes</p>
+      <p class="perks-label">Member Benefits</p>
       <ul class="perks-list">
         <li><span class="perks-check">✓</span> Access to free community activities</li>
         <li><span class="perks-check">✓</span> Beginner-friendly introductions to new sports</li>
