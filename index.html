@@ -938,6 +938,32 @@
       color: var(--ink);
     }
 
+    .offer-label-row {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .offer-label-row .offer-label {
+      margin-bottom: 0;
+    }
+
+    .season-badge {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,169,110,0.35);
+      padding: 4px 10px;
+    }
+
+    .next-up-wrap .season-badge {
+      color: var(--gold-deep);
+      border-color: rgba(138,106,53,0.4);
+    }
+
     .next-up-wrap .offer-meta {
       color: var(--ink-muted);
     }
@@ -1644,7 +1670,10 @@
     <div class="next-up-wrap">
     <section class="next-up reveal" id="upcoming">
       <p class="offer-tag">Upcoming</p>
-      <p class="offer-label">What you could join</p>
+      <div class="offer-label-row">
+        <p class="offer-label">What you could join</p>
+        <span class="season-badge">Summer / Fall Edition</span>
+      </div>
       <p class="offer-meta">Everything starts with interest. Apply to join the community, and once you're in, I'll arrange a date that works for the group. <span class="offer-highlight">Most activities are free,</span> a few bigger ones have their own cost that you cover yourself, but we always go as a group.</p>
 
       <div class="carousel-wrap">
