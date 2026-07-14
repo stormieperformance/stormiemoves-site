@@ -602,14 +602,13 @@
     }
 
     .strike-bolt.strike {
-      animation: philosophyBoltShow 2s ease-in-out forwards;
+      animation: philosophyBoltShow 0.3s ease-out forwards;
     }
 
     @keyframes philosophyBoltShow {
       0%   { opacity: 0; }
-      12%  { opacity: 1; }
-      74%  { opacity: 1; }
-      100% { opacity: 0; }
+      40%  { opacity: 1; }
+      100% { opacity: 1; }
     }
 
     .strike-bolt .bolt-shape {
@@ -624,8 +623,8 @@
 
     .strike-bolt.strike .bolt-shape {
       animation:
-        philosophyBoltTrace 0.5s ease-out forwards,
-        philosophyBoltFill 0.45s ease-in 0.4s forwards;
+        philosophyBoltTrace 0.12s linear forwards,
+        philosophyBoltFill 0.1s ease-in 0.1s forwards;
     }
 
     @keyframes philosophyBoltTrace { to { stroke-dashoffset: 0; } }
@@ -645,15 +644,19 @@
       line-height: 1.5;
       color: var(--muted);
       opacity: 0;
-      transform: translateY(18px) scale(0.985);
-      filter: blur(3px);
-      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .philosophy-line.revealed {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0);
+      animation: philosophyElectricReveal 0.22s steps(1) forwards;
+    }
+
+    @keyframes philosophyElectricReveal {
+      0%   { opacity: 0; }
+      20%  { opacity: 1; }
+      35%  { opacity: 0.15; }
+      50%  { opacity: 1; }
+      65%  { opacity: 0.3; }
+      100% { opacity: 1; }
     }
 
     .philosophy-line.payoff {
@@ -2241,13 +2244,10 @@
         const line = lines[index];
         if (bolt) {
           bolt.classList.add('strike');
-          setTimeout(() => bolt.classList.remove('strike'), 2100);
         }
-        setTimeout(() => {
-          line.classList.add('revealed');
-        }, 150);
+        line.classList.add('revealed');
         index++;
-        setTimeout(next, 1900);
+        setTimeout(next, 1500);
       };
       next();
     };
