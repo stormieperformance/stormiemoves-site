@@ -978,11 +978,21 @@
       margin-bottom: 14px;
     }
 
+    .offer-intro {
+      margin-bottom: 8px;
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      margin-top: 36px;
+    }
+
     .premium {
       border: 1px solid rgba(201,169,110,0.35);
       background: linear-gradient(180deg, rgba(201,169,110,0.06), rgba(255,255,255,0.01));
       padding: 44px 40px;
-      margin-top: 40px;
       transition: border-color 0.4s ease, box-shadow 0.4s ease;
     }
 
@@ -1758,7 +1768,7 @@
       <div class="philosophy-lines">
         <p class="philosophy-line">Move together.</p>
         <p class="philosophy-line">Explore often.</p>
-        <p class="philosophy-line payoff">Stay curious.</p>
+        <p class="philosophy-line payoff">Leave with a story worth telling.</p>
       </div>
     </section>
 
@@ -1829,8 +1839,8 @@
         <p class="offer-label">What you could join</p>
         <span class="season-badge">Summer / Fall Edition</span>
       </div>
-      <p class="offer-meta">Join whenever something interests you.
-Membership gives you access to activities around Stockholm. There are no attendance requirements or expectations to join every event. Activities are arranged based on member interest and availability. <span class="offer-highlight">Membership is always free.</span> Most community activities are included with your membership. Some activities require an entrance fee paid directly to the venue, and coached Outdoor Sessions are available separately as a paid service.</p>
+      <p class="offer-meta">Join whenever something interests you. Membership gives you access to activities around Stockholm. There are no attendance requirements or expectations to join every event. Activities are arranged based on member interest and availability.</p>
+      <p class="offer-meta"><span class="offer-highlight">Membership is always free.</span> Most community activities are included with your membership. Some activities require an entrance fee paid directly to the venue, and coached Outdoor Sessions are available separately as a paid service.</p>
 
       <div class="carousel-wrap">
         <div class="carousel-track" id="upcoming-track">
@@ -1919,16 +1929,36 @@ Membership gives you access to activities around Stockholm. There are no attenda
     </div>
 
     <section class="offer">
-      <div class="premium reveal" id="training">
-        <p class="premium-tag">Premium</p>
-        <h3 class="premium-title">Outdoor Sessions With Storm</h3>
-        <div class="badge-row">
-          <span class="status-badge">Bookable</span>
-          <span class="pricing-badge pricing-paid">Paid Session</span>
+      <div class="offer-intro">
+        <p class="offer-tag">Available separately</p>
+        <p class="offer-label">Recovery &amp; Performance</p>
+        <p class="offer-meta">Membership stays free. These are optional, paid sessions for members who want something more focused, booked and paid for directly.</p>
+      </div>
+
+      <div class="offer-grid">
+        <div class="premium reveal" id="training">
+          <p class="premium-tag">Premium</p>
+          <h3 class="premium-title">Outdoor Sessions With Storm</h3>
+          <div class="badge-row">
+            <span class="status-badge">Bookable</span>
+            <span class="pricing-badge pricing-paid">Paid Session</span>
+          </div>
+          <p class="premium-subtitle">Outdoor suffering included.</p>
+          <p class="premium-desc">Real strength and conditioning, outdoors, coached personally in a small group. Warm-up, strength work, and a challenging finisher, every time, inspired by military-style training, Muay Thai, and years of coaching.</p>
+          <a class="book-submit" href="#book" onclick="document.getElementById('interest-select').value='Premium Outdoor Sessions with Storm, paid'">Inquire about training</a>
         </div>
-        <p class="premium-subtitle">Outdoor suffering included.</p>
-        <p class="premium-desc">Real strength and conditioning, outdoors, coached personally in a small group. Warm-up, strength work, and a challenging finisher, every time, inspired by military-style training, Muay Thai, and years of coaching.</p>
-        <a class="book-submit" href="#book">Inquire about training</a>
+
+        <div class="premium reveal" id="terahertz">
+          <p class="premium-tag">Wellness</p>
+          <h3 class="premium-title">Terahertz Frequency Treatment</h3>
+          <div class="badge-row">
+            <span class="status-badge">Bookable</span>
+            <span class="pricing-badge pricing-paid">Paid Session</span>
+          </div>
+          <p class="premium-subtitle">A warming ritual for rest days.</p>
+          <p class="premium-desc">A quiet, warming session using TeraHertz frequency technology, the kind of thing that pairs well with a rest day. Many people find it deeply relaxing. This is a wellness experience, not medical treatment, and it isn't intended to diagnose, treat, or cure any condition.</p>
+          <a class="book-submit" href="#book" onclick="document.getElementById('interest-select').value='Terahertz Frequency Treatment, paid'">Inquire about a session</a>
+        </div>
       </div>
     </section>
 
@@ -1956,6 +1986,7 @@ Membership gives you access to activities around Stockholm. There are no attenda
           </optgroup>
           <optgroup label="Paid coaching">
             <option value="Premium Outdoor Sessions with Storm, paid">Outdoor Sessions with Storm</option>
+            <option value="Terahertz Frequency Treatment, paid">Terahertz Frequency Treatment</option>
           </optgroup>
           <option value="Not sure yet">Not sure yet, surprise me</option>
         </select>
