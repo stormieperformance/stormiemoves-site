@@ -689,10 +689,6 @@
       max-width: 420px;
     }
 
-    .hero-card .accordion-toggle + .accordion-panel + .accordion-toggle {
-      margin-top: 18px;
-    }
-
     @media (max-width: 900px) {
       .about-content {
         padding: 0 22px;
@@ -746,30 +742,38 @@
     }
 
     .accordion-toggle {
-      display: inline-flex;
+      display: flex;
+      width: 100%;
       align-items: center;
-      gap: 6px;
+      justify-content: space-between;
+      gap: 12px;
       background: none;
       border: none;
-      color: var(--gold);
-      font-family: var(--sans);
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+      border-bottom: 1px solid var(--line);
+      color: var(--text);
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: 0.01em;
+      text-transform: none;
       cursor: pointer;
-      padding: 0;
-      margin: 4px 0 4px;
-      transition: color 0.25s ease;
+      padding: 16px 0;
+      margin: 0;
+      transition: color 0.25s ease, border-color 0.25s ease;
     }
 
     .accordion-toggle:hover,
     .accordion-toggle:focus-visible {
-      color: #e3c48f;
+      color: #f3ead8;
+      border-color: rgba(201,169,110,0.35);
     }
 
     .accordion-toggle .chevron {
       display: inline-block;
-      font-size: 10px;
+      color: var(--gold);
+      font-size: 14px;
+      font-style: normal;
       transition: transform 0.35s ease;
     }
 
