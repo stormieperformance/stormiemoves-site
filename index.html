@@ -585,6 +585,59 @@
       margin: 0 auto;
     }
 
+    .philosophy-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .strike-bolt {
+      position: relative;
+      width: 14px;
+      aspect-ratio: 1 / 2;
+      flex-shrink: 0;
+      overflow: visible;
+      opacity: 0;
+      filter: drop-shadow(0 0 6px rgba(201,169,110,0.65)) drop-shadow(0 0 16px rgba(201,169,110,0.35));
+    }
+
+    .strike-bolt.strike {
+      animation: philosophyBoltShow 2s ease-in-out forwards;
+    }
+
+    @keyframes philosophyBoltShow {
+      0%   { opacity: 0; }
+      12%  { opacity: 1; }
+      74%  { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    .strike-bolt .bolt-shape {
+      fill: var(--gold);
+      fill-opacity: 0;
+      stroke: var(--gold);
+      stroke-width: 3;
+      stroke-linejoin: round;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+    }
+
+    .strike-bolt.strike .bolt-shape {
+      animation:
+        philosophyBoltTrace 0.5s ease-out forwards,
+        philosophyBoltFill 0.45s ease-in 0.4s forwards;
+    }
+
+    @keyframes philosophyBoltTrace { to { stroke-dashoffset: 0; } }
+    @keyframes philosophyBoltFill { to { fill-opacity: 0.95; } }
+
+    @media (max-width: 640px) {
+      .strike-bolt {
+        width: 11px;
+      }
+    }
+
     .philosophy-line {
       font-family: var(--serif);
       font-size: clamp(22px, 3vw, 30px);
@@ -1780,9 +1833,24 @@
     <section class="philosophy reveal">
       <p class="philosophy-label">The Stormie Moves Philosophy</p>
       <div class="philosophy-lines">
-        <p class="philosophy-line">Move together.</p>
-        <p class="philosophy-line">Explore often.</p>
-        <p class="philosophy-line payoff">Stay curious.</p>
+        <div class="philosophy-row">
+          <svg class="strike-bolt" viewBox="0 0 100 200" aria-hidden="true">
+            <path class="bolt-shape" pathLength="1" d="M62 2 L20 116 L48 116 L38 198 L84 78 L54 78 Z"/>
+          </svg>
+          <p class="philosophy-line">Move together.</p>
+        </div>
+        <div class="philosophy-row">
+          <svg class="strike-bolt" viewBox="0 0 100 200" aria-hidden="true">
+            <path class="bolt-shape" pathLength="1" d="M62 2 L20 116 L48 116 L38 198 L84 78 L54 78 Z"/>
+          </svg>
+          <p class="philosophy-line">Explore often.</p>
+        </div>
+        <div class="philosophy-row">
+          <svg class="strike-bolt" viewBox="0 0 100 200" aria-hidden="true">
+            <path class="bolt-shape" pathLength="1" d="M62 2 L20 116 L48 116 L38 198 L84 78 L54 78 Z"/>
+          </svg>
+          <p class="philosophy-line payoff">Stay curious.</p>
+        </div>
       </div>
     </section>
 
@@ -2179,6 +2247,7 @@
 
     const philosophySection = document.querySelector('.philosophy');
     const philosophyLines = document.querySelectorAll('.philosophy-line');
+    const philosophyBolts = document.querySelectorAll('.strike-bolt');
     let typewriterStarted = false;
 
     const typeLine = (el, text, onDone) => {
@@ -2203,6 +2272,11 @@
         if (index >= lines.length) return;
         const { el, text } = lines[index];
         typeLine(el, text, () => {
+          const bolt = philosophyBolts[index];
+          if (bolt) {
+            bolt.classList.add('strike');
+            setTimeout(() => bolt.classList.remove('strike'), 2100);
+          }
           index++;
           setTimeout(next, 380);
         });
