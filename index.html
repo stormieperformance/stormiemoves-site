@@ -1162,24 +1162,6 @@
       transition: border-color 0.4s ease, transform 0.15s ease-out, box-shadow 0.3s ease;
     }
 
-    .category-badge {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      z-index: 2;
-      font-size: 9px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #090909;
-      background: var(--gold);
-      padding: 4px 9px;
-    }
-
-    .next-up-wrap .category-badge {
-      background: var(--gold-deep);
-      color: var(--cream);
-    }
-
     .upcoming-item:hover {
       border-color: rgba(201,169,110,0.35);
       box-shadow: 0 22px 40px rgba(0,0,0,0.35);
@@ -1245,13 +1227,13 @@
     }
 
     .pricing-badge.pricing-included {
-      color: #090909;
-      background: var(--gold);
+      color: var(--cream);
+      background: var(--gold-deep);
     }
 
     .next-up-wrap .pricing-badge.pricing-included {
-      background: var(--gold-deep);
-      color: var(--cream);
+      background: var(--gold);
+      color: #090909;
     }
 
     .pricing-badge.pricing-venue,
@@ -1853,7 +1835,6 @@
         <div class="carousel-track" id="upcoming-track">
 
           <div class="upcoming-item">
-            <span class="category-badge">Recovery</span>
             <h3 class="upcoming-title">Social trail walk, Djurgården</h3>
             <div class="badge-row">
               <span class="status-badge">On demand</span>
@@ -1912,7 +1893,6 @@
           </div>
 
           <div class="upcoming-item">
-            <span class="category-badge">Recovery</span>
             <h3 class="upcoming-title">Farm visit, Stora Skuggan</h3>
             <div class="badge-row">
               <span class="status-badge">On demand</span>
