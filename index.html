@@ -210,7 +210,7 @@
       position: relative;
       z-index: 2;
       display: inline-flex;
-      margin-top: 44px;
+      margin-top: 26px;
       opacity: 0;
       animation: fadeUp 0.8s ease 1.25s forwards;
     }
@@ -598,7 +598,7 @@
       12%  { transform: translate(-48%, -50%) scale(1.08); }
       18%  { transform: translate(-51%, -50%) scale(1.02); filter: brightness(1.8) drop-shadow(0 0 14px rgba(255,255,255,0.7)) drop-shadow(0 0 40px rgba(201,169,110,0.6)); }
       28%  { transform: translate(-50%, -50%) scale(1); filter: brightness(1) drop-shadow(0 0 10px rgba(201,169,110,0.4)) drop-shadow(0 0 28px rgba(201,169,110,0.2)); }
-      100% { opacity: 0.28; transform: translate(-50%, -50%) scale(1); filter: brightness(1) drop-shadow(0 0 10px rgba(201,169,110,0.4)) drop-shadow(0 0 28px rgba(201,169,110,0.2)); }
+      100% { opacity: 0.35; transform: translate(-50%, -50%) scale(1); filter: brightness(1) drop-shadow(0 0 10px rgba(201,169,110,0.4)) drop-shadow(0 0 28px rgba(201,169,110,0.2)); }
     }
 
     .philosophy-bolt-bg .bolt-shape {
@@ -1119,6 +1119,7 @@
 
     .offer-label-row .offer-label {
       margin-bottom: 0;
+      font-size: 24px;
     }
 
     .season-badge {
@@ -1190,7 +1191,7 @@
 
     .carousel-wrap {
       position: relative;
-      margin: 32px 0 0;
+      margin: 52px 0 0;
     }
 
     .carousel-track {
@@ -1836,80 +1837,6 @@
       </div>
     </section>
 
-    <section class="about-section">
-      <!-- Swap this image for a real photo of Storm once ready -->
-      <img class="about-bg" src="IMG_9226-cropped.jpg" alt="">
-      <div class="about-overlay"></div>
-
-      <div class="about-content">
-        <blockquote class="quote">
-          <p class="quote-text">New sports, new challenges, staying in motion, <span class="soft">that's genuinely how I live, and I bring people along for it.</span></p>
-          <cite class="quote-author">— Storm Kolmodin, Founder of Stormie Moves</cite>
-        </blockquote>
-
-        <aside class="hero-card">
-          <button class="accordion-toggle hero-toggle" type="button" data-target="about-panel" aria-expanded="false" aria-controls="about-panel">About me <span class="chevron">⌄</span></button>
-          <div class="accordion-panel" id="about-panel">
-            <p class="hero-bio">
-              I've always believed the best friendships start by doing something together, not by talking about it. That's why Stormie Moves exists. Climbing, trail walks, Muay Thai pad work, recovery sessions, it's never really about the exercise. It's about finding people who'd rather move through life than sit still.
-            </p>
-            <p class="hero-bio">
-              No program, no pressure. Just movement, new places, and good company.
-            </p>
-          </div>
-
-          <button class="accordion-toggle hero-toggle" type="button" data-target="credentials-panel" aria-expanded="false" aria-controls="credentials-panel">Credentials <span class="chevron">⌄</span></button>
-          <div class="accordion-panel" id="credentials-panel">
-            <ul class="credential-list">
-              <li>
-                <span class="check">✓</span>
-                <div>
-                  <p class="credential-title">Licensed Personal Trainer</p>
-                  <p class="credential-sub">The Academy • 2018</p>
-                </div>
-              </li>
-              <li>
-                <span class="check">✓</span>
-                <div>
-                  <p class="credential-title">Certified Nutrition &amp; Training Consultant</p>
-                </div>
-              </li>
-              <li>
-                <span class="check">✓</span>
-                <div>
-                  <p class="credential-title">Group Fitness Instructor</p>
-                  <p class="credential-sub">Since 2017</p>
-                </div>
-              </li>
-              <li>
-                <span class="check">✓</span>
-                <div>
-                  <p class="credential-title">Training Studies</p>
-                  <p class="credential-sub">GIH, Swedish School of Sport and Health Sciences</p>
-                </div>
-              </li>
-              <li>
-                <span class="check">✓</span>
-                <div>
-                  <p class="credential-title">Muay Thai Practitioner</p>
-                  <p class="credential-sub">Since 2019</p>
-                </div>
-              </li>
-            </ul>
-
-            <a
-              class="verify-link"
-              href="https://ptlicens.trueoriginal.com/en/licensierad-personlig-tranare-denise-kolmodin-138305lEsdYeph88/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Verify PT License
-            </a>
-          </div>
-        </aside>
-      </div>
-    </section>
-
     <div class="next-up-wrap">
     <section class="next-up reveal" id="upcoming">
       <p class="offer-tag">Upcoming</p>
@@ -2010,7 +1937,7 @@
       <div class="offer-intro">
         <p class="offer-tag">Available separately</p>
         <p class="offer-label">Recovery &amp; Performance</p>
-        <p class="offer-meta">Membership stays free. These are optional, paid sessions for members who want something more focused. Booked and paid for directly.</p>
+        <p class="offer-meta">Looking for something more structured? Members can also book optional coached sessions focused on performance and recovery.</p>
       </div>
 
       <div class="offer-grid">
@@ -2037,6 +1964,80 @@
           <p class="premium-desc">A quiet, warming session using TeraHertz frequency technology. Many people find it deeply relaxing. This is a wellness experience, not medical treatment, and it isn't intended to diagnose, treat, or cure any condition.</p>
           <a class="book-submit" href="#book" onclick="document.getElementById('interest-select').value='Terahertz Frequency Treatment, paid'">Inquire about a session</a>
         </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <!-- Swap this image for a real photo of Storm once ready -->
+      <img class="about-bg" src="IMG_9226-cropped.jpg" alt="">
+      <div class="about-overlay"></div>
+
+      <div class="about-content">
+        <blockquote class="quote">
+          <p class="quote-text">New sports, new challenges, staying in motion, <span class="soft">that's genuinely how I live, and I bring people along for it.</span></p>
+          <cite class="quote-author">— Storm Kolmodin, Founder of Stormie Moves</cite>
+        </blockquote>
+
+        <aside class="hero-card">
+          <button class="accordion-toggle hero-toggle" type="button" data-target="about-panel" aria-expanded="false" aria-controls="about-panel">About me <span class="chevron">⌄</span></button>
+          <div class="accordion-panel" id="about-panel">
+            <p class="hero-bio">
+              I've always believed the best friendships start by doing something together, not by talking about it. That's why Stormie Moves exists. Climbing, trail walks, Muay Thai pad work, recovery sessions, it's never really about the exercise. It's about finding people who'd rather move through life than sit still.
+            </p>
+            <p class="hero-bio">
+              No program, no pressure. Just movement, new places, and good company.
+            </p>
+          </div>
+
+          <button class="accordion-toggle hero-toggle" type="button" data-target="credentials-panel" aria-expanded="false" aria-controls="credentials-panel">Credentials <span class="chevron">⌄</span></button>
+          <div class="accordion-panel" id="credentials-panel">
+            <ul class="credential-list">
+              <li>
+                <span class="check">✓</span>
+                <div>
+                  <p class="credential-title">Licensed Personal Trainer</p>
+                  <p class="credential-sub">The Academy • 2018</p>
+                </div>
+              </li>
+              <li>
+                <span class="check">✓</span>
+                <div>
+                  <p class="credential-title">Certified Nutrition &amp; Training Consultant</p>
+                </div>
+              </li>
+              <li>
+                <span class="check">✓</span>
+                <div>
+                  <p class="credential-title">Group Fitness Instructor</p>
+                  <p class="credential-sub">Since 2017</p>
+                </div>
+              </li>
+              <li>
+                <span class="check">✓</span>
+                <div>
+                  <p class="credential-title">Training Studies</p>
+                  <p class="credential-sub">GIH, Swedish School of Sport and Health Sciences</p>
+                </div>
+              </li>
+              <li>
+                <span class="check">✓</span>
+                <div>
+                  <p class="credential-title">Muay Thai Practitioner</p>
+                  <p class="credential-sub">Since 2019</p>
+                </div>
+              </li>
+            </ul>
+
+            <a
+              class="verify-link"
+              href="https://ptlicens.trueoriginal.com/en/licensierad-personlig-tranare-denise-kolmodin-138305lEsdYeph88/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Verify PT License
+            </a>
+          </div>
+        </aside>
       </div>
     </section>
 
