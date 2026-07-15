@@ -980,6 +980,25 @@
       color: var(--gold-deep);
     }
 
+    a.offer-highlight {
+      text-decoration: underline;
+      text-decoration-color: rgba(201,169,110,0.4);
+      text-underline-offset: 3px;
+      transition: color 0.25s ease, text-decoration-color 0.25s ease;
+    }
+
+    a.offer-highlight:hover,
+    a.offer-highlight:focus-visible {
+      color: #e3c48f;
+      text-decoration-color: rgba(201,169,110,0.7);
+    }
+
+    .next-up-wrap a.offer-highlight:hover,
+    .next-up-wrap a.offer-highlight:focus-visible {
+      color: var(--gold);
+      text-decoration-color: rgba(138,106,53,0.8);
+    }
+
     .boundaries {
       list-style: none;
       display: flex;
@@ -1350,10 +1369,6 @@
       font-size: 13px;
       line-height: 1.85;
       color: var(--muted);
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
     }
 
     .upcoming-item .verify-link {
@@ -1845,7 +1860,7 @@
         <span class="season-badge">Summer / Fall Edition</span>
       </div>
       <p class="offer-meta">Join whenever something interests you. Membership gives you access to activities around Stockholm. There are no attendance requirements or expectations to join every event. Activities are arranged based on member interest and availability.</p>
-      <p class="offer-meta"><span class="offer-highlight">Membership is always free.</span> Most community activities are included with your membership. Some activities require an entrance fee paid directly to the venue, and coached Outdoor Sessions are available separately as a paid service.</p>
+      <p class="offer-meta"><span class="offer-highlight">Membership is always free.</span> Most community activities are included with your membership. Some activities require an entrance fee paid directly to the venue, and <a class="offer-highlight" href="#premium-sessions">Premium Sessions</a> are available separately at an additional fee.</p>
 
       <div class="carousel-wrap">
         <div class="carousel-track" id="upcoming-track">
@@ -1856,7 +1871,7 @@
               <span class="status-badge">On demand</span>
               <span class="pricing-badge pricing-included">Included</span>
             </div>
-            <p class="upcoming-capacity">Group size: Open <span class="difficulty-tag">Easy pace</span></p>
+            <p class="upcoming-capacity">Group size: Varied <span class="difficulty-tag">Easy pace</span></p>
             <p class="upcoming-desc">Dog friendly, stroller friendly, easy pace, with a fika stop along the way.</p>
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Social trail walk, Djurgården'">Register interest →</a>
           </div>
@@ -1870,7 +1885,7 @@
               <span class="status-badge">On demand</span>
               <span class="pricing-badge pricing-venue">Venue fee</span>
             </div>
-            <p class="upcoming-capacity">Group size: 1–2 people <span class="difficulty-tag">Moderate</span></p>
+            <p class="upcoming-capacity">Group size: Varied <span class="difficulty-tag">Moderate</span></p>
             <p class="upcoming-desc">A social climbing session at Klätterverket Gasverket. Entrance fee and rental equipment are paid directly to the climbing gym.</p>
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Social climb, Gasverket'">Register interest →</a>
           </div>
@@ -1881,7 +1896,7 @@
               <span class="status-badge">On demand</span>
               <span class="pricing-badge pricing-included">Included</span>
             </div>
-            <p class="upcoming-capacity">Group size: 1–2 people <span class="difficulty-tag">Technique focus</span></p>
+            <p class="upcoming-capacity">Group size: Varied <span class="difficulty-tag">Technique focus</span></p>
             <p class="upcoming-desc">Muay Thai pad work in the park. I hold pads, you strike. Included for members.</p>
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Muay Thai pad work, Östermalm'">Register interest →</a>
           </div>
@@ -1892,7 +1907,7 @@
               <span class="status-badge">On demand</span>
               <span class="pricing-badge pricing-included">Included</span>
             </div>
-            <p class="upcoming-capacity">Group size: Up to 5 people <span class="difficulty-tag">Hard effort</span></p>
+            <p class="upcoming-capacity">Group size: Varied <span class="difficulty-tag">Hard effort</span></p>
             <p class="upcoming-desc">Bodyweight strength using the park's own equipment.</p>
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Outdoor gym, Gärdet'">Register interest →</a>
           </div>
@@ -1903,7 +1918,7 @@
               <span class="status-badge">On demand</span>
               <span class="pricing-badge pricing-included">Included</span>
             </div>
-            <p class="upcoming-capacity">Group size: Up to 5 people <span class="difficulty-tag">Brutal</span></p>
+            <p class="upcoming-capacity">Group size: Varied <span class="difficulty-tag">Brutal</span></p>
             <p class="upcoming-desc">Sprint repeats up the old Fiskartorpet ski jump hill, jog the recovery back down. Short, brutal, great views.</p>
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Hill sprints, Norra Djurgården'">Register interest →</a>
           </div>
@@ -1914,7 +1929,7 @@
               <span class="status-badge">On demand</span>
               <span class="pricing-badge pricing-included">Included</span>
             </div>
-            <p class="upcoming-capacity">Group size: 1 person at a time <span class="difficulty-tag">Calm</span></p>
+            <p class="upcoming-capacity">Group size: Varied <span class="difficulty-tag">Calm</span></p>
             <p class="upcoming-desc">I spend some weekends here as a caretaker, and I'd love to show you around. Meet the animals close up, calm and unhurried.</p>
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Farm visit, Stora Skuggan'">Register interest →</a>
           </div>
@@ -1933,11 +1948,11 @@
     </section>
     </div>
 
-    <section class="offer">
+    <section class="offer" id="premium-sessions">
       <div class="offer-intro">
         <p class="offer-tag">Available separately</p>
         <p class="offer-label">Recovery &amp; Performance</p>
-        <p class="offer-meta">Looking for something more structured? Members can also book optional coached sessions focused on performance and recovery.</p>
+        <p class="offer-meta">Membership is always free. Premium coaching and recovery sessions are optional add-ons available at an additional cost.</p>
       </div>
 
       <div class="offer-grid">
@@ -1945,8 +1960,7 @@
           <p class="premium-tag">Premium</p>
           <h3 class="premium-title">Outdoor Sessions With Storm</h3>
           <div class="badge-row">
-            <span class="status-badge">Bookable</span>
-            <span class="pricing-badge pricing-paid">Paid Session</span>
+            <span class="pricing-badge pricing-paid">Add-On</span>
           </div>
           <p class="premium-subtitle">Outdoor suffering included.</p>
           <p class="premium-desc">Real strength and conditioning, outdoors, coached personally in a small group. Warm-up, strength work, and a challenging finisher, every time, inspired by military-style training, Muay Thai, and years of coaching.</p>
@@ -1957,8 +1971,7 @@
           <p class="premium-tag">Wellness</p>
           <h3 class="premium-title">Terahertz Frequency Treatment</h3>
           <div class="badge-row">
-            <span class="status-badge">Bookable</span>
-            <span class="pricing-badge pricing-paid">Paid Session</span>
+            <span class="pricing-badge pricing-paid">Add-On</span>
           </div>
           <p class="premium-subtitle">A warming ritual for rest days.</p>
           <p class="premium-desc">A quiet, warming session using TeraHertz frequency technology. Many people find it deeply relaxing. This is a wellness experience, not medical treatment, and it isn't intended to diagnose, treat, or cure any condition.</p>
