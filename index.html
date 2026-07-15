@@ -1487,6 +1487,38 @@
       }
     }
 
+    .adventure-divider {
+      flex: 0 0 230px;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 26px 20px;
+    }
+
+    .adventure-tag {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid rgba(201,169,110,0.35);
+      padding: 3px 8px;
+      margin-bottom: 12px;
+    }
+
+    .next-up-wrap .adventure-tag {
+      color: var(--gold-deep);
+      border-color: rgba(138,106,53,0.4);
+    }
+
+    @media (max-width: 640px) {
+      .adventure-divider {
+        flex-basis: 200px;
+      }
+    }
+
     .carousel-nav {
       display: flex;
       gap: 10px;
@@ -2050,6 +2082,25 @@
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Farm visit, Stora Skuggan'">Register interest →</a>
           </div>
 
+          <div class="adventure-divider" aria-hidden="false">
+            <div class="recovery-divider-line"></div>
+            <p class="recovery-divider-label">Adventure experiences</p>
+            <p class="recovery-divider-sub">Bigger adventures that take us beyond the everyday. Camp under the stars, explore nature, and take on memorable outdoor experiences together.</p>
+          </div>
+
+          <div class="upcoming-item">
+            <span class="adventure-tag">Adventure</span>
+            <h3 class="upcoming-title">Overnight Camping</h3>
+            <div class="badge-row">
+              <span class="pricing-badge pricing-included">Included</span>
+            </div>
+            <p class="upcoming-capacity">
+              <span class="difficulty-tag">Outdoor living</span>
+            </p>
+            <p class="upcoming-desc">Spend a night outdoors with tents, campfire cooking, scenic hikes and a slower pace surrounded by nature. A weekend inspired by Swedish friluftsliv, focused on adventure, connection and the outdoors.</p>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Overnight Camping'">Register interest →</a>
+          </div>
+
         </div>
 
         <div class="carousel-nav">
@@ -2187,6 +2238,9 @@
             <option value="Hill sprints, Norra Djurgården">Hill sprints, Norra Djurgården</option>
             <option value="Social trail walk, Djurgården">Trail walk, Djurgården</option>
             <option value="Farm visit, Stora Skuggan">Farm visit, Stora Skuggan</option>
+          </optgroup>
+          <optgroup label="Seasonal adventures">
+            <option value="Overnight Camping">Overnight Camping</option>
           </optgroup>
           <optgroup label="Venue fee">
             <option value="Social climb, Gasverket">Climbing, Gasverket (gym entrance required)</option>
