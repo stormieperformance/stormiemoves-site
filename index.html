@@ -1006,6 +1006,10 @@
       transition-delay: 0.26s;
     }
 
+    .offer-grid .premium.reveal:nth-of-type(3) {
+      transition-delay: 0.4s;
+    }
+
     .offer-grid .premium.reveal.in-view {
       transform: translateX(0);
     }
@@ -1808,6 +1812,63 @@
       color: #f3ead8;
     }
 
+    .book-consent {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--soft);
+      cursor: pointer;
+    }
+
+    .book-consent input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 15px;
+      height: 15px;
+      min-width: 15px;
+      margin-top: 2px;
+      border: 1px solid rgba(201,169,110,0.4);
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .book-consent input[type="checkbox"]:checked {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .book-consent input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 1px;
+      width: 4px;
+      height: 8px;
+      border: solid #090909;
+      border-width: 0 1.5px 1.5px 0;
+      transform: rotate(45deg);
+    }
+
+    .book-consent input[type="checkbox"]:focus-visible {
+      outline: 1px solid var(--gold);
+      outline-offset: 2px;
+    }
+
+    .book-consent a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201,169,110,0.4);
+    }
+
+    .book-consent a:hover {
+      color: #f3ead8;
+    }
+
     .hero-cta {
       margin-top: 32px;
       opacity: 0;
@@ -1887,6 +1948,25 @@
 
     .footer-network a:hover { color: var(--gold); }
     .footer-network .dot { color: rgba(201,169,110,0.32); }
+
+    .footer-legal {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      font-size: 9px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .footer-legal a {
+      color: rgba(232,228,220,0.30);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-legal a:hover { color: var(--gold); }
+    .footer-legal .dot { color: rgba(201,169,110,0.32); }
 
     .footer-row {
       display: flex;
@@ -2169,8 +2249,8 @@
     <section class="offer" id="premium-sessions">
       <div class="offer-intro reveal">
         <p class="offer-tag">Available separately</p>
-        <p class="offer-label">Recovery &amp; Performance</p>
-        <p class="offer-meta">Membership is always free. Premium coaching and recovery sessions are optional add-ons available at an additional cost.</p>
+        <p class="offer-label">Premium services</p>
+        <p class="offer-meta">Membership is always free. For those looking for something more, additional premium services are available separately.</p>
       </div>
 
       <div class="offer-grid">
@@ -2194,6 +2274,17 @@
           <p class="premium-subtitle">A warming ritual for rest days.</p>
           <p class="premium-desc">A quiet, warming session using TeraHertz frequency technology. Many people find it deeply relaxing. This is a wellness experience, not medical treatment, and it isn't intended to diagnose, treat, or cure any condition.</p>
           <a class="book-submit" href="#book" onclick="document.getElementById('interest-select').value='Terahertz Frequency Treatment, paid'">Inquire about a session</a>
+        </div>
+
+        <div class="premium reveal" id="bespoke">
+          <p class="premium-tag">Bespoke</p>
+          <h3 class="premium-title">Bespoke Experiences</h3>
+          <div class="badge-row">
+            <span class="pricing-badge pricing-paid">Add-On</span>
+          </div>
+          <p class="premium-subtitle">Tailored to your interests.</p>
+          <p class="premium-desc">Looking for something different? I'll create a personalised experience built around your interests. Whether it's climbing, horse riding, kayaking, exploring Stockholm or a full day outdoors, every experience is tailored to your group. External venue fees are paid separately where applicable.</p>
+          <a class="book-submit" href="#book" onclick="document.getElementById('interest-select').value='Bespoke Experience, paid'">Inquire about a bespoke experience</a>
         </div>
       </div>
     </section>
@@ -2303,15 +2394,21 @@
           <optgroup label="Paid coaching">
             <option value="Premium Outdoor Sessions with Storm, paid">Outdoor Sessions with Storm</option>
             <option value="Terahertz Frequency Treatment, paid">Terahertz Frequency Treatment</option>
+            <option value="Bespoke Experience, paid">Bespoke Experience</option>
           </optgroup>
           <option value="Not sure yet">Not sure yet, surprise me</option>
         </select>
 
         <textarea class="full" name="about" placeholder="Tell me a little about yourself and what you hope to find in the community" rows="2" required></textarea>
 
+        <label class="book-consent full">
+          <input type="checkbox" name="participation_terms" required />
+          <span>I have read and accept the <a href="/participation-terms.html">Participation Terms</a>.</span>
+        </label>
+
         <input type="hidden" name="_subject" value="Stormie Moves, new member" />
         <button class="book-submit" type="submit">Apply to Join</button>
-        <p class="book-reassurance">No spam. I review applications personally and will contact you directly if the community feels like a good fit. <a href="/privacy.html">Privacy policy</a></p>
+        <p class="book-reassurance">I personally review every application and will contact you if the community feels like a good fit. <a href="/privacy.html">Privacy policy</a>. By applying, you accept the <a href="/participation-terms.html">Participation Terms</a>.</p>
       </form>
 
       <div class="book-success" id="book-success">
@@ -2333,6 +2430,12 @@
         <a href="https://stormiestudios.com">Stormie Studios</a>
         <span class="dot">·</span>
         <a href="https://stormiemoves.com">Stormie Moves</a>
+      </div>
+
+      <div class="footer-legal">
+        <a href="/privacy.html">Privacy Policy</a>
+        <span class="dot">·</span>
+        <a href="/participation-terms.html">Participation Terms</a>
       </div>
 
       <div class="footer-row">
