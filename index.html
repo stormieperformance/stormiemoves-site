@@ -1195,7 +1195,6 @@
 
     .carousel-track {
       display: flex;
-      align-items: flex-start;
       gap: 20px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
@@ -1230,7 +1229,7 @@
 
     .upcoming-media {
       margin: -26px -24px 18px;
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 16 / 10;
       overflow: hidden;
       background: rgba(0,0,0,0.2);
     }
@@ -1350,6 +1349,10 @@
       font-size: 13px;
       line-height: 1.85;
       color: var(--muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .upcoming-item .verify-link {
