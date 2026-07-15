@@ -1410,6 +1410,62 @@
       margin-top: 10px;
     }
 
+    .recovery-divider {
+      flex: 0 0 230px;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 26px 20px;
+    }
+
+    .recovery-divider-line {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold-deep), rgba(138,106,53,0.05));
+      margin-bottom: 16px;
+    }
+
+    .recovery-divider-label {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      margin: 0 0 10px;
+    }
+
+    .recovery-divider-sub {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 17px;
+      color: var(--ink-muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .recovery-tag {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid rgba(201,169,110,0.35);
+      padding: 3px 8px;
+      margin-bottom: 12px;
+    }
+
+    .next-up-wrap .recovery-tag {
+      color: var(--gold-deep);
+      border-color: rgba(138,106,53,0.4);
+    }
+
+    @media (max-width: 640px) {
+      .recovery-divider {
+        flex-basis: 200px;
+      }
+    }
+
     .carousel-nav {
       display: flex;
       gap: 10px;
@@ -1903,23 +1959,11 @@
         <div class="carousel-track" id="upcoming-track">
 
           <div class="upcoming-item">
-            <h3 class="upcoming-title">Social trail walk, Djurgården</h3>
-            <div class="badge-row">
-              <span class="status-badge">On demand</span>
-              <span class="pricing-badge pricing-included">Included</span>
-            </div>
-            <p class="upcoming-capacity">Group size: Varied <span class="difficulty-tag">Easy pace</span></p>
-            <p class="upcoming-desc">Dog friendly, stroller friendly, easy pace, with a fika stop along the way.</p>
-            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Social trail walk, Djurgården'">Register interest →</a>
-          </div>
-
-          <div class="upcoming-item">
             <div class="upcoming-media">
               <img src="climb-gasverket.jpg" alt="Social climb at Gasverket" loading="lazy">
             </div>
             <h3 class="upcoming-title">Social climb, Gasverket</h3>
             <div class="badge-row">
-              <span class="status-badge">On demand</span>
               <span class="pricing-badge pricing-venue">Venue fee</span>
             </div>
             <p class="upcoming-capacity">Group size: Varied <span class="difficulty-tag">Moderate</span></p>
@@ -1930,7 +1974,6 @@
           <div class="upcoming-item">
             <h3 class="upcoming-title">Pad holding, Östermalm</h3>
             <div class="badge-row">
-              <span class="status-badge">On demand</span>
               <span class="pricing-badge pricing-included">Included</span>
             </div>
             <p class="upcoming-capacity">Group size: Varied <span class="difficulty-tag">Technique focus</span></p>
@@ -1941,7 +1984,6 @@
           <div class="upcoming-item">
             <h3 class="upcoming-title">Outdoor gym session, Gärdet</h3>
             <div class="badge-row">
-              <span class="status-badge">On demand</span>
               <span class="pricing-badge pricing-included">Included</span>
             </div>
             <p class="upcoming-capacity">Group size: Varied <span class="difficulty-tag">Hard effort</span></p>
@@ -1952,7 +1994,6 @@
           <div class="upcoming-item">
             <h3 class="upcoming-title">Hill sprints, Norra Djurgården</h3>
             <div class="badge-row">
-              <span class="status-badge">On demand</span>
               <span class="pricing-badge pricing-included">Included</span>
             </div>
             <p class="upcoming-capacity">Group size: Varied <span class="difficulty-tag">Brutal</span></p>
@@ -1960,14 +2001,31 @@
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Hill sprints, Norra Djurgården'">Register interest →</a>
           </div>
 
+          <div class="recovery-divider" aria-hidden="false">
+            <div class="recovery-divider-line"></div>
+            <p class="recovery-divider-label">Recovery experiences</p>
+            <p class="recovery-divider-sub">A slower collection for rest, reset and time away from harder training.</p>
+          </div>
+
           <div class="upcoming-item">
+            <span class="recovery-tag">Recovery</span>
+            <h3 class="upcoming-title">Social trail walk, Djurgården</h3>
+            <div class="badge-row">
+              <span class="pricing-badge pricing-included">Included</span>
+            </div>
+            <p class="upcoming-capacity">Group size: Varied <span class="difficulty-tag">Easy pace</span></p>
+            <p class="upcoming-desc">Dog friendly, stroller friendly, easy pace, with a fika stop along the way.</p>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Social trail walk, Djurgården'">Register interest →</a>
+          </div>
+
+          <div class="upcoming-item">
+            <span class="recovery-tag">Recovery</span>
             <h3 class="upcoming-title">Farm visit, Stora Skuggan</h3>
             <div class="badge-row">
-              <span class="status-badge">On demand</span>
               <span class="pricing-badge pricing-included">Included</span>
             </div>
             <p class="upcoming-capacity">Group size: Varied <span class="difficulty-tag">Calm</span></p>
-            <p class="upcoming-desc">I spend some weekends here as a caretaker, and I'd love to show you around. Meet the animals close up, calm and unhurried.</p>
+            <p class="upcoming-desc">Spend an afternoon around animals and nature. A slower day intended for recovery, conversation and fresh air.</p>
             <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Farm visit, Stora Skuggan'">Register interest →</a>
           </div>
 
