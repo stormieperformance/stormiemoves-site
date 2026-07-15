@@ -989,6 +989,24 @@
       padding-top: 64px;
     }
 
+    .offer .reveal {
+      transform: translateY(14px);
+      filter: none;
+      transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .offer .offer-intro.reveal {
+      transition-delay: 0s;
+    }
+
+    .offer-grid .premium.reveal:nth-of-type(1) {
+      transition-delay: 0.12s;
+    }
+
+    .offer-grid .premium.reveal:nth-of-type(2) {
+      transition-delay: 0.26s;
+    }
+
     .offer-label {
       font-family: var(--serif);
       font-size: 22px;
@@ -1366,7 +1384,7 @@
     .pricing-badge.pricing-paid {
       color: var(--gold);
       border-color: var(--gold-deep);
-      background: var(--gold-soft);
+      background: transparent;
     }
 
     .next-up-wrap .pricing-badge.pricing-paid {
@@ -2044,7 +2062,7 @@
     </div>
 
     <section class="offer" id="premium-sessions">
-      <div class="offer-intro">
+      <div class="offer-intro reveal">
         <p class="offer-tag">Available separately</p>
         <p class="offer-label">Recovery &amp; Performance</p>
         <p class="offer-meta">Membership is always free. Premium coaching and recovery sessions are optional add-ons available at an additional cost.</p>
