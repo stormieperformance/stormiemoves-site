@@ -932,7 +932,7 @@
     .premium {
       border: 1px solid rgba(201,169,110,0.35);
       background: linear-gradient(180deg, rgba(201,169,110,0.06), rgba(255,255,255,0.01));
-      padding: 44px 40px;
+      padding: 38px 36px;
       transition: border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -941,38 +941,21 @@
       box-shadow: 0 0 40px rgba(201,169,110,0.06), 0 0 80px rgba(201,169,110,0.03);
     }
 
-    .premium-tag {
-      display: inline-block;
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold-deep);
-      background: linear-gradient(180deg, #fffaf0, var(--cream));
-      border: 1px solid rgba(138,106,53,0.35);
-      padding: 5px 12px;
-      margin-bottom: 16px;
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.8),
-        inset 0 -2px 3px rgba(138,106,53,0.18),
-        0 3px 6px rgba(0,0,0,0.28),
-        0 1px 0 rgba(138,106,53,0.35);
-    }
-
     .premium-title {
       font-family: var(--serif);
-      font-size: clamp(28px, 3.6vw, 40px);
+      font-size: clamp(24px, 2.8vw, 30px);
       font-weight: 300;
       font-style: italic;
       letter-spacing: 0.01em;
       color: var(--text);
-      margin-bottom: 8px;
+      margin-bottom: 14px;
     }
 
     .premium-subtitle {
       font-size: 13px;
       font-style: italic;
       color: var(--soft);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .premium-desc {
@@ -980,7 +963,7 @@
       line-height: 1.85;
       color: var(--muted);
       max-width: 480px;
-      margin-bottom: 28px;
+      margin-bottom: 22px;
     }
 
     .next-up-wrap {
@@ -2052,42 +2035,30 @@
     <section class="offer" id="premium-sessions">
       <div class="offer-intro reveal">
         <p class="offer-tag">Available separately</p>
-        <p class="offer-label">Premium services</p>
-        <p class="offer-meta">Membership is always free. For those looking for something more, additional premium services are available separately.</p>
+        <p class="offer-label">By arrangement</p>
+        <p class="offer-meta">A small number of additional experiences, available on request.</p>
       </div>
 
       <div class="offer-grid">
         <div class="premium reveal" id="training">
-          <p class="premium-tag">Premium</p>
-          <h3 class="premium-title">Outdoor Sessions With Storm</h3>
-          <div class="badge-row">
-            <span class="pricing-badge pricing-paid">Add-On</span>
-          </div>
-          <p class="premium-subtitle">Outdoor suffering included.</p>
-          <p class="premium-desc">Real strength and conditioning, outdoors, coached personally in a small group. Warm-up, strength work, and a challenging finisher, every time, inspired by military-style training, Muay Thai, and years of coaching.</p>
-          <a class="book-submit" href="#book" onclick="document.getElementById('interest-select').value='Premium Outdoor Sessions with Storm, paid'">Inquire about training</a>
+          <h3 class="premium-title">Private Outdoor Training</h3>
+          <p class="premium-subtitle">Strength and conditioning, outdoors.</p>
+          <p class="premium-desc">Personally coached, one-to-one or in a small group.</p>
+          <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Premium Outdoor Sessions with Storm, paid'">Enquire →</a>
         </div>
 
         <div class="premium reveal" id="terahertz">
-          <p class="premium-tag">Wellness</p>
           <h3 class="premium-title">Terahertz Frequency Treatment</h3>
-          <div class="badge-row">
-            <span class="pricing-badge pricing-paid">Add-On</span>
-          </div>
           <p class="premium-subtitle">A warming ritual for rest days.</p>
-          <p class="premium-desc">A quiet, warming session using TeraHertz frequency technology. Many people find it deeply relaxing. This is a wellness experience, not medical treatment, and it isn't intended to diagnose, treat, or cure any condition.</p>
-          <a class="book-submit" href="#book" onclick="document.getElementById('interest-select').value='Terahertz Frequency Treatment, paid'">Inquire about a session</a>
+          <p class="premium-desc">A quiet session for deep relaxation. Not a medical treatment.</p>
+          <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Terahertz Frequency Treatment, paid'">Enquire →</a>
         </div>
 
         <div class="premium reveal" id="bespoke">
-          <p class="premium-tag">Bespoke</p>
           <h3 class="premium-title">Bespoke Experiences</h3>
-          <div class="badge-row">
-            <span class="pricing-badge pricing-paid">Add-On</span>
-          </div>
           <p class="premium-subtitle">Tailored to your interests.</p>
-          <p class="premium-desc">Looking for something different? I'll create a personalised experience built around your interests. Whether it's climbing, horse riding, kayaking, exploring Stockholm or a full day outdoors, every experience is tailored to your group. External venue fees are paid separately where applicable.</p>
-          <a class="book-submit" href="#book" onclick="document.getElementById('interest-select').value='Bespoke Experience, paid'">Inquire about a bespoke experience</a>
+          <p class="premium-desc">Climbing, kayaking, or a full day out, built around your group.</p>
+          <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Bespoke Experience, paid'">Enquire →</a>
         </div>
       </div>
     </section>
@@ -2156,7 +2127,7 @@
             <option value="Sauna & ice plunge, outdoors">Sauna &amp; Ice Plunge</option>
           </optgroup>
           <optgroup label="Paid coaching">
-            <option value="Premium Outdoor Sessions with Storm, paid">Outdoor Sessions with Storm</option>
+            <option value="Premium Outdoor Sessions with Storm, paid">Private Outdoor Training</option>
             <option value="Terahertz Frequency Treatment, paid">Terahertz Frequency Treatment</option>
             <option value="Bespoke Experience, paid">Bespoke Experience</option>
           </optgroup>
