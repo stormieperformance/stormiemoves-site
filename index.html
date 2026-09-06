@@ -567,6 +567,24 @@
       padding: 0 32px;
     }
 
+    .about-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .about-brand-mark {
+      width: 15px;
+      height: 15px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
     .about-content .hero-card {
       max-width: 420px;
     }
@@ -1985,6 +2003,12 @@
 
     <section class="about-section">
       <div class="about-content">
+        <div class="about-brand">
+          <svg class="about-brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true">
+            <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/>
+          </svg>
+          Stormie Moves
+        </div>
         <aside class="hero-card">
           <button class="accordion-toggle hero-toggle" type="button" data-target="about-panel" aria-expanded="false" aria-controls="about-panel">About me <span class="chevron">⌄</span></button>
           <div class="accordion-panel" id="about-panel">
