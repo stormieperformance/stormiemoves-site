@@ -552,7 +552,7 @@
       overflow: hidden;
       border-top: 1px solid rgba(201,169,110,0.25);
       border-bottom: 1px solid rgba(201,169,110,0.25);
-      padding: 88px 0;
+      padding: 62px 0;
     }
 
     .about-bg {
@@ -562,13 +562,13 @@
       height: 100%;
       object-fit: cover;
       object-position: center 25%;
-      filter: grayscale(20%) brightness(0.62) blur(1.5px);
+      filter: grayscale(30%) brightness(0.4) blur(1px);
     }
 
     .about-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(14,33,25,0.45) 0%, rgba(14,33,25,0.28) 40%, rgba(14,33,25,0.55) 100%);
+      background: linear-gradient(180deg, rgba(9,17,13,0.66) 0%, rgba(9,17,13,0.58) 45%, rgba(9,17,13,0.72) 100%);
     }
 
     .about-content {
@@ -577,36 +577,6 @@
       max-width: 1180px;
       margin: 0 auto;
       padding: 0 32px;
-    }
-
-    .quote {
-      margin: 0 0 96px;
-      padding-left: 24px;
-      border-left: 2px solid rgba(201,169,110,0.4);
-    }
-
-    .quote-text {
-      font-family: var(--serif);
-      font-size: clamp(26px, 3.3vw, 37px);
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.55;
-      color: var(--text);
-      max-width: 720px;
-      margin: 0 0 22px;
-    }
-
-    .quote-text .soft {
-      color: rgba(236,231,223,0.55);
-    }
-
-    .quote-author {
-      display: block;
-      font-style: normal;
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
     }
 
     .about-content .hero-card {
@@ -760,33 +730,27 @@
 
     .credential-list {
       list-style: none;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .credential-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 14px 0;
-    }
-
-    .credential-list .check {
-      color: var(--gold);
-      font-size: 13px;
-      flex-shrink: 0;
-      margin-top: 3px;
-    }
-
-    .credential-title {
+      padding: 7px 0;
       font-size: 14px;
       color: var(--text);
-      margin-bottom: 3px;
+      border-bottom: 1px solid rgba(236,231,223,0.07);
+    }
+
+    .credential-list li:last-child {
+      border-bottom: none;
     }
 
     .credential-sub {
-      font-size: 12px;
       color: var(--soft);
-      letter-spacing: 0.03em;
+      font-size: 13px;
+    }
+
+    .credential-title {
+      font-weight: 500;
     }
 
     .verify-link {
@@ -2145,59 +2109,22 @@
       <div class="about-overlay"></div>
 
       <div class="about-content">
-        <blockquote class="quote">
-          <p class="quote-text">New sports, new challenges, staying in motion, <span class="soft">that's genuinely how I live, and I bring people along for it.</span></p>
-          <cite class="quote-author">— Storm Kolmodin, Founder of Stormie Moves</cite>
-        </blockquote>
-
         <aside class="hero-card">
           <button class="accordion-toggle hero-toggle" type="button" data-target="about-panel" aria-expanded="false" aria-controls="about-panel">About me <span class="chevron">⌄</span></button>
           <div class="accordion-panel" id="about-panel">
             <p class="hero-bio">
-              I've always believed the best friendships start by doing something together, not by talking about it. That's why Stormie Moves exists. Climbing, trail walks, Muay Thai pad work, recovery sessions, it's never really about the exercise. It's about finding people who'd rather move through life than sit still.
-            </p>
-            <p class="hero-bio">
-              No program, no pressure. Just movement, new places, and good company.
+              I built Stormie Moves around the way I already live — training, climbing, exploring and trying new things. The community stays intentionally small, and I personally shape the sessions and who joins them.
             </p>
           </div>
 
           <button class="accordion-toggle hero-toggle" type="button" data-target="credentials-panel" aria-expanded="false" aria-controls="credentials-panel">Credentials <span class="chevron">⌄</span></button>
           <div class="accordion-panel" id="credentials-panel">
             <ul class="credential-list">
-              <li>
-                <span class="check">✓</span>
-                <div>
-                  <p class="credential-title">Licensed Personal Trainer</p>
-                  <p class="credential-sub">The Academy • 2018</p>
-                </div>
-              </li>
-              <li>
-                <span class="check">✓</span>
-                <div>
-                  <p class="credential-title">Certified Nutrition &amp; Training Consultant</p>
-                </div>
-              </li>
-              <li>
-                <span class="check">✓</span>
-                <div>
-                  <p class="credential-title">Group Fitness Instructor</p>
-                  <p class="credential-sub">Since 2017</p>
-                </div>
-              </li>
-              <li>
-                <span class="check">✓</span>
-                <div>
-                  <p class="credential-title">Training Studies</p>
-                  <p class="credential-sub">GIH, Swedish School of Sport and Health Sciences</p>
-                </div>
-              </li>
-              <li>
-                <span class="check">✓</span>
-                <div>
-                  <p class="credential-title">Muay Thai Practitioner</p>
-                  <p class="credential-sub">Since 2019</p>
-                </div>
-              </li>
+              <li><span class="credential-title">Licensed Personal Trainer</span><span class="credential-sub"> — The Academy, 2018</span></li>
+              <li><span class="credential-title">Nutrition &amp; Training Consultant</span></li>
+              <li><span class="credential-title">Group Fitness Instructor</span><span class="credential-sub"> — since 2017</span></li>
+              <li><span class="credential-title">Training Studies</span><span class="credential-sub"> — GIH</span></li>
+              <li><span class="credential-title">Muay Thai</span><span class="credential-sub"> — training since 2019</span></li>
             </ul>
 
             <a
@@ -2206,7 +2133,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              Verify PT License
+              View certification →
             </a>
           </div>
         </aside>
