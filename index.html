@@ -1555,6 +1555,37 @@
       grid-column: 1 / -1;
     }
 
+    .book-field-label {
+      grid-column: 1 / -1;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin-bottom: -8px;
+    }
+
+    .book-form select[multiple] {
+      height: auto;
+      min-height: 220px;
+      padding: 10px 12px;
+    }
+
+    .book-form select[multiple] optgroup {
+      font-style: normal;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .book-form select[multiple] option {
+      font-size: 13px;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--text);
+      padding: 4px 2px;
+    }
+
     .book-form input,
     .book-form select,
     .book-form textarea {
@@ -1953,7 +1984,7 @@
               <span class="difficulty-tag">Outdoor living</span>
             </p>
             <p class="upcoming-desc">A private overnight by the water, shaped by weather, place and whoever comes.</p>
-            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Overnight Camping, Tyresta Nationalpark'">Request a place →</a>
+            <a class="verify-link" href="#book" onclick="document.getElementById('interest-select').value='Coastal Escape'">Request a place →</a>
           </div>
 
           <div class="explore-divider" aria-hidden="false">
@@ -2067,25 +2098,23 @@
         <input type="text" name="name" placeholder="Name" required />
         <input type="email" name="email" placeholder="Email" required />
 
-        <select class="full" name="interest" id="interest-select" required>
-          <option value="" disabled selected>What are you most interested in?</option>
-          <optgroup label="Included with membership">
+        <label class="book-field-label" for="interest-select">Which experiences are you most interested in?</label>
+        <select class="full" name="interest" id="interest-select" multiple required>
+          <optgroup label="Member access">
+            <option value="Social climb, Gasverket">Social climb, Gasverket</option>
             <option value="Muay Thai pad work, Östermalm">Pad holding, Östermalm</option>
-            <option value="Outdoor gym, Gärdet">Outdoor gym, Gärdet</option>
+            <option value="Outdoor gym, Gärdet">Outdoor gym session, Gärdet</option>
             <option value="Hill sprints, Norra Djurgården">Hill sprints, Norra Djurgården</option>
             <option value="Farm visit, Stora Skuggan">Farm visit, Stora Skuggan</option>
           </optgroup>
-          <optgroup label="Seasonal adventures">
-            <option value="Overnight Camping, Tyresta Nationalpark">Overnight Camping, Tyresta Nationalpark</option>
+          <optgroup label="Adventure experiences">
+            <option value="Coastal Escape">Coastal Escape</option>
+            <option value="Overnight Camping, Tyresta Nationalpark">Overnight camping, Tyresta National Park</option>
           </optgroup>
-          <optgroup label="Explore Stockholm">
-            <option value="Island Explorer">Island Explorer</option>
+          <optgroup label="Explore experiences">
+            <option value="Island Explorer">Island Explorer, Stockholm Archipelago</option>
           </optgroup>
-          <optgroup label="Venue fee">
-            <option value="Social climb, Gasverket">Climbing, Gasverket (gym entrance required)</option>
-            <option value="Sauna & ice plunge, outdoors">Sauna &amp; Ice Plunge</option>
-          </optgroup>
-          <optgroup label="Paid coaching">
+          <optgroup label="By arrangement">
             <option value="Premium Outdoor Sessions with Storm, paid">Private Outdoor Training</option>
             <option value="Terahertz Frequency Treatment, paid">Terahertz Frequency Treatment</option>
             <option value="Bespoke Experience, paid">Bespoke Experience</option>
