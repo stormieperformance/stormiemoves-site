@@ -705,13 +705,13 @@
       height: 100%;
       object-fit: cover;
       object-position: center 25%;
-      filter: grayscale(45%) brightness(0.22) blur(1.5px);
+      filter: grayscale(20%) brightness(0.62) blur(1.5px);
     }
 
     .about-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(14,33,25,0.75) 0%, rgba(14,33,25,0.55) 40%, rgba(14,33,25,0.85) 100%);
+      background: linear-gradient(180deg, rgba(14,33,25,0.45) 0%, rgba(14,33,25,0.28) 40%, rgba(14,33,25,0.55) 100%);
     }
 
     .about-content {
@@ -1143,11 +1143,7 @@
       font-weight: 300;
       font-style: italic;
       letter-spacing: 0.01em;
-      background: linear-gradient(90deg, #a07840, #f0d98a, #c9a96e);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: goldBreath 6s ease-in-out infinite;
+      color: var(--text);
       margin-bottom: 8px;
     }
 
