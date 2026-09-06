@@ -1555,37 +1555,6 @@
       grid-column: 1 / -1;
     }
 
-    .book-field-label {
-      grid-column: 1 / -1;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--soft);
-      margin-bottom: -8px;
-    }
-
-    .book-form select[multiple] {
-      height: auto;
-      min-height: 220px;
-      padding: 10px 12px;
-    }
-
-    .book-form select[multiple] optgroup {
-      font-style: normal;
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    .book-form select[multiple] option {
-      font-size: 13px;
-      text-transform: none;
-      letter-spacing: normal;
-      color: var(--text);
-      padding: 4px 2px;
-    }
-
     .book-form input,
     .book-form select,
     .book-form textarea {
@@ -2098,8 +2067,8 @@
         <input type="text" name="name" placeholder="Name" required />
         <input type="email" name="email" placeholder="Email" required />
 
-        <label class="book-field-label" for="interest-select">Which experiences are you most interested in?</label>
-        <select class="full" name="interest" id="interest-select" multiple required>
+        <select class="full" name="interest" id="interest-select" required>
+          <option value="" disabled selected>Which experiences are you most interested in?</option>
           <optgroup label="Member access">
             <option value="Social climb, Gasverket">Social climb, Gasverket</option>
             <option value="Muay Thai pad work, Östermalm">Pad holding, Östermalm</option>
